@@ -3,9 +3,9 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `template_bon_site`,
-    siteUrl: `https://www.yourdomain.tld`
+    title: `bon-template-website`
   },
+  pathPrefix: "/bon-template-website",
   plugins: ["gatsby-plugin-sass", "gatsby-plugin-image", "gatsby-plugin-sitemap", {
     resolve: 'gatsby-plugin-manifest',
     options: {
