@@ -1,0 +1,25 @@
+[
+    {
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "test@doe.com",
+        "ORCID": "0000-0000-0000-0000",
+        "affiliation": {
+            "name": "University of Test",
+            "id": "0000-0000-0000-0000",
+            "url": "http://www.test.com"
+        }
+
+    },
+    {
+        "firstName": "Jane",
+        "lastName": "Doe",
+        "email": "test@doe.com",
+        "ORCID": "0000-0000-0000-0000",
+        "affiliation": {
+            "name": "University of Test",
+            "id": "0000-0000-0000-0000",
+            "url": "http://www.test.com"
+        }
+    }
+]
