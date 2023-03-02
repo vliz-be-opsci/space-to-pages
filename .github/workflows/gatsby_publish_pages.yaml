@@ -5,21 +5,20 @@ on:
     branches:
       - main
 
-env:
-  GH_TOKEN: ${{ secrets.GH_TOKEN }}
+name: Gatsby Publish
+
+on:
+  push:
+    branches:
+      - dev
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: GitHub Config
-        run: |
-          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
-          git config --global user.name "${{ github.actor }}"
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Install dependencies
-        run: |
-          npm install
-      - name: Deploy
-        run: npm run deploy:ci
+      - uses: actions/checkout@v2
+      - uses: enriikke/gatsby-gh-pages-action@v2
+        with:
+          access-token: ${{ secrets.ACCESS_TOKEN }}
+          deploy-branch: gh-pages
+          gatsby-args: --prefix-paths
