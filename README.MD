@@ -14,11 +14,11 @@ This file will contain all the data that will be displayed on the main page (ind
 
 ```json
 {
-    "name-site": "Bon",
-    "main-image": "https://www.bon.com.br/wp-content/uploads/2019/03/Logo-Bon-1.png",
+    "name_site": "Bon",
+    "main_image": "https://www.bon.com.br/wp-content/uploads/2019/03/Logo-Bon-1.png",
     "description": "A Bon é uma empresa de tecnologia que oferece soluções para o varejo. Com o objetivo de ajudar os lojistas a vender mais, a Bon oferece uma plataforma completa de gestão de lojas, com soluções para o controle de estoque, vendas, financeiro, CRM, e-commerce, marketing e muito mais.",
-    "long-name": "Bonitas tapatos",
-    "short-name": "Bon",
+    "long_name": "Bonitas tapatos",
+    "short_name": "Bon",
     "url": "https://www.bon.com.br/",
     "logo": "https://www.bon.com.br/wp-content/uploads/2019/03/Logo-Bon-1.png"
 }
@@ -28,11 +28,11 @@ This file will contain all the data that will be displayed on the main page (ind
 
 | Field | Description |
 | --- | --- |
-| name-site | Name of the site |
-| main-image | Image that will be displayed on the main page |
+| name_site | Name of the site |
+| main_image | Image that will be displayed on the main page |
 | description | Description of the site |
-| long-name | Long name of the site |
-| short-name | Short name of the site |
+| long_name | Long name of the site |
+| short_name | Short name of the site |
 | url | Url of the site |
 | logo | Logo of the site |
 
