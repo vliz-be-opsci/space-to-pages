@@ -11,7 +11,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: npm install
-      # set git user name and email
-      - run: git config --global user.name "github-actions[bot]"
-      - run: git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      # set git user name and email to the user who triggered the action
+      - run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
       - run: npm run deploy
