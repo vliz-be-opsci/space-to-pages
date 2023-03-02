@@ -2,6 +2,10 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
+  siteMetadata: {
+    title: `bon-template-website`,
+    siteUrl: `https://vliz-be-opsci.github.io/bon-template-website/`
+  },
   pathPrefix: "/bon-template-website",
   plugins: ["gatsby-plugin-sass", "gatsby-plugin-image", "gatsby-plugin-sitemap", {
     resolve: 'gatsby-plugin-manifest',
