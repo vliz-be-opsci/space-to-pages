@@ -18,7 +18,7 @@ the data is stored in json files in the ```src/data``` folder. This folder conta
 *  [```main_data.json```](#211-main_datajson) -> contains the data for the header section
 *  [```project_features```](#212-project_featuresjson) -> contains the data for the project features section
 *  [```project_services```](#213-project_servicesjson) -> contains the data for the project services section
-*  [```project_contacts```](#214-contactsjson) -> contains the data for describing the project contacts
+*  [```contacts```](#214-contactsjson) -> contains the data for describing the project contacts
 
 ##### 2.1.1. ```main_data.json```
 
