@@ -1,5 +1,5 @@
 # React JS Landing Page Template
-### <a href="./">LIVE DEMO (TODO : put url to github pages here)</a> 
+### <a href="https://open-science.vliz.be/bon-template-website/" target="_blank">LIVE DEMO</a> 
 
 ## Description
 This is a ReactJS based landing page template, fit for a startup company/service with a one page view. The design is inspired by a template from <a href="https://www.free-css.com/assets/files/free-css-templates/preview/page234/interact/">Free-CSS.com </a>
