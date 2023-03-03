@@ -29,7 +29,7 @@ export const Team = (props) => {
                       {
                         //if ORCID is not null, then display it
                         d.ORCID ? (
-                          <p><a href={`https://orcid.org/${d.ORCID}`} target="_blank">
+                          <p><a href={`https://orcid.org/${d.ORCID}`} target="_blank" rel="noreferrer">
                             {d.ORCID}
                           </a></p>
                         ) : null
