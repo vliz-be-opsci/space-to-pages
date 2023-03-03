@@ -1,7 +1,44 @@
 [
     {
-        "firstName": "John",
-        "lastName": "Doe",
+        "img": "img/contacts/01.jpg",
+        "name": "Hugh Jass",
+        "job": "Corporate Directives Executive",
+        "email": "Hugh_Jasst@doe.com",
+        "ORCID": "0000-0000-0000-0000",
+        "affiliation": {
+            "name": "University of Test",
+            "id": "0000-0000-0000-0000",
+            "url": "http://www.test.com"
+        }
+      },
+      {
+        "img": "img/contacts/02.jpg",
+        "name": "Mike Hawk",
+        "job": "Future Solutions Planner",
+        "email": "hotmale@hotmail.com",
+        "ORCID": "0000-0000-0000-0000",
+        "affiliation": {
+            "name": "University of Test",
+            "id": "0000-0000-0000-0000",
+            "url": "http://www.test.com"
+        }
+      },
+      {
+        "img": "img/contacts/03.jpg",
+        "name": "Ben Dover",
+        "job": "Legacy Identity Representative",
+        "email": "BenDover@doe.com",
+        "ORCID": "0000-0000-0000-0000",
+        "affiliation": {
+            "name": "University of Test",
+            "id": "0000-0000-0000-0000",
+            "url": "http://www.test.com"
+        }
+      },
+      {
+        "img": "img/contacts/04.jpg",
+        "name": "Dixie Normous",
+        "job": "Forward Configuration Analyst",
         "email": "test@doe.com",
         "ORCID": "0000-0000-0000-0000",
         "affiliation": {
@@ -9,11 +46,11 @@
             "id": "0000-0000-0000-0000",
             "url": "http://www.test.com"
         }
-
-    },
-    {
-        "firstName": "Jane",
-        "lastName": "Doe",
+      },
+      {
+        "img": "img/contacts/01.jpg",
+        "name": "Phil McCraken",
+        "job": "Interactive Operations Strategist",
         "email": "test@doe.com",
         "ORCID": "0000-0000-0000-0000",
         "affiliation": {
@@ -21,5 +58,17 @@
             "id": "0000-0000-0000-0000",
             "url": "http://www.test.com"
         }
-    }
+      },
+      {
+        "img": "img/contacts/02.jpg",
+        "name": "Mike Doe",
+        "job": "Customer Web Administrator",
+        "email": "test@doe.com",
+        "ORCID": "0000-0000-0000-0000",
+        "affiliation": {
+            "name": "University of Test",
+            "id": "0000-0000-0000-0000",
+            "url": "http://www.test.com"
+        }
+      }
 ]
