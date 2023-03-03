@@ -29,7 +29,7 @@ export const Navigation = (props) => {
           <a className="navbar-brand page-scroll" href="#page-top">
             {props.data ? 
             <>
-            <img src={props.data.logo} style={logostyle}></img>
+            <img src={props.data.logo} style={logostyle} alt="project_title_here"></img>
             </>
              : "Loading"}
           </a>{" "}
