@@ -8,7 +8,6 @@ export const Header = (props) => {
     backgroundSize: "cover",
     display: "table",
     width: "100%",
-    height: "100vh",
     //have the background be opace
     // if props.data.main_image exists, use it, otherwise use the fallback image
     backgroundImage: `url(${
@@ -26,12 +25,11 @@ export const Header = (props) => {
   }
 
   const paragraphstyle = {
-    backgroundColor: "rgba(0,0,0,0.3)",
-    height: "100vh"
+    backgroundColor: "rgba(0,0,0,0.3)"
   }
 
   return (
-    <header id="header" style={{height:"100vh"}}>
+    <header id="header">
       <div className="intro" style={introstyle}>
         <div className="overlay">
           <div className="container">
