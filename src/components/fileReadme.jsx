@@ -3,15 +3,18 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import ReactMarkdown from 'react-markdown';
+import {BsFillPlusCircleFill} from "react-icons/bs";
+import {AiFillMinusCircle} from "react-icons/ai";
 const FileReadme = (props) => {
     console.log(props);
     //make a request to the github api to get the readme file
     const [readme, setReadme] = useState("");
+    const [readmeDisplay, setReadmeDisplay] = useState(true);
 
     useEffect(() => {
         //check if props.data.extra_info exists
         if (props.data.extra_info === undefined) {
-            setReadme("No readme file found");
+            setReadme(null);
             return;
         }
         //change the github url to get the raw file
@@ -27,11 +30,63 @@ const FileReadme = (props) => {
         })
     }, []);
 
+    //make function that will display the readme file
+    const displayReadme = () => {
+        //get the element by class collapsible
+        let coll = document.getElementsByClassName("collapsible");
+        let i;
 
+        for (i = 0; i < coll.length; i++) {
+            let content = coll[i].nextElementSibling;
+            //check if the element is already open
+            if (content.style.display === "block") {
+                //close the element
+                setReadmeDisplay(false);
+                content.animate([
+                    {opacity: 1, transform: "translateY(0px)"},
+                    {opacity: 0, transform: "translateY(-50px)"}
+                ], {
+                    duration: 500,
+                });
+                content.style.display = "none";
+            }
+            else {
+                //open the element
+                setReadmeDisplay(true);
+                content.style.display = "block";
+                /*smooth dropdown animation*/ 
+                content.animate([
+                    {opacity: 0, transform: "translateY(-50px)"},
+                    {opacity: 1, transform: "translateY(0px)"}
+                ], {
+                    duration: 500,
+                    easing: "ease-in-out",
+                });
+            }
+        }
+        return
+    }
+
+    const iconstyle = {
+        fontSize: "2.0rem",
+        marginLeft: "1rem",
+        display: "inline-block",
+        verticalAlign: "middle",
+        float: "right",
+    }
 
     return (
     <>
-        {readme !== "" ? <ReactMarkdown className="markdownStyle">{readme}</ReactMarkdown> : <p>Loading...</p>}
+        {readme !== "" ? 
+            readme === null ? <></> :
+            //have a collapsable element to display the readme file
+            <>
+                <button className="collapsible" onClick={displayReadme}>Extra info {readmeDisplay ? <AiFillMinusCircle style={iconstyle}/> : <BsFillPlusCircleFill style={iconstyle}/> }</button>
+                <div className="content">
+                    <ReactMarkdown className="markdownStyle">{readme}</ReactMarkdown>
+                </div>
+            </>
+        : <p>Loading...</p>}
     </>
     );
 }

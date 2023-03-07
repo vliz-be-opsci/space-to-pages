@@ -13,6 +13,7 @@ const FilePage = (props) => {
 
     const filepagestyle = {
         backgroundColor: "#f5f5f5",
+        minHeight: "100vh",
     }
 
     
