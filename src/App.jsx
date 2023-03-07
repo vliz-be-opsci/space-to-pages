@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Navigation } from "./components/navigation";
-import { Header } from "./components/header";
-import { Features } from "./components/features";
-import { Services } from "./components/services";
-import { Team } from "./components/Team";
+import { Routes, Route } from "react-router-dom";
+import Homepage from "./pages/homepage";
+import Data from "./pages/data";
+import FilePage from "./pages/filepage";
 import MainData from "./data/main_data.json";
 import ContactData from "./data/contacts.json";
 import FeaturesData from "./data/project_features.json";
 import ServicesData from "./data/project_services.json";
+import TabularData from "./data/tabular_data.json";
 import SmoothScroll from "smooth-scroll";
+import { v5 as uuidv5} from "uuid"; 
 import "./App.css";
 
 export const scroll = new SmoothScroll('a[href*="#"]', {
@@ -16,26 +17,33 @@ export const scroll = new SmoothScroll('a[href*="#"]', {
   speedAsDuration: true,
 });
 
+
 const App = () => {
-  const [landingPageData, setLandingPageData] = useState({});
-  useEffect(() => {
-    setLandingPageData({
-      "Header" : MainData,
-      "Features" : FeaturesData,
-      "Services" : ServicesData,
-      "Contacts" : ContactData
-    }
-    )
-  }, []);
+
+  const namespace = "1b671a64-40d5-491e-99b0-da01ff1f3341";
   
+  TabularData.forEach((item) => {
+    //make the uuid based on the name of the file
+    item.id = uuidv5(item.name, namespace);
+  });
+
+  console.log(window.location.hash);
+
+  const [landingPageData, setLandingPageData] = useState({
+    "Header" : MainData,
+    "Features" : FeaturesData,
+    "Services" : ServicesData,
+    "Contacts" : ContactData,
+    "TData" : TabularData
+  });
+  console.log(landingPageData);
   return (
-    <div>
-      <Navigation data={landingPageData.Header}/>
-      <Header data={landingPageData.Header} />
-      <Features data={landingPageData.Features} />
-      <Services data={landingPageData.Services} />
-      <Team data={landingPageData.Contacts} />
-    </div>
+    <Routes>
+      <Route path="/" element={<Homepage data={landingPageData} />} />
+      <Route path="/data/:id" element={<FilePage data={landingPageData} />} />
+      <Route path="/data" element={<Data data={landingPageData} />} />
+      
+    </Routes>
   );
 };
 
