@@ -2,6 +2,7 @@
 
 import React, {useEffect, useState} from "react";
 import FileReadme from "../components/fileReadme";
+import CsvFile from "../components/csvFile";
 
 const SingleFileContents = (props) => {
     console.log(props);
@@ -19,6 +20,7 @@ const SingleFileContents = (props) => {
         <div className="col-md-12 section-title">
             <h2>{props.data.name}</h2>
             <FileReadme data={props.data}/>
+            <CsvFile data={props.data}/>
         </div>
       </div>
     </div>

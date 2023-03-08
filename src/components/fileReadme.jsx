@@ -34,6 +34,7 @@ const FileReadme = (props) => {
     const displayReadme = () => {
         //get the element by class collapsible
         let coll = document.getElementsByClassName("collapsible");
+
         let i;
 
         for (i = 0; i < coll.length; i++) {
@@ -49,6 +50,10 @@ const FileReadme = (props) => {
                     duration: 500,
                 });
                 content.style.display = "none";
+                //have the coll element style border radius be 0 0 0 0 when the readme is open
+                //and 0 0 10px 10px when the readme is closed
+                coll[i].style.borderRadius = "4px 4px 4px 4px";
+                coll[i].style.marginBottom = "20px";
             }
             else {
                 //open the element
@@ -62,6 +67,8 @@ const FileReadme = (props) => {
                     duration: 500,
                     easing: "ease-in-out",
                 });
+                coll[i].style.borderRadius = "4px 4px 0px 0px";
+                coll[i].style.marginBottom = "0px";
             }
         }
         return
