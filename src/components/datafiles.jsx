@@ -10,7 +10,6 @@ export const DataFiles = (props) => {
         textAlign: "center",
     };
 
-
     return (
     <div id="data" className="text-center" style={sectionStyle}>
       <div className="container">
@@ -23,10 +22,16 @@ export const DataFiles = (props) => {
                 {props.data 
                     ? props.data.map((d, i) => (
                             <div key={`${d.name}-${i}`} className={`col-md-12 col-sm-12 team col-lg-6`}>
-                                <div className="thumbnail">
+                                <div className="fileitem">
                                     <a href={"#/data/"+d.id}>
                                         <h4>{d.name}</h4>
-                                        <p>{d.description}</p>
+                                        <h6>{d.description}</h6>
+                                    </a>
+                                    <a href={d.url}>
+                                        <h4>Download</h4>
+                                    </a>
+                                    <a href={d.url}>
+                                        <h4>Github</h4>
                                     </a>
                                 </div>
                             </div>
