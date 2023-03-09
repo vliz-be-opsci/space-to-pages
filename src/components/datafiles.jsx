@@ -1,4 +1,6 @@
 import React from "react";
+import {AiFillGithub, AiOutlineCloudDownload} from "react-icons/ai";
+import {IconContext} from "react-icons";
 
 export const DataFiles = (props) => {
     console.log(props);
@@ -20,22 +22,38 @@ export const DataFiles = (props) => {
             </p>
             <div id="row">
                 {props.data 
-                    ? props.data.map((d, i) => (
+                    ? props.data.map((d, i) => {
+                            let dd = d.url.replace("https://github.com/", "https://raw.githubusercontent.com/");
+                            dd = dd.replace("/blob/", "/");
+
+                            return(
+
                             <div key={`${d.name}-${i}`} className={`col-md-12 col-sm-12 team col-lg-6`}>
+                                
                                 <div className="fileitem">
-                                    <a href={"#/data/"+d.id}>
+                                    <div className="fileitem_direct_child">
+                                    <a href={"#/data/"+d.id} >
                                         <h4>{d.name}</h4>
                                         <h6>{d.description}</h6>
                                     </a>
-                                    <a href={d.url}>
-                                        <h4>Download</h4>
+                                    </div>
+                                    <div >
+                                    <a href={dd} target="_blank">
+                                    <IconContext.Provider value={{ className:"react-icons"}}>
+                                        <AiOutlineCloudDownload></AiOutlineCloudDownload>
+                                    </IconContext.Provider>
                                     </a>
-                                    <a href={d.url}>
-                                        <h4>Github</h4>
+                                    <a href={d.url} target="_blank">
+                                    <IconContext.Provider value={{ className:"react-icons"}}>
+                                        <AiFillGithub></AiFillGithub>
+                                    </IconContext.Provider>
                                     </a>
+                                    </div>
                                 </div>
+                                
                             </div>
-                        ))
+                            )
+                    })
                 : "loading"}
             </div>
         </div>
