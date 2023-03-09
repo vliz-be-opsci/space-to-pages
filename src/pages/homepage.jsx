@@ -1,5 +1,5 @@
 // Description: This is the homepage of the website
-import React, {useEffect, useState} from "react";
+import React from "react";
 import { Navigation} from "../components/navigation";
 import { Header } from "../components/header";
 import { Features } from "../components/features";
@@ -8,23 +8,13 @@ import { Team } from "../components/Team";
 
 const Homepage = (data) => {
     console.log(data.data);
-    const [landingPageData, setLandingPageData] = useState({
+    const landingPageData = {
         "Header" : data.data.Header,
         "Features" : data.data.Features,
         "Services" : data.data.Services,
         "Contacts" : data.data.Contacts,
         "TData" : data.data.TData
-    });
-    useEffect(() => {
-        setLandingPageData({
-            "Header" : data.data.Header,
-            "Features" : data.data.Features,
-            "Services" : data.data.Services,
-            "Contacts" : data.data.Contacts,
-            "TData" : data.data.TData
-        }
-        )
-    }, []);
+    };
 
     return (
         <div>

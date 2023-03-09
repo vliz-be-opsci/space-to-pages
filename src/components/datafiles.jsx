@@ -38,12 +38,12 @@ export const DataFiles = (props) => {
                                     </a>
                                     </div>
                                     <div >
-                                    <a href={dd} target="_blank">
+                                    <a href={dd} target="_blank" rel="noreferrer">
                                     <IconContext.Provider value={{ className:"react-icons"}}>
                                         <AiOutlineCloudDownload></AiOutlineCloudDownload>
                                     </IconContext.Provider>
                                     </a>
-                                    <a href={d.url} target="_blank">
+                                    <a href={d.url} target="_blank" rel="noreferrer">
                                     <IconContext.Provider value={{ className:"react-icons"}}>
                                         <AiFillGithub></AiFillGithub>
                                     </IconContext.Provider>

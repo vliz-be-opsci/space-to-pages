@@ -13,26 +13,25 @@ const TableFile = (props) => {
   const [csvData, setCsvData] = useState([]);
   console.log(filteredRows);
 
-  //function that will remake the csv data by taking parts out of the filtered rows
-  const makeCsvData = () => {
-    const csvData = [];
-    //the first row of the csv file is the column names
-    csvData.push(props.columns.map((column) => column.Header));
-    //the rest of the rows are the data
-    for (let i = 0; i < filteredRows.length; i++) {
-      let rowdata = [];
-      //for each column in the row, get the value
-        for (let j = 0; j < props.columns.length; j++) {
-            rowdata.push(filteredRows[i].values[props.columns[j].Header]);
-        }
-      csvData.push(rowdata);
-    }
-    console.log(csvData);
-
-    return csvData;
-  };
-
   useEffect(() => {
+    //function that will remake the csv data by taking parts out of the filtered rows
+    const makeCsvData = () => {
+      const csvData = [];
+      //the first row of the csv file is the column names
+      csvData.push(props.columns.map((column) => column.Header));
+      //the rest of the rows are the data
+      for (let i = 0; i < filteredRows.length; i++) {
+        let rowdata = [];
+        //for each column in the row, get the value
+          for (let j = 0; j < props.columns.length; j++) {
+              rowdata.push(filteredRows[i].values[props.columns[j].Header]);
+          }
+        csvData.push(rowdata);
+      }
+      console.log(csvData);
+
+      return csvData;
+    };
     setCsvData(makeCsvData());
   }, [filteredRows]);
 
@@ -88,8 +87,6 @@ const TableFile = (props) => {
     headerGroups,
     page,
     prepareRow,
-    state,
-    setFilter,
     canPreviousPage,
     canNextPage,
     nextPage,
@@ -97,7 +94,6 @@ const TableFile = (props) => {
     pageOptions,
     gotoPage,
     pageCount,
-    setPageSize,
     state: { pageIndex, pageSize },
   } = tableInstance;
 

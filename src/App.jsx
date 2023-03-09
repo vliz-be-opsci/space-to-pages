@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Homepage from "./pages/homepage";
 import Data from "./pages/data";
@@ -29,20 +29,19 @@ const App = () => {
 
   console.log(window.location.hash);
 
-  const [landingPageData, setLandingPageData] = useState({
+  const landingPageData= {
     "Header" : MainData,
     "Features" : FeaturesData,
     "Services" : ServicesData,
     "Contacts" : ContactData,
     "TData" : TabularData
-  });
+  };
   console.log(landingPageData);
   return (
     <Routes>
       <Route path="/" element={<Homepage data={landingPageData} />} />
       <Route path="/data/:id" element={<FilePage data={landingPageData} />} />
       <Route path="/data" element={<Data data={landingPageData} />} />
-      
     </Routes>
   );
 };

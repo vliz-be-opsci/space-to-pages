@@ -1,6 +1,6 @@
 //this container will contain all the components that a single file can have
 
-import React, {useEffect, useState} from "react";
+import React from "react";
 import FileReadme from "../components/fileReadme";
 import CsvFile from "../components/csvFile";
 

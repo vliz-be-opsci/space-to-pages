@@ -28,7 +28,7 @@ const FileReadme = (props) => {
         .catch((error) => {
             console.log(error);
         })
-    }, []);
+    });
 
     //make function that will display the readme file
     const displayReadme = () => {

@@ -1,5 +1,5 @@
 //this page will be used to display the data from one file comong from the json files.data
-import React, {useEffect, useState} from "react";
+import React from "react";
 import { Navigation} from "../components/navigation";
 import SingleFileContents from "../containers/singlefilecontens";
 const FilePage = (props) => {
