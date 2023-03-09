@@ -87,6 +87,8 @@ const TableFile = (props) => {
     headerGroups,
     page,
     prepareRow,
+    state,
+    setFilter,
     canPreviousPage,
     canNextPage,
     nextPage,
@@ -94,6 +96,7 @@ const TableFile = (props) => {
     pageOptions,
     gotoPage,
     pageCount,
+    setPageSize,
     state: { pageIndex, pageSize },
   } = tableInstance;
 

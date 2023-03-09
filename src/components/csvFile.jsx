@@ -110,7 +110,7 @@ const CsvFile = (props) => {
             .catch((error) => {
                 console.log(error);
             })
-    });
+    },[]);
 
     return (
         //if csvData is an empty object, then display loading
