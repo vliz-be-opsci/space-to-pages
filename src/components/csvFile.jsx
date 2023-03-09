@@ -23,7 +23,7 @@ const CsvFile = (props) => {
                 // Quoted fields.
                 "(?:\"([^\"]*(?:\"\"[^\"]*)*)\"|" +
                 // Standard fields.
-                "([^\"\\" + strDelimiter + "\\r\ \n]*))"
+                "([^\"\\" + strDelimiter + "\\r \n]*))"
             ),
             "gi"
         );
@@ -38,13 +38,14 @@ const CsvFile = (props) => {
         while (arrMatches = objPattern.exec(strData)) {
             // Get the delimiter that was found.
             var strMatchedDelimiter = arrMatches[1];
+            var strMatchedValue;
             // Check to see if the given delimiter has a length
             // (is not the start of string) and if it matches
             // field delimiter. If id does not, then we know
             // that this delimiter is a row delimiter.
             if (
                 strMatchedDelimiter.length &&
-                (strMatchedDelimiter != strDelimiter)
+                (strMatchedDelimiter !== strDelimiter)
             ) {
                 // Since we have reached a new row of data,
                 // add an empty row to our data array.
@@ -56,13 +57,13 @@ const CsvFile = (props) => {
             if (arrMatches[2]) {
                 // We found a quoted value. When we capture
                 // this value, unescape any double quotes.
-                var strMatchedValue = arrMatches[2].replace(
+                strMatchedValue = arrMatches[2].replace(
                     new RegExp("\"\"", "g"),
                     "\""
                 );
             } else {
                 // We found a non-quoted value.
-                var strMatchedValue = arrMatches[3];
+                strMatchedValue = arrMatches[3];
             }
             // Now that we have our value string, let's add
             // it to the data array.
@@ -109,7 +110,7 @@ const CsvFile = (props) => {
             .catch((error) => {
                 console.log(error);
             })
-    }, []);
+    });
 
     return (
         //if csvData is an empty object, then display loading

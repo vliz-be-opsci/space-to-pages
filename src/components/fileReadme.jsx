@@ -8,9 +8,8 @@ import {AiFillMinusCircle} from "react-icons/ai";
 const FileReadme = (props) => {
     console.log(props);
     //make a request to the github api to get the readme file
-    const [readme, setReadme] = useState("");
     const [readmeDisplay, setReadmeDisplay] = useState(true);
-
+    const [readme, setReadme] = useState("");
     useEffect(() => {
         //check if props.data.extra_info exists
         if (props.data.extra_info === undefined) {
