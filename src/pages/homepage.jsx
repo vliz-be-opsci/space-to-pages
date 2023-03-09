@@ -5,6 +5,7 @@ import { Header } from "../components/header";
 import { Features } from "../components/features";
 import { Services } from "../components/services";
 import { Team } from "../components/Team";
+import { About } from "../components/about";
 
 const Homepage = (data) => {
     console.log(data.data);
@@ -20,6 +21,7 @@ const Homepage = (data) => {
         <div>
             <Navigation data={landingPageData.Header}/>
             <Header data={landingPageData.Header} />
+            <About data={landingPageData.Header} />
             <Features data={landingPageData.Features} />
             <Services data={landingPageData.Services} />
             <Team data={landingPageData.Contacts} />

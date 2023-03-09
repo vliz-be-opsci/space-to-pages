@@ -41,7 +41,7 @@ export const Header = (props) => {
                 </h1>
                 <p >{props.data ? props.data.description : "Loading"}</p>
                 <a
-                  href="#features"
+                  href={props.data ? props.data.markdown_about_us && props.data.markdown_about_us !== "" ? "#aboutsection": "#features": "#features"}
                   className="btn btn-custom btn-lg page-scroll"
                 >
                   Learn More

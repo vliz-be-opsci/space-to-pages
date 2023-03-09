@@ -54,6 +54,21 @@ export const Navigation = (props) => {
           id="bs-example-navbar-collapse-1"
         >
           <ul className="nav navbar-nav navbar-right">
+            {props.data ? 
+              props.data.markdown_about_us && props.data.markdown_about_us !== "" ?
+            (
+              <li>
+                <a href={prepend+"#aboutsection"}  className="page-scroll">
+                  About
+                </a>
+              </li>
+              ) : (
+              <></>
+              )
+            : (
+              <></>
+            )
+            }
             <li>
               <a href={prepend+"#features"} className="page-scroll">
                 Features

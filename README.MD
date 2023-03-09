@@ -19,6 +19,7 @@ the data is stored in json files in the ```src/data``` folder. This folder conta
 *  [```project_features```](#212-project_featuresjson) -> contains the data for the project features section
 *  [```project_services```](#213-project_servicesjson) -> contains the data for the project services section
 *  [```contacts```](#214-contactsjson) -> contains the data for describing the project contacts
+*  [```tabular_data```](#215-tabulardatajson) -> contains the data for the tabular data page
 
 ##### 2.1.1. ```main_data.json```
 
@@ -37,7 +38,7 @@ This file contains the data for the header section. The structure of the file is
 | Field | Description |
 | --- | --- |
 | ```name_site``` | The name of the site |
-| ```main_image``` | The url to the main image of the site |
+| ```main_image``` | The url to the main image of the site (Optional) |
 | ```description``` | The description of the site |
 | ```long_name``` | The long name of the site |
 | ```short_name``` | The short name of the site |
@@ -147,6 +148,32 @@ This file contains all the contacts for the project. These will most likely be l
 | ```id``` | The id of the affiliation |
 | ```url``` | The url of the affiliation |
 
+##### 2.1.5. ```tabular_data.json```
+
+This file contains all the tabular data for the project. These will most likely be links to your github repos.
+
+```json
+[
+    {
+      "name": "combined imagedata",
+      "url": "https://github.com/arms-mbon/Data/blob/main/QualityControlledData/Combined/combined_ImageData.csv",
+      "description": "tabular data of all images in the combined dataset",
+      "extra_info": "https://github.com/arms-mbon/Data/blob/main/QualityControlledData/Combined/README.md"
+    },
+    {
+      "name": "test 2",
+      "url": "https://github.com/arms-mbon/Data/blob/main/QualityControlledData/Combined/combined_ImageData.csv",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc sit amet aliquam lacinia, nisl nisl aliquam nisl, nec aliquam nisl nisl"
+    },
+]
+```
+
+| Field | Description |
+| --- | --- |
+| ```name``` | The name of the tabular data |
+| ```url``` | The url of the tabular data |
+| ```description``` | The description of the tabular data |
+| ```extra_info``` | The extra info of the tabular data (Optional)|
 
 
 

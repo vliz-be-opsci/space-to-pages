@@ -28,6 +28,16 @@
   border-radius: 0 0 4px 4px;
 }
 
+.markdownStyleAboutUs {
+  display: block;
+  text-align: left;
+  border: #6372ff50 1px solid;
+  margin-bottom: 20px;
+  border-top: none;
+  border-bottom: none;
+  padding: 20px;
+}
+
 /*make animation that will drop down content*/
 @keyframes slideDown {
   0% {
