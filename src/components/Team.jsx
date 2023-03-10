@@ -7,7 +7,7 @@ export const Team = (props) => {
         <div className="col-md-8 col-md-offset-2 section-title">
           <h2>Contact</h2>
           <p>
-            If you have any questions, please contact the members below.
+            For additional information please contact the members below.
           </p>
         </div>
         <div id="row">
