@@ -33,9 +33,7 @@ const FileReadme = (props) => {
     const displayReadme = () => {
         //get the element by class collapsible
         let coll = document.getElementsByClassName("collapsible");
-
         let i;
-
         for (i = 0; i < coll.length; i++) {
             let content = coll[i].nextElementSibling;
             //check if the element is already open

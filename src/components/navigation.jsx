@@ -2,6 +2,10 @@ import React from "react";
 
 export const Navigation = (props) => {
 
+  //get the current route 
+  const currentRoutePath = window.location.pathname;
+  console.log(currentRoutePath);
+
   //get the current hash route
   const currentRoute = window.location.hash;
   console.log(currentRoute);
@@ -40,7 +44,7 @@ export const Navigation = (props) => {
             <span className="icon-bar"></span>{" "}
             <span className="icon-bar"></span>{" "}
           </button>
-          <a className="navbar-brand page-scroll" href={prepend+"#"}>
+          <a className="navbar-brand page-scroll" href={currentRoutePath+prepend+"#"}>
             {props.data ? 
             <>
             <img src={props.data.logo} style={logostyle} alt="project_title_here"></img>
@@ -58,7 +62,7 @@ export const Navigation = (props) => {
               props.data.markdown_about_us && props.data.markdown_about_us !== "" ?
             (
               <li>
-                <a href={prepend+"#aboutsection"}  className="page-scroll">
+                <a href={currentRoutePath+prepend+"#aboutsection"}  className="page-scroll">
                   About
                 </a>
               </li>
@@ -70,22 +74,22 @@ export const Navigation = (props) => {
             )
             }
             <li>
-              <a href={prepend+"#features"} className="page-scroll">
+              <a href={currentRoutePath+prepend+"#features"} className="page-scroll">
                 Features
               </a>
             </li>
             <li>
-              <a href={prepend+"#services"} className="page-scroll">
+              <a href={currentRoutePath+prepend+"#services"} className="page-scroll">
                 Services
               </a>
             </li>
             <li>
-              <a href={prepend+"#team"} className="page-scroll">
+              <a href={currentRoutePath+prepend+"#team"} className="page-scroll">
                 Team
               </a>
             </li>
             <li>
-              <a href="/#/data" className="page-scroll">
+              <a href={currentRoutePath+"#/data"} className="page-scroll">
                 Data
               </a>
             </li>
