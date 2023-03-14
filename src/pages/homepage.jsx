@@ -2,10 +2,11 @@
 import React from "react";
 import { Navigation} from "../components/navigation";
 import { Header } from "../components/header";
-import { Features } from "../components/features";
-import { Services } from "../components/services";
+import { Features } from "../components/spaces";
+import { Services } from "../components/crates";
 import { Team } from "../components/Team";
 import { About } from "../components/about";
+import { Footer } from "../components/footer";
 
 const Homepage = (data) => {
     console.log(data.data);
@@ -25,6 +26,7 @@ const Homepage = (data) => {
             <Features data={landingPageData.Features} />
             <Services data={landingPageData.Services} />
             <Team data={landingPageData.Contacts} />
+            <Footer />
         </div>
     );
 }

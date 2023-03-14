@@ -17,7 +17,7 @@ const FileReadme = (props) => {
             return;
         }
         //change the github url to get the raw file
-        let url = props.data.extra_info.replace("https://github.com/", "https://raw.githubusercontent.com/");
+        let url = props.data.extra_info.replace("https://github.com/", "https://raw.githubusercontent.com/"); //beware of the fact that some uri might be different for other users that don't tend to use github for file storage
         url = url.replace("/blob/", "/");
         axios.get(url)
         .then((response) => {

@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Homepage from "./pages/homepage";
-import Data from "./pages/data";
+import Data from "./pages/data_explorer";
 import FilePage from "./pages/filepage";
 import MainData from "./data/main_data.json";
 import ContactData from "./data/contacts.json";

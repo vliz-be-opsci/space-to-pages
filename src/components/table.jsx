@@ -179,7 +179,7 @@ const TableFile = (props) => {
                 <th {...column.getHeaderProps(column.getSortByToggleProps())}>
                   <div
                     style={{
-                      /*text float in the center*/ textAlign: "center",
+                      textAlign: "center",
                       float: "none",
                     }}
                   >

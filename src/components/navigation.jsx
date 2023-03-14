@@ -74,13 +74,13 @@ export const Navigation = (props) => {
             )
             }
             <li>
-              <a href={currentRoutePath+prepend+"#features"} className="page-scroll">
-                Features
+              <a href={currentRoutePath+prepend+"#spaces"} className="page-scroll">
+                Spaces
               </a>
             </li>
             <li>
-              <a href={currentRoutePath+prepend+"#services"} className="page-scroll">
-                Services
+              <a href={currentRoutePath+prepend+"#crates"} className="page-scroll">
+                Crates
               </a>
             </li>
             <li>
@@ -90,7 +90,7 @@ export const Navigation = (props) => {
             </li>
             <li>
               <a href={currentRoutePath+"#/data"} className="page-scroll">
-                Data
+                Data explorer
               </a>
             </li>
           </ul>

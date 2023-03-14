@@ -2,10 +2,10 @@ import React from "react";
 
 export const Services = (props) => {
   return (
-    <div id="services" className="text-center">
+    <div id="crates" className="text-center">
       <div className="container">
         <div className="section-title">
-          <h2>Our Services</h2>
+          <h2>Our Crates</h2>
         </div>
         <div className="row">
           {props.data

@@ -16,9 +16,9 @@ export const DataFiles = (props) => {
     <div id="data" className="text-center" style={sectionStyle}>
       <div className="container">
         <div className="col-md-12 section-title">
-            <h2>Data</h2>
+            <h2>Data explorer</h2>
             <p>
-                The data used in this project is available for download and preview.
+                A set of data exploration tools for searching and downloading data interest
             </p>
             <div id="row">
                 {props.data 
