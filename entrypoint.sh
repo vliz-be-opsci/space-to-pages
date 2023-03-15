@@ -19,7 +19,7 @@ echo "repo name is" $GITHUB_REPOSITORY
 #check if the following files are present in ./github/workspace : [./src/data/contact.json, ./src/data/main_data.json]
 # if they are not present, then throw an error
 echo "checking if the following files are present in ./github/workspace : [./src/data/contacts.json, ./src/data/main_data.json]"
-if [ -f ./github/workspace/data/contact.json ] && [ -f ./github/workspace/data/main_data.json ]
+if [ -f ./github/workspace/data/contacts.json ] && [ -f ./github/workspace/data/main_data.json ]
 then
     echo "all files are present"
     #copy the files over into ./src/data
