@@ -46,8 +46,8 @@ else
 fi
 
 #check if there is a readme.md file in ./github/workspace, if so thencopy it over , else throw an error
-echo "checking if there is a readme.md file in ./github/workspace"
-if [ -f ./github/workspace/readme.md ];
+echo "checking if there is a readme.md or README.md file in ./github/workspace"
+if [ -f ./github/workspace/readme.md ] || [ -f ./github/workspace/README.md ];
 then
     echo "readme.md file is present"
     echo "copying the readme.md file over to ./src/readme.md"
