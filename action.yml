@@ -1,0 +1,15 @@
+name: 'bon-org-to-pages'
+description: 'This action takes some config files and makes a github pages site from them'
+branding:
+  icon: 'upload-cloud'
+  color: 'red'
+inputs:
+  repo_path:  
+    description: 'Path to the repo to be published'
+    required: false
+    default: '.'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.repo_path }}
