@@ -56,7 +56,7 @@ then
 
     #make a url from the repo name and user or organisation name followed by /blob/master/README.md
     echo "making a url from the repo name and user or organisation name followed by /blob/master/README.md"
-    url="https://raw.githubusercontent.com/$GITHUB_ACTOR/$GITHUB_REPOSITORY/main/README.md"
+    url="https://raw.githubusercontent.com/$GITHUB_REPOSITORY/main/README.md"
 
     #echo the url
     echo "url is" $url
