@@ -18,13 +18,13 @@ echo "repo name is" $GITHUB_REPOSITORY
 #setup here for making the build folder
 #check if the following files are present in ./github/workspace : [./src/data/contact.json, ./src/data/main_data.json]
 # if they are not present, then throw an error
-echo "checking if the following files are present in ./github/workspace : [./src/data/contact.json, ./src/data/main_data.json]"
+echo "checking if the following files are present in ./github/workspace : [./src/data/contacts.json, ./src/data/main_data.json]"
 if [ -f ./github/workspace/data/contact.json ] && [ -f ./github/workspace/data/main_data.json ]
 then
     echo "all files are present"
     #copy the files over into ./src/data
     echo "copying the files over into ./src/data"
-    cp ./github/workspace/data/contact.json ./src/data/contact.json
+    cp ./github/workspace/data/contacts.json ./src/data/contacts.json
     cp ./github/workspace/data/main_data.json ./src/data/main_data.json
 else
     echo "one or more files are missing"
