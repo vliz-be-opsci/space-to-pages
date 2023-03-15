@@ -13,38 +13,13 @@ export const About = (props) => {
   //check if props.data.markdown_about_us exists
   let url = "";
   if (props.data.markdown_about_us !== undefined) {
-
-    //check if the extra_info is a url 
-    const isValidUrl = urlString=> {
-      var urlPattern = new RegExp('^(https?:\\/\\/)?'+ // validate protocol
-      '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // validate domain name
-      '((\\d{1,3}\\.){3}\\d{1,3}))'+ // validate OR ip (v4) address
-      '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // validate port and path
-      '(\\?[;&a-z\\d%_.~+=-]*)?'+ // validate query string
-      '(\\#[-a-z\\d_]*)?$','i'); // validate fragment locator
-      return !!urlPattern.test(urlString);
+    //check if it starts with https://raw.githubusercontent.com/
+    if(props.data.markdown_about_us.startsWith('https://raw.githubusercontent.com/')) {
+      url = props.data.markdown_about_us;
     }
-    if (!isValidUrl(props.data.extra_info)) {
-        //read in the file
-        let url = props.data.extra_info;
-        axios.get(url)
-        .then((response) => {
-            console.log(response);
-            setReadme(response.data);
-        })
-        .catch((error) => {
-            console.log(error);
-        })
-    } 
     else {
-      //check if it starts with https://raw.githubusercontent.com/
-      if(props.data.markdown_about_us.startsWith('https://raw.githubusercontent.com/')) {
-        url = props.data.markdown_about_us;
-      }
-      else {
-        let url_to_get = props.data.markdown_about_us.replace("https://github.com/", "https://raw.githubusercontent.com/");
-        url = url_to_get.replace("/blob/", "/");
-      }
+      let url_to_get = props.data.markdown_about_us.replace("https://github.com/", "https://raw.githubusercontent.com/");
+      url = url_to_get.replace("/blob/", "/");
     }
   }
 

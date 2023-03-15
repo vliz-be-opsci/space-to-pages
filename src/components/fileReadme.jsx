@@ -17,6 +17,30 @@ const FileReadme = (props) => {
             return;
         }
 
+        //check if the extra_info is a url 
+        const isValidUrl = urlString=> {
+            var urlPattern = new RegExp('^(https?:\\/\\/)?'+ // validate protocol
+            '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // validate domain name
+            '((\\d{1,3}\\.){3}\\d{1,3}))'+ // validate OR ip (v4) address
+            '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // validate port and path
+            '(\\?[;&a-z\\d%_.~+=-]*)?'+ // validate query string
+            '(\\#[-a-z\\d_]*)?$','i'); // validate fragment locator
+            return !!urlPattern.test(urlString);
+        }
+        if (!isValidUrl(props.data.extra_info)) {
+            //read in the file
+            let url = props.data.extra_info;
+            axios.get(url)
+            .then((response) => {
+                console.log(response);
+                setReadme(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+            return;
+        }
+
         //change the github url to get the raw file
         let url = props.data.extra_info.replace("https://github.com/", "https://raw.githubusercontent.com/"); //beware of the fact that some uri might be different for other users that don't tend to use github for file storage
         url = url.replace("/blob/", "/");

@@ -53,17 +53,17 @@ then
     echo "copying the readme.md file over to ./src/readme.md"
     cp -f ./github/workspace/readme.md ./public/README.md
     cp -f ./github/workspace/README.md ./public/README.md 
-    
+
     #make a url from the repo name and user or organisation name followed by /blob/master/README.md
-    #echo "making a url from the repo name and user or organisation name followed by /blob/master/README.md"
-    #url="https://raw.githubusercontent.com/$GITHUB_REPOSITORY/main/README.md"
+    echo "making a url from the repo name and user or organisation name followed by /blob/master/README.md"
+    url="https://raw.githubusercontent.com/$GITHUB_REPOSITORY/main/README.md"
 
     #echo the url
-    #echo "url is" $url
+    echo "url is" $url
 
     #open the ./src/data/main_data.json and change the value of the key "markdown_about_us" to the url
-    #echo "opening the ./src/data/main_data.json and changing the value of the key markdown_about_us to the url"
-    #sed -i "s|\"markdown_about_us\": \".*\"|\"markdown_about_us\": \"$url\"|g" ./src/data/main_data.json
+    echo "opening the ./src/data/main_data.json and changing the value of the key markdown_about_us to the url"
+    sed -i "s|\"markdown_about_us\": \".*\"|\"markdown_about_us\": \"$url\"|g" ./src/data/main_data.json
 
 else
     echo "readme.md file is not present"
