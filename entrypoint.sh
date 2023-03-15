@@ -51,8 +51,8 @@ if [ -f ./github/workspace/readme.md ] || [ -f ./github/workspace/README.md ];
 then
     echo "readme.md file is present"
     echo "copying the readme.md file over to ./src/readme.md"
-    cp -f ./github/workspace/readme.md ./src/readme.md
-    cp -f ./github/workspace/README.md ./src/README.md 
+    cp -f ./github/workspace/readme.md ./public/README.md
+    cp -f ./github/workspace/README.md ./public/README.md 
 else
     echo "readme.md file is not present"
     exit 1
