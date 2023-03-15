@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Services = (props) => {
+export const Crates = (props) => {
   return (
     <div id="crates" className="text-center">
       <div className="container">

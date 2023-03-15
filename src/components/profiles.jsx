@@ -1,12 +1,12 @@
 import React from "react";
 
-export const Features = (props) => {
+export const Profiles = (props) => {
 
   return (
-    <div id="spaces" className="text-center">
+    <div id="profiles" className="text-center">
       <div className="container" >
         <div className="col-md-10 col-md-offset-1 section-title">
-          <h2>Spaces</h2>
+          <h2>Profiles</h2>
         </div>
         <div className="row">
           {props.data

@@ -2,8 +2,8 @@
 import React from "react";
 import { Navigation} from "../components/navigation";
 import { Header } from "../components/header";
-import { Features } from "../components/spaces";
-import { Services } from "../components/crates";
+import { Profiles } from "../components/profiles";
+import { Crates } from "../components/crates";
 import { Team } from "../components/Team";
 import { About } from "../components/about";
 import { Footer } from "../components/footer";
@@ -12,8 +12,8 @@ const Homepage = (data) => {
     console.log(data.data);
     const landingPageData = {
         "Header" : data.data.Header,
-        "Features" : data.data.Features,
-        "Services" : data.data.Services,
+        "Profiles" : data.data.Profiles,
+        "Crates" : data.data.Crates,
         "Contacts" : data.data.Contacts,
         "TData" : data.data.TData
     };
@@ -23,8 +23,8 @@ const Homepage = (data) => {
             <Navigation data={landingPageData.Header}/>
             <Header data={landingPageData.Header} />
             <About data={landingPageData.Header} />
-            <Features data={landingPageData.Features} />
-            <Services data={landingPageData.Services} />
+            <Profiles data={landingPageData.Profiles} />
+            <Crates data={landingPageData.Crates} />
             <Team data={landingPageData.Contacts} />
             <Footer />
         </div>

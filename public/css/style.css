@@ -239,11 +239,11 @@ header .intro-text {
   padding-bottom: 200px;
   text-align: center;
 }
-/* spaces Section */
-#spaces {
+/* profiles Section */
+#profiles {
   background: #f6f6f6;
 }
-#spaces i.fa {
+#profiles i.fa {
   font-size: 38px;
   margin-bottom: 20px;
   transition: all 0.5s;

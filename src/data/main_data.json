@@ -5,5 +5,5 @@
     "long_name": "Autonomous Reef Monitoring System",
     "short_name": "ARMS",
     "logo": "https://www.researchobject.org/ro-crate/assets/img/ro-crate-w-text.svg",
-    "markdown_about_us":"https://github.com/vliz-be-opsci/bon-template-website/blob/main/README.MD"
+    "markdown_about_us":"README.md"
 }

@@ -5,8 +5,8 @@ import Data from "./pages/data_explorer";
 import FilePage from "./pages/filepage";
 import MainData from "./data/main_data.json";
 import ContactData from "./data/contacts.json";
-import FeaturesData from "./data/project_features.json";
-import ServicesData from "./data/project_services.json";
+import ProfilesData from "./data/project_profiles.json";
+import CratesData from "./data/project_crates.json";
 import TabularData from "./data/tabular_data.json";
 import SmoothScroll from "smooth-scroll";
 import { v5 as uuidv5} from "uuid"; 
@@ -31,8 +31,8 @@ const App = () => {
 
   const landingPageData= {
     "Header" : MainData,
-    "Features" : FeaturesData,
-    "Services" : ServicesData,
+    "Profiles" : ProfilesData,
+    "Crates" : CratesData,
     "Contacts" : ContactData,
     "TData" : TabularData
   };
