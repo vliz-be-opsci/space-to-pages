@@ -9,6 +9,11 @@ ls -a
 echo "repo_path is" $1
 #make a .env file with the crate_path variable
 echo "REACT_APP_CRATE=$1" > .env
+
+echo "base_uri is" $2
+#make a .env file with the crate_path variable
+echo "REACT_APP_BASE_URI=$2" >> .env
+
 #echo cat of the .env file
 cat .env
 
@@ -70,10 +75,41 @@ else
     exit 1
 fi
 
+#install pip requirements from requirements.txt
+echo "installing pip requirements from requirements.txt"
+pip install -r requirements.txt --no-cache-dir
+#run the commands.sh file located in the pysubyt folder
+echo "running the commands.sh file located in the pysubyt folder"
+cd pysubyt
+
+echo "removing the old output folder contents if they exist"
+rm -rf ./outputs/*
+#then run the pysubyt command
+echo "running the pysubyt commands"
+python -m pysubyt -t ./templates/  \
+       -s contact ../src/data/contacts.json \
+       -s main ../src/data/main_data.json \
+       -s project_crate ../src/data/project_crates.json \
+       -s project_profile ../src/data/project_profiles.json \
+       -n metadata.ttl -o outputs/metadata.ttl \
+       -v base_uri $2
+
+cd ..
+
+#copy over the pysubyt/outputs/metadata.ttl file to ./github/workspace/unicornpages/metadata.ttl
+echo "copying over the pysubyt/outputs/metadata.ttl file to ./github/workspace/unicornpages/metadata.ttl"
+cp ./pysubyt/outputs/metadata.ttl ./github/workspace/unicornpages/metadata.ttl
+
 echo "installing dependencies for building react app"
 npm install
 echo "npm run build"
 npm run build
 echo "copying over scr files to build folder"
+#in the index.html add the following line <link href="./metadata.ttl" rel="describedby" type="	text/turtle"> to the head tag
+echo "in the index.html add the following line <link href="./metadata.ttl" rel="describedby" type="text/turtle"> to the head tag"
+sed -i "s|</head>|<link href="./metadata.ttl" rel="describedby" type="text/turtle"></head>|g" ./build/index.html
 rsync --recursive --progress ./build/* ./github/workspace/unicornpages
 ls -a ./github/workspace/unicornpages
+#echo contents of the index.html file
+echo "contents of the index.html file"
+cat ./github/workspace/unicornpages/index.html

@@ -1,0 +1,40 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix da: <https://open-vocabularies.vliz.be/dmbonassistant#> .
+
+{% for contacte in sets['contact'] -%}
+<{{uritexpand("https://orcid.org{/ORCID}", contacte)}}>
+    a foaf:Person ;
+    foaf:name "{{contacte.name}}" ;
+    {% if contacte.email -%}
+    foaf:mbox <mailto:{{contacte.email}}> ;
+    {% endif -%}
+    .
+    
+{% endfor %}
+{% for maindata in sets['main'] -%}
+<{{base_uri}}> rdf:type foaf:Project ;
+    dc:title "{{maindata.long_name}}" ;
+    foaf:name "{{maindata.name_site}}" ;
+    dc:description "{{maindata.description}}" ;
+    foaf:logo <{{maindata.logo}}> 
+    .
+<{{maindata.logo}}> rdf:type foaf:Image 
+.
+{% endfor %}
+{% for profile in sets['project_profile'] -%}
+<{{profile.url}}> rdf:type da:crateRepo ;
+    dc:title "{{profile.title}}" ;
+    dc:description "{{profile.text}}" 
+    .
+
+{% endfor -%}
+{% for crate in sets['project_crate'] -%}
+<{{crate.url}}> rdf:type da:crateRepo ;
+    dc:title "{{crate.name}}" ;
+    dc:description "{{crate.text}}" 
+    .
+
+{% endfor %}

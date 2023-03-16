@@ -8,8 +8,13 @@ inputs:
     description: 'Path to the repo to be published'
     required: false
     default: '.'
+  base_uri:
+    description: 'Base URI for the site'
+    required: false
+    default: 'https://{{ github.repository_owner }}.github.io/{{ github.repository }}'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.repo_path }}
+    - ${{ inputs.base_uri }}
