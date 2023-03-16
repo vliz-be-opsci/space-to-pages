@@ -1,102 +1,109 @@
 # React JS Landing Page Template
-### <a href="https://open-science.vliz.be/bon-template-website/" target="_blank">LIVE DEMO</a> 
+### <a href="https://open-science.vliz.be/example-bon-site-to-pages/" target="_blank">LIVE DEMO</a> 
 
 ## Description
-This is a ReactJS based landing page template, fit for a startup company/service with a one page view. The design is inspired by a template from <a href="https://www.free-css.com/assets/files/free-css-templates/preview/page234/interact/">Free-CSS.com </a>
+This is a ReactJS based landing page template.
 All 'visual' data can be easily modified by changing the json files located in the data folder.
 
 ## Make it Yours!
-### 1. Fork the repo
-Fork the repo by clicking the fork button in the top right corner of the page. This will create a copy of this repository in your account or organisation.
-### 2. Add your own data 
-Change the data in the ```src/data``` folder as well as add any images to ```public/img/```
-You can also change styles by modifying the ```public/css``` files.
+### 1. Add your own data 
+Change the data in the ```data/``` folder as well as add any images to ```img/``` folder.
 
-#### 2.1. Data Structure
+#### 1.1. Data Structure
 
-the data is stored in json files in the ```src/data``` folder. This folder contains the following files:
+the data is stored in json files in the ```data/``` folder. This folder contains the following files:
 *  [```main_data.json```](#211-main_datajson) -> contains the data for the header section
-*  [```project_features```](#212-project_featuresjson) -> contains the data for the project features section
-*  [```project_services```](#213-project_servicesjson) -> contains the data for the project services section
+*  [```project_crates```](#212-project_cratesjson) -> contains the data for the project crates section
+*  [```project_profiles```](#213-project_profilesjson) -> contains the data for the project profiles section
 *  [```contacts```](#214-contactsjson) -> contains the data for describing the project contacts
 *  [```tabular_data```](#215-tabulardatajson) -> contains the data for the tabular data page
 
-##### 2.1.1. ```main_data.json```
+there is also a ```README.md``` file that is used to populate the about section of the page. This file can be changed to your liking. For tips on how to write markdown files, see [here](https://guides.github.com/features/mastering-markdown/).
+
+In the ```img/``` folder you can add any images that you want to use in the project. These images can be referenced in the json files.
+
+##### 1.1.1. ```main_data.json```
 
 This file contains the data for the header section. The structure of the file is as follows:
 ```json
 {
-    "name_site": "Boc",
+    "name_site": "ARMS",
     "main_image": "https://assets.newatlas.com/dims4/default/e58452e/2147483647/strip/true/crop/1498x999+0+0/resize/1440x960!/quality/90/?url=http%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fb1%2Fb4%2F2a5bc31341fbaa31e2230d038f66%2Ficture1.jpeg",
-    "description": "A Bon é uma empresa de tecnologia que oferece soluções para o varejo. Com o objetivo de ajudar os lojistas a vender mais, a Bon oferece uma plataforma completa de gestão de lojas, com soluções para o controle de estoque, vendas, financeiro, CRM, e-commerce, marketing e muito mais.",
-    "long_name": "Box of Crayons",
-    "short_name": "Boc",
-    "logo": "https://www.researchobject.org/ro-crate/assets/img/ro-crate-w-text.svg"
+    "description": "The European ARMS programme (ARMS-MBON) is a network of Autonomous Reef Monitoring Structures (ARMS) placed in the vicinity of marine stations, ports, marinas, and Long-Term Ecological Research (LTER) sites distributed over Europe and polar regions. The aim of ARMS-MBON is to assess the status of, and changes in, hard-bottom communities of near-coast environments, using genetic methods supplemented with image analysis and visual inspection methods. ARMS-MBON is part of GEO BONs Marine Biodiversity Observation Network (MBON).",
+    "long_name": "Autonomous Reef Monitoring System",
+    "short_name": "ARMS",
+    "logo": "https://www.researchobject.org/ro-crate/assets/img/ro-crate-w-text.svg",
+    "markdown_about_us":"README.md"
 }
 ```
 
-| Field | Description |
-| --- | --- |
-| ```name_site``` | The name of the site |
-| ```main_image``` | The url to the main image of the site (Optional) |
-| ```description``` | The description of the site |
-| ```long_name``` | The long name of the site |
-| ```short_name``` | The short name of the site |
-| ```logo``` | The url to the logo of the site |
+| Field | Description | required |
+| --- | --- | --- |
+| ```name_site``` | The name of the site | yes |
+| ```main_image``` | The url to the main image of the site | no |
+| ```description``` | The description of the site | yes |
+| ```long_name``` | The long name of the site | yes |
+| ```short_name``` | The short name of the site | yes |
+| ```logo``` | The url to the logo of the site | no |
+| ```markdown_about_us``` | The markdown file to be used for the about us page (default:README.md) | no |
 
-##### 2.1.2. ```project_features.json```
+##### 1.1.2. ```project_crates.json```
 
-This file contains all the features of the project.
+This file contains all the crates of the project.
+```json
+[
+    {
+    "icon": "fa fa-wordpress",
+    "name": "Lorem ipsum dolor",
+    "url" : "http://www.google.com",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+  },
+  {
+    "icon": "fa fa-cart-arrow-down",
+    "name": "Consectetur adipiscing",
+    "url" : "http://www.google.com",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+  }
+]
+```
+
+| Field | Description | required |
+| --- | --- | --- |
+| ```icon``` | The icon to be displayed | no |
+| ```name``` | The name of the crate | yes |
+| ```url``` | The url to the crate | yes |
+| ```text``` | The description of the crate | no |
+
+
+##### 1.1.3. ```project_profiles.json```
+
+This file contains all the profiles for the project. These will most likely be links to your github repos.
+
 ```json
 [
     {
       "icon": "fa fa-comments-o",
       "title": "Lorem ipsum",
+      "url" : "http://www.google.com",
       "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
     },
     {
       "icon": "fa fa-bullhorn",
       "title": "Lorem ipsum",
+      "url" : "http://www.google.com",
       "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
     }
 ]
 ```
 
-| Field | Description |
-| --- | --- |
-| ```icon``` | The icon to be displayed |
-| ```title``` | The title of the feature |
-| ```text``` | The description of the feature |
+| Field | Description | required |
+| --- | --- | --- |
+| ```icon``` | The icon to be displayed | no |
+| ```title``` | The title of the profile | yes |
+| ```url``` | The url to the profile | yes |
+| ```text``` | The description of the profile | no |
 
-##### 2.1.3. ```project_services.json```
-
-This file contains all the services for the project. These will most likely be links to your github repos.
-
-```json
-[
-    {
-      "icon": "fa fa-wordpress",
-      "name": "Lorem ipsum dolor",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.",
-      "link": "github.com/boxofcrayons"
-    },
-    {
-      "icon": "fa fa-cart-arrow-down",
-      "name": "Consectetur adipiscing",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.",
-      "link": "github.com/boxofcrayons"
-    }
-]
-```
-
-| Field | Description |
-| --- | --- |
-| ```icon``` | The icon to be displayed |
-| ```name``` | The name of the service |
-| ```text``` | The description of the service |
-| ```link``` | The link to the service |
-
-##### 2.1.4. ```contacts.json```
+##### 1.1.4. ```contacts.json```
 
 This file contains all the contacts for the project. These will most likely be links to your github repos.
 
@@ -129,26 +136,27 @@ This file contains all the contacts for the project. These will most likely be l
 ]
 ```
 
-###### 2.1.4.1 person
+###### 1.1.4.1 person
 
-| Field | Description |
-| --- | --- |
-| ```img``` | The image of the contact |
-| ```name``` | The name of the contact |
-| ```job``` | The job of the contact |
-| ```email``` | The email of the contact |
-| ```ORCID``` | The ORCID of the contact |
-| ```affiliation``` | The affiliation of the contact |
+| Field | Description | required |
+| --- | --- | --- |
+| ```img``` | The image of the contact | no |
+| ```name``` | The name of the contact | yes |
+| ```job``` | The job of the contact | yes |
+| ```email``` | The email of the contact | yes |
+| ```ORCID``` | The ORCID of the contact | no |
+| ```affiliation``` | The affiliation of the contact | no |
 
-###### 2.1.4.2 affiliation
 
-| Field | Description |
-| --- | --- |
-| ```name``` | The name of the affiliation |
-| ```id``` | The id of the affiliation |
-| ```url``` | The url of the affiliation |
+###### 1.1.4.2 affiliation
 
-##### 2.1.5. ```tabular_data.json```
+| Field | Description | required |
+| --- | --- | --- |
+| ```name``` | The name of the affiliation | yes |
+| ```id``` | The id of the affiliation | no |
+| ```url``` | The url of the affiliation | no |
+
+##### 1.1.5. ```tabular_data.json``` WILL BE DEPRECATED
 
 This file contains all the tabular data for the project. These will most likely be links to your github repos.
 
@@ -175,13 +183,18 @@ This file contains all the tabular data for the project. These will most likely 
 | ```description``` | The description of the tabular data |
 | ```extra_info``` | The extra info of the tabular data (Optional)|
 
+### 2. Deployment
 
+the project is deployed using github pages. To deploy the project, simply push the changes to the master branch. The project will be deployed automatically.
 
-### 3. Deploy to Github Pages
+#### 2.1. Resolving conflicts
 
-The easiest way to deploy your site is to use Github Pages. To do this, you will need to create a new repository on Github and push your code to it.
-Once you have done this, you can follow the instructions <a href="https://create-react-app.dev/docs/deployment/#github-pages">here</a> to deploy your site to Github Pages.
-
+##### 2.1.1. ```Action failed with "The process '/usr/bin/git' failed with exit code 128"```
+Resolve this issue by following the steps below:
+* Go to the settings of the repository
+* Click on the actions tab and then the general button
+* scroll down until you see the section "Workflow permissions"
+* Select the option "Read and write permissions" and click save
 
 ## Credits
 ##### Free CSS 
