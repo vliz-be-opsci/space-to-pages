@@ -98,7 +98,7 @@ cd ..
 
 #copy over the pysubyt/outputs/metadata.ttl file to ./github/workspace/unicornpages/metadata.ttl
 echo "copying over the pysubyt/outputs/metadata.ttl file to ./github/workspace/unicornpages/metadata.ttl"
-cp ./pysubyt/outputs/metadata.ttl ./github/workspace/unicornpages/metadata.ttl
+cp ./pysubyt/outputs/metadata.ttl ./public/metadata.ttl
 
 echo "installing dependencies for building react app"
 npm install

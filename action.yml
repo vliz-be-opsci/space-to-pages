@@ -9,9 +9,9 @@ inputs:
     required: false
     default: '.'
   base_uri:
-    description: 'Base URI for the site'
+    description: 'Base URI for the site to be published. eg: https://myorg.github.io/myrepo'
     required: false
-    default: 'https://{{ github.repository_owner }}.github.io/{{ github.repository }}'
+    default: 'https://${{ github.repository_owner }}.github.io/${{ github.repository }}'
 runs:
   using: 'docker'
   image: 'Dockerfile'
