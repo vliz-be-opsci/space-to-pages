@@ -74,6 +74,11 @@ export const Navigation = (props) => {
             )
             }
             <li>
+              <a href={currentRoutePath+prepend+"#publications"} className="page-scroll">
+                Publications
+              </a>
+            </li>
+            <li>
               <a href={currentRoutePath+prepend+"#profiles"} className="page-scroll">
                 Profiles
               </a>

@@ -8,6 +8,7 @@ import ContactData from "./data/contacts.json";
 import ProfilesData from "./data/project_profiles.json";
 import CratesData from "./data/project_crates.json";
 import TabularData from "./data/tabular_data.json";
+import PublicationsData from "./data/publications.json";
 import SmoothScroll from "smooth-scroll";
 import { v5 as uuidv5} from "uuid"; 
 import "./App.css";
@@ -34,6 +35,7 @@ const App = () => {
     "Profiles" : ProfilesData,
     "Crates" : CratesData,
     "Contacts" : ContactData,
+    "Publications" : PublicationsData,
     "TData" : TabularData
   };
   console.log(landingPageData);

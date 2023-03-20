@@ -394,41 +394,48 @@ header .intro-text {
 .hover-bg:hover .hover-text {
   opacity: 1;
 }
-/* Testimonials Section */
-#testimonials {
+/* publicationss Section */
+#publications {
   padding: 100px 0;
   background: #f6f6f6;
 }
-#testimonials i {
+
+#publications i {
   color: #e6e6e6;
   font-size: 32px;
   margin-bottom: 20px;
 }
-.testimonial {
+.publications {
   position: relative;
   padding: 20px;
 }
-.testimonial-image {
+.publications-image {
   float: left;
   margin-right: 15px;
 }
-.testimonial-image,
-.testimonial-image img {
+.publications-image,
+.publications-image img {
   display: block;
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
+  width: 128px;
+  height: 128px;
+  border-radius: 75%;
 }
-.testimonial-content {
+.publications-content {
   position: relative;
   overflow: hidden;
 }
-.testimonial-content p {
+
+.publications-content:hover {
+  background: #6372ff20;
+  border-radius: 10px;
+}
+
+.publications-content p {
   margin-bottom: 0;
   font-size: 14px;
   font-style: italic;
 }
-.testimonial-meta {
+.publications-meta {
   margin-top: 10px;
   font-size: 15px;
   font-weight: 600;

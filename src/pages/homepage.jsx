@@ -6,6 +6,7 @@ import { Profiles } from "../components/profiles";
 import { Crates } from "../components/crates";
 import { Team } from "../components/Team";
 import { About } from "../components/about";
+import { Publications } from "../components/Publications";
 import { Footer } from "../components/footer";
 
 const Homepage = (data) => {
@@ -15,6 +16,7 @@ const Homepage = (data) => {
         "Profiles" : data.data.Profiles,
         "Crates" : data.data.Crates,
         "Contacts" : data.data.Contacts,
+        "Publications" : data.data.Publications,
         "TData" : data.data.TData
     };
 
@@ -23,6 +25,7 @@ const Homepage = (data) => {
             <Navigation data={landingPageData.Header}/>
             <Header data={landingPageData.Header} />
             <About data={landingPageData.Header} />
+            <Publications data={landingPageData.Publications} />
             <Profiles data={landingPageData.Profiles} />
             <Crates data={landingPageData.Crates} />
             <Team data={landingPageData.Contacts} />
