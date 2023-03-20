@@ -24,7 +24,7 @@ echo "repo name is" $GITHUB_REPOSITORY
 #check if the following files are present in ./github/workspace : [./src/data/contact.json, ./src/data/main_data.json]
 # if they are not present, then throw an error
 echo "checking if the following files are present in ./github/workspace : [./src/data/contacts.json, ./src/data/main_data.json, ./src/data/project_crates.json, ./src/data/project_profiles.json, ./src/data/tabular_data.json]"
-if [ -f ./github/workspace/data/contacts.json ] && [ -f ./github/workspace/data/main_data.json ] && [ -f ./github/workspace/data/project_crates.json ] && [ -f ./github/workspace/data/project_profiles.json ] && [ -f ./github/workspace/data/tabular_data.json ];
+if [ -f ./github/workspace/data/contacts.json ] && [ -f ./github/workspace/data/main_data.json ] && [ -f ./github/workspace/data/project_crates.json ] && [ -f ./github/workspace/data/project_profiles.json ] && [ -f ./github/workspace/data/tabular_data.json ] && [ -f ./github/workspace/data/publications.json ];
 then
     echo "all files are present"
     #copy the files over into ./src/data
@@ -34,6 +34,7 @@ then
     cp ./github/workspace/data/project_crates.json ./src/data/project_crates.json
     cp ./github/workspace/data/project_profiles.json ./src/data/project_profiles.json
     cp ./github/workspace/data/tabular_data.json ./src/data/tabular_data.json
+    cp ./github/workspace/data/publications.json ./src/data/publications.json
 else
     echo "one or more files of the data folder are missing"
     exit 1

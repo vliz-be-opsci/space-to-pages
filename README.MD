@@ -15,10 +15,11 @@ Change the data in the ```data/``` folder as well as add any images to ```img/``
 
 the data is stored in json files in the ```data/``` folder. This folder contains the following files:
 *  [```main_data.json```](#211-main_datajson) -> contains the data for the header section
-*  [```project_crates```](#212-project_cratesjson) -> contains the data for the project crates section
-*  [```project_profiles```](#213-project_profilesjson) -> contains the data for the project profiles section
-*  [```contacts```](#214-contactsjson) -> contains the data for describing the project contacts
-*  [```tabular_data```](#215-tabulardatajson) -> contains the data for the tabular data page
+*  [```project_crates.json```](#212-project_cratesjson) -> contains the data for the project crates section
+*  [```project_profiles.json```](#213-project_profilesjson) -> contains the data for the project profiles section
+*  [```contacts.json```](#214-contactsjson) -> contains the data for describing the project contacts
+*  [```tabular_data.json```](#215-tabulardatajson) -> contains the data for the tabular data page
+*  [```publications.json```](#216-publicationsjson) -> contains the data for the publications section
 
 there is also a ```README.md``` file that is used to populate the about section of the page. This file can be changed to your liking. For tips on how to write markdown files, see [here](https://guides.github.com/features/mastering-markdown/).
 
@@ -184,6 +185,34 @@ This file contains all the tabular data for the project. These will most likely 
 | ```url``` | The url of the tabular data |
 | ```description``` | The description of the tabular data |
 | ```extra_info``` | The extra info of the tabular data (Optional)|
+
+##### 1.1.6. ```publications.json```
+
+This file contains all the publications information for the project. These will most likely be links to your publications uri's.
+
+```json
+[
+    {
+        "title": "Something Something interesting",
+        "text": "Text about something interesting here A",
+        "img": "/img/publications/1.jpg",
+        "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley"
+    },
+    {
+        "title": "The cat in the hat",
+        "text": "The cat in the hat sat on the mat. One hopes he didn't leave a fat cat track in the form of a shattered mat.",
+        "img": "/img/publications/2.jpeg",
+        "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley"
+    }
+]
+```
+
+| Field | Description | required |
+| --- | --- | --- |
+| ```title``` | The title of the publication | yes |
+| ```text``` | The text of the publication | yes |
+| ```img``` | The image of the publication | preferably yes |
+| ```link``` | The link to the publication | yes |
 
 ### 2. Deployment
 
