@@ -30,6 +30,7 @@ const FileReadme = (props) => {
         if (!isValidUrl(props.data.extra_info)) {
             //read in the file
             let url = props.data.extra_info;
+            console.log(url);
             axios.get(url)
             .then((response) => {
                 console.log(response);

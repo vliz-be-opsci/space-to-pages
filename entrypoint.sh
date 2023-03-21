@@ -53,11 +53,13 @@ fi
 
 #check if there is a readme.md file in ./github/workspace, if so thencopy it over , else throw an error
 echo "checking if there is a readme.md or README.md file in ./github/workspace"
-if [ -f ./github/workspace/readme.md ] || [ -f ./github/workspace/README.md ];
+if [ -f ./github/workspace/readme.md ] || [ -f ./github/workspace/README.md ] || [ -f ./github/workspace/README.MD ] || [ -f ./github/workspace/readme.MD ] ;
 then
     echo "readme.md file is present"
     echo "copying the readme.md file over to ./src/readme.md"
+    cp -f ./github/workspace/README.MD ./public/README.md
     cp -f ./github/workspace/readme.md ./public/README.md
+    cp -f ./github/workspace/readme.MD ./public/README.md
     cp -f ./github/workspace/README.md ./public/README.md 
 
     #make a url from the repo name and user or organisation name followed by /blob/master/README.md
