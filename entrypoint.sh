@@ -113,8 +113,9 @@ echo "adding the following line <link href="./metadata.ttl" rel="describedby" ty
 sed -i "s|</head>|<link href="./metadata.ttl" rel="describedby" type="text/turtle"></head>|g" ./build/index.html
 
 #in the index.html add a script tag type="text/turtle" with as content the contents of the metadata.ttl file
-echo "adding a script tag type="text/turtle" with as content the contents of the metadata.ttl file to the head tag of the index.html file"
-sed -i "s|</head>|<script type="text/turtle">$(cat ./public/metadata.ttl)</script></head>|g" ./build/index.html
+echo put the cat output of the metadata.ttl file in the index.html file as a script tag type="text/turtle" 
+sed -i "s#</head>#<script type=\"text/turtle\">$(cat ./public/metadata.ttl)</script></head>#g" ./build/index.html
+
 
 rsync --recursive --progress ./build/* ./github/workspace/unicornpages
 ls -a ./github/workspace/unicornpages
