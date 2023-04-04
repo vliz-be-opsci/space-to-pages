@@ -13,10 +13,6 @@ export const Publications = (props) => {
                 <div key={`${d.title}-${i}`} className="col-md-6">
                   <a href={d.link} target="_blank" rel="noreferrer">
                     <div className="publications">
-                      <div className="publications-image">
-                        {" "}
-                        <img src={d.img} alt="" />{" "}
-                      </div>
                       <div className="publications-content">
                         <div className="publications-meta"> - {d.title} </div>
                         <p>"{d.text}"</p>
