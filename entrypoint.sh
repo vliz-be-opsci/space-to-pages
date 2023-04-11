@@ -35,7 +35,7 @@ then
     python -m json.tool ./github/workspace/data/project_profiles.json
     python -m json.tool ./github/workspace/data/tabular_data.json
     python -m json.tool ./github/workspace/data/publications.json
-    
+
 
     #copy the files over into ./src/data
     echo "copying the files over into ./src/data"
