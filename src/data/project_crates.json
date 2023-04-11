@@ -3,7 +3,18 @@
       "icon": "fa fa-wordpress",
       "name": "Lorem ipsum dolor",
       "url" : "http://www.google.com",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+      "icon": "fa fa-wordpress",
+      "name": "Data",
+      "url" : "/Data",
+      "text": "Central data RO-Crate, containing further data repositories",
+      "index": [
+        {"path":"/QualityControlledData", "label": "This is the repository for data taken from different sources, which are then quality controlled and combined"},
+        {"path":"/QualityControlledData/FromPlutoF", "label": "The metadata taken from PlutoF, which are quality controlled"}
+      ],
+      "group": "data group"
     },
     {
       "icon": "fa fa-cart-arrow-down",

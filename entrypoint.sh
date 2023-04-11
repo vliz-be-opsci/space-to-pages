@@ -27,6 +27,16 @@ echo "checking if the following files are present in ./github/workspace : [./src
 if [ -f ./github/workspace/data/contacts.json ] && [ -f ./github/workspace/data/main_data.json ] && [ -f ./github/workspace/data/project_crates.json ] && [ -f ./github/workspace/data/project_profiles.json ] && [ -f ./github/workspace/data/tabular_data.json ] && [ -f ./github/workspace/data/publications.json ];
 then
     echo "all files are present"
+    #check each json file for syntax errors
+    echo "checking each json file for syntax errors"
+    python -m json.tool ./github/workspace/data/contacts.json
+    python -m json.tool ./github/workspace/data/main_data.json
+    python -m json.tool ./github/workspace/data/project_crates.json
+    python -m json.tool ./github/workspace/data/project_profiles.json
+    python -m json.tool ./github/workspace/data/tabular_data.json
+    python -m json.tool ./github/workspace/data/publications.json
+    
+
     #copy the files over into ./src/data
     echo "copying the files over into ./src/data"
     cp ./github/workspace/data/contacts.json ./src/data/contacts.json

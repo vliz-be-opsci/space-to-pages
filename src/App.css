@@ -96,6 +96,11 @@
   animation: iconGrow 0.3s ease-in-out forwards ; /*make the icon stay growsn */
 }
 
+
+.cratecard:hover > i {
+  animation: iconGrow 1s infinite ease-in-out alternate;
+}
+
 /*animation to make the icons bigger when hovered*/
 @keyframes iconGrow {
   0% {

@@ -11,12 +11,22 @@ export const Navigation = (props) => {
   console.log(currentRoute);
   //make prepend variable that will be used to prepend the hash route to the href
   function prependHash(currentRoute) {
-    if (currentRoute.includes("#/data")) {
+    //if the current route is not #aboutsection,#publications,#profiles,#crates,#team then prepend hash
+    if (
+      !currentRoute.includes("aboutsection") &&
+      !currentRoute.includes("publications") &&
+      !currentRoute.includes("profiles") &&
+      !currentRoute.includes("crates") &&
+      !currentRoute.includes("team") &&
+      !currentRoute.includes("")
+    ) {
       return "#/";
     } else {
       return "";
     }
+     
   }
+  
   const prepend = prependHash(currentRoute);
   console.log(prepend);
   const logostyle = {
@@ -94,7 +104,7 @@ export const Navigation = (props) => {
               </a>
             </li>
             <li>
-              <a href={currentRoutePath+"#/data"} className="page-scroll">
+              <a href={currentRoutePath+"#/data-explorer"} className="page-scroll">
                 Data explorer
               </a>
             </li>

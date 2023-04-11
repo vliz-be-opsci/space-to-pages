@@ -32,7 +32,7 @@ export const DataFiles = (props) => {
                                 
                                 <div className="fileitem">
                                     <div className="fileitem_direct_child">
-                                    <a href={"#/data/"+d.id} >
+                                    <a href={"#/data-explorer/"+d.id} >
                                         <h4>{d.name}</h4>
                                         <h6>{d.description}</h6>
                                     </a>

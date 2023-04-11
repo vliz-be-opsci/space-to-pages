@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Homepage from "./pages/homepage";
 import Data from "./pages/data_explorer";
 import FilePage from "./pages/filepage";
+import GroupedCrates from "./pages/grouped_crate";
 import MainData from "./data/main_data.json";
 import ContactData from "./data/contacts.json";
 import ProfilesData from "./data/project_profiles.json";
@@ -42,8 +43,9 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Homepage data={landingPageData} />} />
-      <Route path="/data/:id" element={<FilePage data={landingPageData} />} />
-      <Route path="/data" element={<Data data={landingPageData} />} />
+      <Route path="/data-explorer/:id" element={<FilePage data={landingPageData} />} />
+      <Route path="/data-explorer" element={<Data data={landingPageData} />} />
+      <Route path="*" element={<GroupedCrates data={landingPageData} />} />
     </Routes>
   );
 };
