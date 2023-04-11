@@ -21,7 +21,7 @@ export const GroupedCratesTable = (props) => {
                         {props.data
                             ? props.data.index.map((d, i) => (
                                 <tr key={`${d.path}-${i}`}>
-                                    <td><a href={d.path} >{d.label}</a></td>
+                                    <td><a href={props.data.url + d.path} >{d.label}</a></td>
                                 </tr>
                             ))
                             : "loading"}
