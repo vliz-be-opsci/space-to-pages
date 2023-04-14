@@ -13,6 +13,7 @@ All 'visual' data can be easily modified by changing the json files located in t
 ## Make it Yours!
 ### 1. Add your own data 
 Change the data in the ```data/``` folder as well as add any images to ```img/``` folder.
+Change the "About" section directly in the README.md (see https://www.markdownguide.org/basic-syntax/ for markdown syntax)
 
 #### 1.1. Data Structure
 
