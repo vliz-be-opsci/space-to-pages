@@ -1,6 +1,7 @@
 import React from "react";
 import { Navigation} from "../components/navigation";
 import { GroupedCratesTable } from "../components/groupedcrates";
+import { Footer } from "../components/footer";
 
 const GroupedCrates = (data) => {
     console.log(data.data);
@@ -25,6 +26,7 @@ const GroupedCrates = (data) => {
         <div>
             <Navigation data={landingPageData.Header}/>
             <GroupedCratesTable data={currentCrateinfo}/>
+            <Footer/>
         </div>
     );
 }

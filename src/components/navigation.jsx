@@ -22,18 +22,16 @@ export const Navigation = (props) => {
     ) {
       return "#/";
     } else {
+      //return query string
       return "";
     }
-     
   }
   
   const prepend = prependHash(currentRoute);
   console.log(prepend);
   const logostyle = {
-    width: "40px",
-    height: "40px",
-    display: "inline-block",
-    verticalAlign: "middle"
+    width: "30px",
+    height: "30px",
   }
 
 
@@ -57,7 +55,7 @@ export const Navigation = (props) => {
           <a className="navbar-brand page-scroll" href={currentRoutePath+prepend+"#"}>
             {props.data ? 
             <>
-            <img src={props.data.logo} style={logostyle} alt="project_title_here"></img>
+              <img src={props.data.logo} style={logostyle} alt="project_title_here"></img>
             </>
              : "Loading"}
           </a>{" "}
@@ -84,18 +82,23 @@ export const Navigation = (props) => {
             )
             }
             <li>
+              <a href={currentRoutePath+"#/data-explorer"} className="page-scroll">
+                Data explorer
+              </a>
+            </li>
+            <li>
               <a href={currentRoutePath+prepend+"#publications"} className="page-scroll">
                 Publications
               </a>
             </li>
             <li>
-              <a href={currentRoutePath+prepend+"#profiles"} className="page-scroll">
-                Profiles
+              <a href={currentRoutePath+prepend+"#crates"} className="page-scroll">
+                RO-Crates
               </a>
             </li>
             <li>
-              <a href={currentRoutePath+prepend+"#crates"} className="page-scroll">
-                Crates
+              <a href={currentRoutePath+prepend+"#profiles"} className="page-scroll">
+                RO-Profiles
               </a>
             </li>
             <li>
@@ -103,11 +106,7 @@ export const Navigation = (props) => {
                 Team
               </a>
             </li>
-            <li>
-              <a href={currentRoutePath+"#/data-explorer"} className="page-scroll">
-                Data explorer
-              </a>
-            </li>
+            
           </ul>
         </div>
       </div>

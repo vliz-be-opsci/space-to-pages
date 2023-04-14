@@ -2,6 +2,7 @@
 import React from "react";
 import { Navigation} from "../components/navigation";
 import SingleFileContents from "../containers/singlefilecontens";
+import { Footer } from "../components/footer";
 const FilePage = (props) => {
     console.log(props.data);
     console.log(window.location.hash);
@@ -21,6 +22,7 @@ const FilePage = (props) => {
         <div style={filepagestyle}>
             <Navigation data={props.data.Header}/>
             <SingleFileContents data={filee}/>
+            <Footer/>
         </div>
     );
 }

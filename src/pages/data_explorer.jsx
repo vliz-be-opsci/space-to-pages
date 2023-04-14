@@ -2,6 +2,7 @@
 import React from "react";
 import { Navigation} from "../components/navigation";
 import { DataFiles } from "../components/datafiles";
+import  { Footer } from "../components/footer";
 
 
 const Data = (data) => {
@@ -19,6 +20,7 @@ const Data = (data) => {
         <div>
             <Navigation data={landingPageData.Header}/>
             <DataFiles data={landingPageData.TData}/>
+            <Footer/>
         </div>
     );
 }
