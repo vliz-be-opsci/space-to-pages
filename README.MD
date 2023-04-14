@@ -1,5 +1,3 @@
-#TEST
-
 
 #act JS Landing Page Template
 ### <a href="https://open-science.vliz.be/example-bon-site-to-pages/" target="_blank">LIVE DEMO</a> 
