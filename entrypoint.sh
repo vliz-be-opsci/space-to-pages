@@ -51,7 +51,7 @@ else
 fi
 
 echo "copying over the ./img folder to ./public/img"
-cp -r ./github/workspace/img ./public/img
+cp -r ./github/workspace/img ./public
 
 #check if there is a img folder in ./github/workspace, if so copy it over to ./src/img recursively with force overwrite
 echo "checking if there is a img folder in ./github/workspace"
