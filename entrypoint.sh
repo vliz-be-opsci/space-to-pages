@@ -51,7 +51,7 @@ else
 fi
 
 echo "copying over the ./img folder to ./public/img"
-cp -r ./img ./public/img
+cp -r ./github/workspace/img ./public/img
 
 #check if there is a img folder in ./github/workspace, if so copy it over to ./src/img recursively with force overwrite
 echo "checking if there is a img folder in ./github/workspace"
@@ -120,7 +120,8 @@ echo "installing dependencies for building react app"
 npm install
 echo "npm run build"
 npm run build
-echo "copying over scr files to build folder"
+echo "copying over ./img files to build folder ./build/img"
+
 
 
 #in the index.html add the following line <link href="./metadata.ttl" rel="describedby" type="	text/turtle"> to the head tag
