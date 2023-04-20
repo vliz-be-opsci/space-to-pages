@@ -50,6 +50,9 @@ else
     exit 1
 fi
 
+echo "copying over the ./img folder to ./public/img"
+cp -r ./img ./public/img
+
 #check if there is a img folder in ./github/workspace, if so copy it over to ./src/img recursively with force overwrite
 echo "checking if there is a img folder in ./github/workspace"
 if [ -d ./github/workspace/img ];
@@ -118,6 +121,8 @@ npm install
 echo "npm run build"
 npm run build
 echo "copying over scr files to build folder"
+
+
 #in the index.html add the following line <link href="./metadata.ttl" rel="describedby" type="	text/turtle"> to the head tag
 echo "adding the following line <link href="./metadata.ttl" rel="describedby" type="text/turtle"> to the head tag of the index.html file"
 sed -i "s|</head>|<link href="./metadata.ttl" rel="describedby" type="text/turtle"></head>|g" ./build/index.html
