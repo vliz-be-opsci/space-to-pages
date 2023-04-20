@@ -26,8 +26,8 @@ const Homepage = (data) => {
             <Header data={landingPageData.Header} />
             <About data={landingPageData.Header} />
             <Publications data={landingPageData.Publications} />
-            <Profiles data={landingPageData.Profiles} />
             <Crates data={landingPageData.Crates} />
+            <Profiles data={landingPageData.Profiles} />
             <Team data={landingPageData.Contacts} />
             <Footer />
         </div>
