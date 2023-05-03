@@ -91,6 +91,17 @@ else
     exit 1
 fi
 
+#check if CNAME file is present in ./github/workspace, if so then copy it over to ./public
+echo "checking if CNAME file is present in ./github/workspace"
+if [ -f ./github/workspace/CNAME ];
+then
+    echo "CNAME file is present"
+    echo "copying the CNAME file over to ./public"
+    cp ./github/workspace/CNAME ./public/CNAME
+else
+    echo "CNAME file is not present"
+fi
+
 #install pip requirements from requirements.txt
 echo "installing pip requirements from requirements.txt"
 pip install -r requirements.txt --no-cache-dir
