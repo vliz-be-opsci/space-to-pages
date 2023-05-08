@@ -144,14 +144,14 @@ echo put the cat output of the metadata.ttl file in the index.html file as a scr
 sed -i "s|</head>|<script type=\"text/turtle\">$(cat ./public/metadata.ttl)</script></head>|g" ./build/index.html
 
 #in index.html change the <head><meta name="description"> to what was provided in ./src/data/main_data.json keys "description"
-echo "in index.html change the <head><meta name="description"> and <title> to what was provided in ./src/data/main_data.json keys "description" and "long_name""
-sed -i "s|<meta name=\"description\" content=\".*\">|<meta name=\"description\" content=\"$(jq -r '.description' ./src/data/main_data.json)\">|g" ./build/index.html
+#echo "in index.html change the <head><meta name="description"> and <title> to what was provided in ./src/data/main_data.json keys "description" and "long_name""
+#sed -i "s|<meta name=\"description\" content=\".*\">|<meta name=\"description\" content=\"$(jq -r '.description' ./src/data/main_data.json)\">|g" ./build/index.html
 
 #add the title tag with the long_name from ./src/data/main_data.json
 sed -i "s|<title>.*</title>|<title>$(jq -r '.long_name' ./src/data/main_data.json)</title>|g" ./build/index.html
 
 #in index.html replace <body></body> with <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top"><div id="root"></div><script type="text/javascript" src="js/jquery.1.11.1.js"></script><script type="text/javascript" src="js/bootstrap.js"></script></body>
-sed -i "s|<body>|<body id=\"page-top\" data-spy=\"scroll\" data-target=\".navbar-fixed-top\"><div id=\"root\"></div><script type=\"text/javascript\" src=\"js/jquery.1.11.1.js\"></script><script type=\"text/javascript\" src=\"js/bootstrap.js\"></script>|g" ./build/index.html
+#sed -i "s|<body>|<body id=\"page-top\" data-spy=\"scroll\" data-target=\".navbar-fixed-top\"><div id=\"root\"></div><script type=\"text/javascript\" src=\"js/jquery.1.11.1.js\"></script><script type=\"text/javascript\" src=\"js/bootstrap.js\"></script>|g" ./build/index.html
 
 rsync --recursive --progress ./build/* ./github/workspace/unicornpages
 ls -a ./github/workspace/unicornpages
