@@ -3,6 +3,9 @@ FROM nikolaik/python-nodejs
 RUN apt-get update && \
     apt-get -y install rsync
 
+#install jq to parse json
+RUN apt-get install jq -y
+
 #copy over neccesary files to docker image
 COPY public /public
 COPY src /src
