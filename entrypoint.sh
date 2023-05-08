@@ -143,13 +143,12 @@ sed -i "s|</head>|<link href="./metadata.ttl" rel="describedby" type="text/turtl
 echo put the cat output of the metadata.ttl file in the index.html file as a script tag type="text/turtle" 
 sed -i "s|</head>|<script type=\"text/turtle\">$(cat ./public/metadata.ttl)</script></head>|g" ./build/index.html
 
-#in index.html change the <head><meta name="description"> and <title> to what was provided in ./src/data/main_data.json keys "description" and "long_name"
+#in index.html change the <head><meta name="description"> to what was provided in ./src/data/main_data.json keys "description"
 echo "in index.html change the <head><meta name="description"> and <title> to what was provided in ./src/data/main_data.json keys "description" and "long_name""
-sed -i  "s|</head>|<meta name=\"description\" content=\".*\">#<meta name=\"description\" content=\"$(jq -r '.description' ./src/data/main_data.json)\">#g" ./build/index.html
-
+sed -i "s|<meta name=\"description\" content=\".*\">|<meta name=\"description\" content=\"$(jq -r '.description' ./src/data/main_data.json)\">|g" ./build/index.html
 
 #replace the title tag with the long_name from ./src/data/main_data.json
-sed -i "s|</head>|<title>.*</title>#<title>$(jq -r '.long_name' ./src/data/main_data.json)</title>#g" ./build/index.html
+sed -i "s|<title>.*</title>|<title>$(jq -r '.long_name' ./src/data/main_data.json)</title>|g" ./build/index.html
 
 
 rsync --recursive --progress ./build/* ./github/workspace/unicornpages
