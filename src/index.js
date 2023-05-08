@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import { HashRouter } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
+import 'bootstrap/dist/js/bootstrap.bundle.js';
 
 ReactDOM.render(
   <React.StrictMode>

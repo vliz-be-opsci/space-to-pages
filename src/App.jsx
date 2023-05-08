@@ -21,6 +21,10 @@ export const scroll = new SmoothScroll('a[href*="#"]', {
 
 const App = () => {
 
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+
   const namespace = "1b671a64-40d5-491e-99b0-da01ff1f3341";
   
   TabularData.forEach((item) => {
