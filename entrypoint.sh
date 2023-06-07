@@ -116,6 +116,7 @@ echo "running the pysubyt commands"
 python -m pysubyt -t ./templates/  \
        -s contact ../src/data/contacts.json \
        -s main ../src/data/main_data.json \
+       -s publications ../src/data/publications.json \
        -s project_crate ../src/data/project_crates.json \
        -s project_profile ../src/data/project_profiles.json \
        -n metadata.ttl -o outputs/metadata.ttl \
@@ -132,8 +133,6 @@ npm install
 echo "npm run build"
 npm run build
 echo "copying over ./img files to build folder ./build/img"
-
-
 
 #in the index.html add the following line <link href="./metadata.ttl" rel="describedby" type="	text/turtle"> to the head tag
 echo "adding the following line <link href="./metadata.ttl" rel="describedby" type="text/turtle"> to the head tag of the index.html file"
