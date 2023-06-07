@@ -23,15 +23,17 @@
     foaf:logo <{{maindata.logo}}>;
     schema:mainEntityOfPage <{{base_uri}}>;
     schema:hasPart [
-        rdf:type schema:CreativeWork , schema:ItemList;
-        schema:name "Profiles" ;
+        rdf:type schema:ItemList;
+        schema:partOf <{{base_uri}}>;
+        schema:name "Profiles in {{maindata.long_name}}" ;
         {% for profile in sets['project_profile'] -%}
         schema:itemListElement <{{profile.url}}>;
         {% endfor -%}
     ],
     [
-        rdf:type schema:CreativeWork , schema:ItemList;
-        schema:name "Crates" ;
+        rdf:type schema:ItemList;
+        schema:partOf <{{base_uri}}>;
+        schema:name "Crates in {{maindata.long_name}}" ;
         {% for crate in sets['project_crate'] -%}
         {% if crate.index -%}
         {% for index in crate.index -%}
