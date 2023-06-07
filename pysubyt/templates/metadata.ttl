@@ -3,13 +3,14 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix da: <https://open-vocabularies.vliz.be/dmbonassistant#> .
+@prefix schema: <http://schema.org/> .
 
 {% for contacte in sets['contact'] -%}
 <{{uritexpand("https://orcid.org{/ORCID}", contacte)}}>
     a foaf:Person ;
     foaf:name "{{contacte.name}}" ;
     {% if contacte.email -%}
-    foaf:mbox <mailto:{{contacte.email}}> ;
+    foaf:mbox <mailto:{{contacte.email|trim}}> ;
     {% endif -%}
     .
     
@@ -19,22 +20,66 @@
     dc:title "{{maindata.long_name}}" ;
     foaf:name "{{maindata.name_site}}" ;
     dc:description "{{maindata.description}}" ;
-    foaf:logo <{{maindata.logo}}> 
+    foaf:logo <{{maindata.logo}}>;
+    schema:mainEntityOfPage <{{base_uri}}>;
+    schema:hasPart [
+        rdf:type schema:CreativeWork , schema:ItemList;
+        schema:name "Profiles" ;
+        {% for profile in sets['project_profile'] -%}
+        schema:itemListElement <{{profile.url}}>;
+        {% endfor -%}
+    ],
+    [
+        rdf:type schema:CreativeWork , schema:ItemList;
+        schema:name "Crates" ;
+        {% for crate in sets['project_crate'] -%}
+        {% if crate.index -%}
+        {% for index in crate.index -%}
+        schema:itemListElement <{{base_uri}}{{crate.url}}{{index.path}}>;
+        {% endfor -%}
+        {% else -%}
+        schema:itemListElement <{{crate.url}}>;
+        {% endif -%}
+        {% endfor -%}
+    ];
+    {% for publication in sets['publications']%}
+    schema:hasPart <{{publication.link}}>;
+    {% endfor %}
     .
+
 <{{maindata.logo}}> rdf:type foaf:Image 
-.
+    .
+
 {% endfor %}
 {% for profile in sets['project_profile'] -%}
-<{{profile.url}}> rdf:type da:crateRepo ;
+<{{profile.url}}> rdf:type schema:ListItem, schema:CreativeWork ;
     dc:title "{{profile.title}}" ;
-    dc:description "{{profile.text}}" 
+    dc:description "{{profile.text}}" ;
+    schema:item <{{profile.url}}> ;
     .
 
 {% endfor -%}
 {% for crate in sets['project_crate'] -%}
-<{{crate.url}}> rdf:type da:crateRepo ;
-    dc:title "{{crate.name}}" ;
-    dc:description "{{crate.text}}" 
+{% if crate.index -%}
+{% for index in crate.index -%}
+<{{base_uri}}{{crate.url}}{{index.path}}> rdf:type schema:ListItem, schema:CreativeWork ;
+    dc:description "{{index.label}}" ;
+    schema:item <{{base_uri}}{{crate.url}}{{index.path}}>;
     .
+{% endfor -%}
+{% else -%}
+<{{crate.url}}> rdf:type schema:ListItem, schema:CreativeWork ;
+    dc:title "{{crate.name}}" ;
+    dc:description "{{crate.text}}" ;
+    schema:item <{{crate.url}}> ;
+    .
+{% endif -%}
+{% endfor -%}
 
+{% for publication in sets['publications']%}
+<{{publication.link}}> rdf:type schema:CreativeWork ;
+    dc:title "{{publication.title}}" ;
+    dc:description "{{publication.text}}" ;
+    schema:url <{{publication.link}}> ;
+    .
 {% endfor %}
