@@ -136,7 +136,7 @@ echo "copying over ./img files to build folder ./build/img"
 
 #in the index.html add the following line <link href="./metadata.ttl" rel="describedby" type="	text/turtle"> to the head tag
 echo "adding the following line <link href="./metadata.ttl" rel="describedby" type="text/turtle"> to the head tag of the index.html file"
-sed -i "s|</head>|<link href="./metadata.ttl" rel="describedby" type="text/turtle"></head>|g" ./build/index.html
+sed -i "s|</head>|<link href="./metadata.ttl" rel="describedby" type="text/turtle"/></head>|g" ./build/index.html
 
 #in the index.html add a script tag type="text/turtle" with as content the contents of the metadata.ttl file to the head tag
 echo put the cat output of the metadata.ttl file in the index.html file as a script tag type="text/turtle" 
