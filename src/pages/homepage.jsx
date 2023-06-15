@@ -29,7 +29,7 @@ const Homepage = (data) => {
             <Crates data={landingPageData.Crates} />
             <Profiles data={landingPageData.Profiles} />
             <Team data={landingPageData.Contacts} />
-            <Footer />
+            <Footer data={landingPageData}/>
         </div>
     );
 }
