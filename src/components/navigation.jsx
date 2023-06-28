@@ -85,11 +85,16 @@ export const Navigation = (props) => {
               <></>
             )
             }
-            <li>
-              <a href={currentRoutePath+"#/data-explorer"} className="page-scroll">
-                Data explorer
-              </a>
-            </li>
+            {
+              props.data.TData ?
+              <li>
+                <a href={currentRoutePath+"#/data-explorer"} className="page-scroll">
+                  Data explorer
+                </a>
+              </li>
+              :
+              <></>
+            }
             <li>
               <a href={currentRoutePath+prepend+"#publications"} className="page-scroll">
                 Publications

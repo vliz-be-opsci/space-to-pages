@@ -101,6 +101,13 @@
   animation: iconGrow 1s infinite ease-in-out alternate;
 }
 
+.flexrow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
 /*animation to make the icons bigger when hovered*/
 @keyframes iconGrow {
   0% {

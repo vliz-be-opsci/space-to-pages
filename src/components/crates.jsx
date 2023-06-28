@@ -12,7 +12,8 @@ export const Crates = (props) => {
       window.location.href = "#"+crate.url;
     }
     else {
-      window.location.href = crate.url;
+      //open a new tab
+      window.open(crate.url, "_blank");
     }
   }
 
