@@ -6,7 +6,6 @@ export const Footer = (props) => {
   //get the current year
   const year = new Date().getFullYear();
 
-
   return (
     <div id="footer">
       <div className="container text-center flexrow">
