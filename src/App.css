@@ -108,6 +108,14 @@
   justify-content: space-around;
 }
 
+.footer_logo {
+  height: auto;
+  max-height: 20px;
+  object-fit: contain;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
 /*animation to make the icons bigger when hovered*/
 @keyframes iconGrow {
   0% {

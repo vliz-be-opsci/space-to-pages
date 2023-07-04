@@ -10,9 +10,19 @@ export const Footer = (props) => {
   return (
     <div id="footer">
       <div className="container text-center flexrow">
-        <a href="./metadata.ttl"><img src="https://www.svgrepo.com/show/44264/crate.svg" style={{"height":"25px"}}/></a>
-        <p>&copy; {year} <a href="#">@{props.data.Header.short_name}</a></p>
-        <p>&copy; 2023 <a href="https://open-science.vliz.be/">@vliz-be-opsci</a> React Landing Page Template</p>
+            <p></p>
+            <p>Created from 
+                <a href="https://github.com/vliz-be-opsci/https://github.com/vliz-be-opsci/space-to-pages"> space-to-pages </a> 
+                by 
+                <a href="https://open-science.vliz.be/" target="_blank">
+                    <img src="https://open-science.vliz.be/img/vliz-opsci-logo.png" alt="@vliz-be-opsci" className="footer_logo"/>
+                </a>
+            </p>
+            <p>
+                <a href="./metadata.ttl">
+                    <img src="https://open-science.vliz.be/img/rdf.png" alt="metadata.ttl" className="footer_logo"/>
+                </a>
+            </p>
       </div>
     </div>
   );
