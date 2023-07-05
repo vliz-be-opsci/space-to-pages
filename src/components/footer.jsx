@@ -1,5 +1,4 @@
 import React from "react";
-import { SiLinkerd } from "react-icons/si";
 
 export const Footer = (props) => {
   console.log(process.env.REACT_APP_GH_REPO);
@@ -9,9 +8,9 @@ export const Footer = (props) => {
     <div id="footer">
       <div className="container text-center flexrow">
             <p></p>
-            <p>Created from 
+            <p>Created by
                 <a href="https://github.com/vliz-be-opsci/https://github.com/vliz-be-opsci/space-to-pages"> space-to-pages </a> 
-                by 
+                from
                 <a href="https://open-science.vliz.be/" target="_blank">
                     <img src="https://open-science.vliz.be/img/VLIZ_LOGO.svg" alt="@vliz-be-opsci" className="footer_logo"/>
                 </a>
@@ -21,6 +20,7 @@ export const Footer = (props) => {
                 </a>
             </p>
             <p>
+                as 
                 <a href="./metadata.ttl">
                     <img src="https://open-science.vliz.be/img/rdf-logo.svg" alt="metadata.ttl" className="footer_logo"/>
                 </a>
