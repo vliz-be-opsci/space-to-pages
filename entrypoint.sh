@@ -127,7 +127,7 @@ cd ..
 #copy over the pysubyt/outputs/metadata.ttl file to ./github/workspace/unicornpages/metadata.ttl
 echo "copying over the pysubyt/outputs/metadata.ttl file to ./github/workspace/unicornpages/metadata.ttl"
 cp ./pysubyt/outputs/metadata.ttl ./public/metadata.ttl
-
+echo "REACT_APP_GH_REPO=$GITHUB_REPOSITORY" >> .env
 echo "installing dependencies for building react app"
 npm install
 echo "npm run build"

@@ -2,10 +2,9 @@ import React from "react";
 import { SiLinkerd } from "react-icons/si";
 
 export const Footer = (props) => {
-
+  console.log(process.env.REACT_APP_GH_REPO);
   //get the current year
   const year = new Date().getFullYear();
-
   return (
     <div id="footer">
       <div className="container text-center flexrow">
@@ -15,6 +14,10 @@ export const Footer = (props) => {
                 by 
                 <a href="https://open-science.vliz.be/" target="_blank">
                     <img src="https://open-science.vliz.be/img/vliz-opsci-logo.png" alt="@vliz-be-opsci" className="footer_logo"/>
+                </a>
+                with data 
+                <a href={"https://github.com/"+process.env.REACT_APP_GH_REPO} target="_blank">
+                    <img src="https://open-science.vliz.be/img/github-logo.svg" alt="data-location" className="footer_logo"/>
                 </a>
             </p>
             <p>
