@@ -22,12 +22,22 @@ const Homepage = (data) => {
 
     return (
         <div>
-            <Navigation data={landingPageData.Header}/>
+            <Navigation data={landingPageData.Header} crates={landingPageData.Crates} profiles={landingPageData.Profiles}/>
             <Header data={landingPageData.Header} />
             <About data={landingPageData.Header} />
             <Publications data={landingPageData.Publications} />
-            <Crates data={landingPageData.Crates} />
-            <Profiles data={landingPageData.Profiles} />
+            { 
+              landingPageData.Crates.length > 0 ?
+              <Crates data={landingPageData.Crates} />
+                :
+                <></>
+            }
+            {
+                landingPageData.Profiles.length > 0 ?
+                <Profiles data={landingPageData.Profiles} />
+                :
+                <></>
+            }
             <Team data={landingPageData.Contacts} />
             <Footer data={landingPageData}/>
         </div>

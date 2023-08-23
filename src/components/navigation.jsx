@@ -100,28 +100,42 @@ export const Navigation = (props) => {
                 Publications
               </a>
             </li>
-            <li>
-              <a 
-              href={currentRoutePath+prepend+"#crates"} 
-              className="page-scroll" 
-              data-toggle="tooltip2" 
-              data-placement="bottom" 
-              title="Research Object Crates (https://www.researchobject.org/ro-crate/): a way to package file-based research data so they are linked, grouped, described, and semantically annotated. In our Github spaces, each repository can also be a RO-Crate."
-              >
-                RO-Crates
-              </a>
-            </li>
-            <li>
-              <a 
-              href={currentRoutePath+prepend+"#profiles"}
-              className="page-scroll"
-              data-toggle="tooltip1" 
-              data-placement="top" 
-              title="Research Object Profiles (https://www.researchobject.org/ro-crate/): a set of conventions, types, and properties that one minimally can require and expect to be present in a particular type of RO-Crate, thus standardising their layout."
-              >
-                RO-Profiles
-              </a>
-            </li>
+            {
+              //check if length of profiles is greater than 0
+              props.crates.length > 0 ? (
+                <li>
+                  <a 
+                  href={currentRoutePath+prepend+"#crates"} 
+                  className="page-scroll" 
+                  data-toggle="tooltip2" 
+                  data-placement="bottom" 
+                  title="Research Object Crates (https://www.researchobject.org/ro-crate/): a way to package file-based research data so they are linked, grouped, described, and semantically annotated. In our Github spaces, each repository can also be a RO-Crate."
+                  >
+                    RO-Crates
+                  </a>
+                </li>
+              ) : (
+                <></>
+              )
+            }
+            {
+              //check if length of profiles is greater than 0
+              props.profiles.length > 0 ? (
+                <li>
+                  <a 
+                  href={currentRoutePath+prepend+"#profiles"}
+                  className="page-scroll"
+                  data-toggle="tooltip1" 
+                  data-placement="top" 
+                  title="Research Object Profiles (https://www.researchobject.org/ro-crate/): a set of conventions, types, and properties that one minimally can require and expect to be present in a particular type of RO-Crate, thus standardising their layout."
+                  >
+                    RO-Profiles
+                  </a>
+                </li>
+              ) : (
+                <></>
+              )
+            }
             <li>
               <a href={currentRoutePath+prepend+"#team"} className="page-scroll">
                 Team
