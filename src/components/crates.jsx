@@ -8,25 +8,13 @@ export const Crates = (props) => {
   const crateClick = (crate) => {
     //go to crate.url
     console.log(crate);
-    if (crate.index) {
-      window.location.href = "#"+crate.url;
-    }
-    else {
-      //open a new tab
-      window.open(crate.url, "_blank");
-    }
+    window.open(crate.crateurl, "_blank");
   }
 
   const githubClick = (crate) => {
     //go to crate.url
     console.log(crate);
-    if (crate.index) {
-      window.location.href = "#"+crate.url;
-    }
-    else {
-      //open a new tab
-      window.open(crate.github_url, "_blank");
-    }
+    window.open(crate.url, "_blank");
   }
 
   return (
