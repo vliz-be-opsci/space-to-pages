@@ -111,7 +111,7 @@ export const Navigation = (props) => {
                   data-placement="bottom" 
                   title="Research Object Crates (https://www.researchobject.org/ro-crate/): a way to package file-based research data so they are linked, grouped, described, and semantically annotated. In our Github spaces, each repository can also be a RO-Crate."
                   >
-                    RO-Crates
+                    Data
                   </a>
                 </li>
               ) : (

@@ -17,22 +17,46 @@ export const Crates = (props) => {
     }
   }
 
+  const githubClick = (crate) => {
+    //go to crate.url
+    console.log(crate);
+    if (crate.index) {
+      window.location.href = "#"+crate.url;
+    }
+    else {
+      //open a new tab
+      window.open(crate.github_url, "_blank");
+    }
+  }
+
   return (
     <div id="crates" className="text-center">
       <div className="container">
         <div className="section-title">
-          <h2>Our Crates</h2>
+          <h2>Our Data packages</h2>
         </div>
-        <div className="row">
+        <div className="row" style={{padding:"20px"}}>
           {props.data
             ? props.data.map((d, i) => (
-                <div key={`${d.name}-${i}`} className={`col-md-${12/props.data.length < 4 ? 4 : 12/props.data.length} cratecard`} onClick={() => crateClick(d)}>
+                <div key={`${d.name}-${i}`} className="col-md-12" >
                   {" "}
-                  <i className={d.icon}></i>
-                  <div className="service-desc">
-                    <h3>{d.name}</h3>
+                  <div className="col-md-2">
+                    <h4>{d.name}</h4>
+                  </div>
+                  <div className="col-md-8">
                     <p>{d.text}</p>
                   </div>
+                  <div className="col-md-1" onClick={() => githubClick(d)}>
+                    <i className="fa fa-github"></i>
+                  </div>
+                  {
+                    d.crateurl ?
+                    <div className="col-md-1" onClick={() => crateClick(d)}>
+                      <i className="fa fa-archive"></i>
+                    </div>
+                    :
+                  <></>
+                  }
                 </div>
               ))
             : "loading"}
