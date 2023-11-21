@@ -25,13 +25,13 @@ const Homepage = (data) => {
             <Navigation data={landingPageData.Header} crates={landingPageData.Crates} profiles={landingPageData.Profiles}/>
             <Header data={landingPageData.Header} />
             <About data={landingPageData.Header} />
-            <Publications data={landingPageData.Publications} />
             { 
               landingPageData.Crates.length > 0 ?
               <Crates data={landingPageData.Crates} />
                 :
                 <></>
             }
+            <Publications data={landingPageData.Publications} />
             {
                 landingPageData.Profiles.length > 0 ?
                 <Profiles data={landingPageData.Profiles} />
