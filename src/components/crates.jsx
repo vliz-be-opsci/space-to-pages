@@ -29,13 +29,13 @@ export const Crates = (props) => {
               <h4>Title</h4>
             </div>
             <div className="col-md-8">
-              <p>Description</p>
+              <h4>Description</h4>
             </div>
             <div className="col-md-1">
               <h4>Github</h4>
             </div>
             <div className="col-md-1">
-              <h4>Rocrate</h4>
+              <h4>RO-Crate</h4>
             </div>
           </div>
           {props.data
