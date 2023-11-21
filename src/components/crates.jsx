@@ -24,6 +24,20 @@ export const Crates = (props) => {
           <h2>Our Data packages</h2>
         </div>
         <div className="row" style={{padding:"20px"}}>
+          <div key="headers-rocrate" className="col-md-12">
+            <div className="col-md-2">
+              <h4>Title</h4>
+            </div>
+            <div className="col-md-8">
+              <p>Description</p>
+            </div>
+            <div className="col-md-1">
+              <h4>Github</h4>
+            </div>
+            <div className="col-md-1">
+              <h4>Rocrate</h4>
+            </div>
+          </div>
           {props.data
             ? props.data.map((d, i) => (
                 <div key={`${d.name}-${i}`} className="col-md-12" >
