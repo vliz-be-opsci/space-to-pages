@@ -18,7 +18,7 @@ export const Profiles = (props) => {
     <div id="profiles" className="text-center">
       <div className="container" >
         <div className="col-md-10 col-md-offset-1 section-title">
-          <h2>Profiles</h2>
+          <h2>RO-Profiles</h2>
         </div>
         <div className="row">
           {props.data

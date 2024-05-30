@@ -48,12 +48,12 @@ export const Crates = (props) => {
                   <div className="col-md-8">
                     <p>{d.text}</p>
                   </div>
-                  <div className="col-md-1" onClick={() => githubClick(d)}>
+                  <div className="col-md-1" onClick={() => githubClick(d)} title={d.url}>
                     <i className="fa fa-github"></i>
                   </div>
                   {
                     d.crateurl ?
-                    <div className="col-md-1" onClick={() => crateClick(d)}>
+                    <div className="col-md-1" onClick={() => crateClick(d)} title={d.url}>
                       <i className="fa fa-archive"></i>
                     </div>
                     :

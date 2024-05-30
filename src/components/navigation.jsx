@@ -138,7 +138,7 @@ export const Navigation = (props) => {
             }
             <li>
               <a href={currentRoutePath+prepend+"#team"} className="page-scroll">
-                Team
+                Contact
               </a>
             </li>
             
