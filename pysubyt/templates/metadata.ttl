@@ -40,7 +40,7 @@
         schema:itemListElement <{{base_uri}}{{crate.url}}{{index.path}}>;
         {% endfor -%}
         {% else -%}
-        schema:itemListElement <{{crate.url}}>;
+        schema:itemListElement <{{base_uri}}{{crate.crateurl}}>;
         {% endif -%}
         {% endfor -%}
     ];
