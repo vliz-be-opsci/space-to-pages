@@ -24,7 +24,7 @@ echo "repo name is" $GITHUB_REPOSITORY
 #check if the following files are present in ./github/workspace : [./src/data/contact.json, ./src/data/main_data.json]
 # if they are not present, then throw an error
 echo "checking if the following files are present in ./github/workspace : [./src/data/contacts.json, ./src/data/main_data.json, ./src/data/project_crates.json, ./src/data/project_profiles.json, ./src/data/tabular_data.json]"
-if [ -f ./github/workspace/data/contacts.json ] && [ -f ./github/workspace/data/main_data.json ] && [ -f ./github/workspace/data/project_crates.json ] && [ -f ./github/workspace/data/project_profiles.json ] && [ -f ./github/workspace/data/tabular_data.json ] && [ -f ./github/workspace/data/publications.json ];
+if [ -f ./github/workspace/data/contacts.json ] && [ -f ./github/workspace/data/main_data.json ] && [ -f ./github/workspace/data/project_crates.json ] && [ -f ./github/workspace/data/project_profiles.json ] && [ -f ./github/workspace/data/tabular_data.json ] && [ -f ./github/workspace/data/publications.json ] && [ -f ./github/workspace/data/vocabularies.json ] && [ -f ./github/workspace/data/ontologies.json ];
 then
     echo "all files are present"
     #check each json file for syntax errors
@@ -35,6 +35,8 @@ then
     python -m json.tool ./github/workspace/data/project_profiles.json
     python -m json.tool ./github/workspace/data/tabular_data.json
     python -m json.tool ./github/workspace/data/publications.json
+    python -m json.tool ./github/workspace/data/vocabularies.json
+    python -m json.tool ./github/workspace/data/ontologies.json
 
 
     #copy the files over into ./src/data
@@ -45,6 +47,8 @@ then
     cp ./github/workspace/data/project_profiles.json ./src/data/project_profiles.json
     cp ./github/workspace/data/tabular_data.json ./src/data/tabular_data.json
     cp ./github/workspace/data/publications.json ./src/data/publications.json
+    cp ./github/workspace/data/vocabularies.json ./src/data/vocabularies.json
+    cp ./github/workspace/data/ontologies.json ./src/data/ontologies.json
 else
     echo "one or more files of the data folder are missing"
     exit 1
@@ -119,6 +123,8 @@ python -m pysubyt -t ./templates/  \
        -s publications ../src/data/publications.json \
        -s project_crate ../src/data/project_crates.json \
        -s project_profile ../src/data/project_profiles.json \
+       -s vocabulary ../src/data/vocabularies.json \
+       -s ontology ../src/data/ontologies.json \
        -n metadata.ttl -o outputs/metadata.ttl \
        -v base_uri $2
 

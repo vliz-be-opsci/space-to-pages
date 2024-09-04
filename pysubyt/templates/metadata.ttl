@@ -44,6 +44,22 @@
         {% endif -%}
         {% endfor -%}
     ];
+    [
+        rdf:type schema:ItemList;
+        schema:partOf <{{base_uri}}>;
+        schema:name "Vocabularies in {{maindata.long_name}}" ;
+        {% for vocab in sets['vocabulary'] -%}
+        schema:itemListElement <{{base_uri}}{{vocab}}>;
+        {% endfor -%}
+    ];
+    [
+        rdf:type schema:ItemList;
+        schema:partOf <{{base_uri}}>;
+        schema:name "Ontologies in {{maindata.long_name}}" ;
+        {% for vocab in sets['ontology'] -%}
+        schema:itemListElement <{{base_uri}}{{vocab}}>;
+        {% endfor -%}
+    ];
     {% for publication in sets['publications']%}
     schema:hasPart <{{publication.link}}>;
     {% endfor %}
