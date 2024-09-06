@@ -40,7 +40,7 @@
         schema:itemListElement <{{base_uri}}{{crate.url}}{{index.path}}>;
         {% endfor -%}
         {% else -%}
-        schema:itemListElement <{{base_uri}}{{crate.metadata_crate}}>;
+        schema:itemListElement <{{base_uri}}{{crate.crate_url}}>;
         {% endif -%}
         {% endfor -%}
     ];
@@ -60,9 +60,9 @@
         schema:itemListElement <{{vocab}}>;
         {% endfor -%}
     ];
-    {% for publication in sets['publications']%}
-    schema:hasPart <{{publication.link}}>;
-    {% endfor %}
+    # {% for publication in sets['publications']%}
+    # schema:hasPart <{{publication.link}}>;
+    # {% endfor %}
     .
 
 <{{maindata.logo}}> rdf:type foaf:Image 
@@ -86,7 +86,7 @@
     .
 {% endfor -%}
 {% else -%}
-<{{crate.url}}> rdf:type schema:ListItem, schema:CreativeWork ;
+<{{crate.crate_url}}> rdf:type schema:ListItem, schema:CreativeWork ;
     dc:title "{{crate.name}}" ;
     dc:description "{{crate.text}}" ;
     schema:item <{{crate.url}}> ;
@@ -94,10 +94,10 @@
 {% endif -%}
 {% endfor -%}
 
-{% for publication in sets['publications']%}
-<{{publication.link}}> rdf:type schema:CreativeWork ;
-    dc:title "{{publication.title}}" ;
-    dc:description "{{publication.text}}" ;
-    schema:url <{{publication.link}}> ;
-    .
-{% endfor %}
+# {% for publication in sets['publications']%}
+# <{{publication.link}}> rdf:type schema:CreativeWork ;
+#     dc:title "{{publication.title}}" ;
+#     dc:description "{{publication.text}}" ;
+#     schema:url <{{publication.link}}> ;
+#     .
+# {% endfor %}
