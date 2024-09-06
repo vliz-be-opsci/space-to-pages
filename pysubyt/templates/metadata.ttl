@@ -43,7 +43,7 @@
         schema:itemListElement <{{base_uri}}{{crate.crateurl}}>;
         {% endif -%}
         {% endfor -%}
-    ];
+    ],
     [
         rdf:type schema:ItemList;
         schema:partOf <{{base_uri}}>;
@@ -51,7 +51,7 @@
         {% for vocab in sets['vocabulary'] -%}
         schema:itemListElement <{{vocab}}>;
         {% endfor -%}
-    ];
+    ],
     [
         rdf:type schema:ItemList;
         schema:partOf <{{base_uri}}>;
