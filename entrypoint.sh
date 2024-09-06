@@ -146,7 +146,7 @@ sed -i "s|</head>|<link href="./metadata.ttl" rel="describedby" type="text/turtl
 
 #in the index.html add a script tag type="text/turtle" with as content the contents of the metadata.ttl file to the head tag
 echo put the cat output of the metadata.ttl file in the index.html file as a script tag type="text/turtle" 
-sed -i "s|</head>|<script type=\"text/turtle\">$(cat ./public/metadata.ttl)</script></head>|g" ./build/index.html
+sed -i "s|</head>|<script type=\"text/turtle">$(cat ./public/metadata.ttl)</script></head>|g" ./build/index.html
 
 #in index.html change the <head><meta name="description"> to what was provided in ./src/data/main_data.json keys "description"
 #echo "in index.html change the <head><meta name="description"> and <title> to what was provided in ./src/data/main_data.json keys "description" and "long_name""
