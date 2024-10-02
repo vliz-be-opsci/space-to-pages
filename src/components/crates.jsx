@@ -1,7 +1,6 @@
 import React from "react";
 
 export const Crates = (props) => {
-
   //disable all background scrolling when modal is open
 
   //function here that will redirect to given url or that will open a modal with the crate info
@@ -9,13 +8,22 @@ export const Crates = (props) => {
     //go to crate.url
     console.log(crate);
     window.open(crate.crateurl, "_blank");
-  }
+  };
 
   const githubClick = (crate) => {
     //go to crate.url
     console.log(crate);
     window.open(crate.url, "_blank");
-  }
+  };
+
+  // function to make ellipse from long text
+  const ellipseText = (text, maxLength) => {
+    if (text.length > maxLength) {
+      return text.substring(0, maxLength) + "...";
+    } else {
+      return text;
+    }
+  };
 
   return (
     <div id="crates" className="text-center">
@@ -23,42 +31,57 @@ export const Crates = (props) => {
         <div className="section-title">
           <h2>Our Data packages</h2>
         </div>
-        <div className="row" style={{padding:"20px"}}>
-          <div key="headers-rocrate" className="col-md-12">
-            <div className="col-md-2">
-              <h4>Title</h4>
-            </div>
-            <div className="col-md-8">
-              <h4>Description</h4>
-            </div>
-            <div className="col-md-1">
-              <h4>Github</h4>
-            </div>
-            <div className="col-md-1">
-              <h4>RO-Crate</h4>
-            </div>
-          </div>
+        <div
+          className="row justify-content-center"
+          style={{ marginBottom: "10px" }}
+        >
           {props.data
             ? props.data.map((d, i) => (
-                <div key={`${d.name}-${i}`} className="col-md-12" >
-                  {" "}
-                  <div className="col-md-2">
-                    <h4>{d.name}</h4>
-                  </div>
-                  <div className="col-md-8">
-                    <p>{d.text}</p>
-                  </div>
-                  <div className="col-md-1" onClick={() => githubClick(d)} title={d.url}>
-                    <i className="fa fa-github"></i>
-                  </div>
-                  {
-                    d.crateurl ?
-                    <div className="col-md-1" onClick={() => crateClick(d)} title={d.url}>
-                      <i className="fa fa-archive"></i>
+                <div
+                  key={`${d.name}-${i}`}
+                  className="col-md-4 d-flex justify-content-center"
+                >
+                  <div
+                    className="card"
+                    style={{
+                      minWidth: "18rem",
+                      minHeight: "150px",
+                      maxHeight: "150px",
+                      marginBottom: "5em",
+                      borderTop: "2px solid white",
+                      borderRight: "2px solid white",
+                      borderLeft: "2px solid white",
+                      borderBottom: "2px solid white",
+                    }}
+                  >
+                    <div className="card-body">
+                      <h5 className="card-title">{d.name}</h5>
+                      <h6 className="card-subtitle text-muted">{d.subtitle}</h6>
+                      <p className="card-text">{ellipseText(d.text, 50)}</p>
+                      <a
+                        href={d.url}
+                        className="card-link"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          githubClick(d);
+                        }}
+                      >
+                        <i className="fa fa-github"></i>
+                      </a>
+                      {d.crateurl && (
+                        <a
+                          href={d.crateurl}
+                          className="card-link"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            crateClick(d);
+                          }}
+                        >
+                          <i className="fa fa-archive"></i>
+                        </a>
+                      )}
                     </div>
-                    :
-                  <></>
-                  }
+                  </div>
                 </div>
               ))
             : "loading"}
