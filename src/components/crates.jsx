@@ -16,6 +16,42 @@ export const Crates = (props) => {
     window.open(crate.url, "_blank");
   };
 
+  const colorPalette = {
+    yellow: '#FFFF00',
+    orange: '#FFA500',
+    black: '#000000',
+    white: '#FFFFFF',
+    lightGray: '#F0F0F0',
+  };
+
+  // get all unique keyword values from all crates , assign a color from the color palette to each keyword
+  // if the amount of unique keywords is greater than the amount of colors in the palette, then assign a random color to the keyword
+  const getKeywordColors = (crates) => {
+    let keywordColors = {};
+    let keywordColorPalette = Object.keys(colorPalette);
+    let keywordSet = new Set();
+    crates.forEach((crate) => {
+        keywordSet.add(crate.keyword);
+    });
+    let keywordArray = Array.from(keywordSet);
+    keywordArray.forEach((keyword, index) => {
+      if (index < keywordColorPalette.length) {
+        keywordColors[keyword] = colorPalette[keywordColorPalette[index]];
+      } else {
+        keywordColors[keyword] = colorPalette['black'];
+      }
+    });
+    return keywordColors;
+  };
+
+  // add the color of the keyword to the crate as a property color
+  const addKeywordColorsToCrates = (crates, keywordColors) => {
+    crates.forEach((crate) => {
+      crate.color = keywordColors[crate.keyword];
+    });
+    return crates;
+  };
+
   // function to make ellipse from long text
   const ellipseText = (text, maxLength) => {
     if (text.length > maxLength) {
@@ -24,6 +60,9 @@ export const Crates = (props) => {
       return text;
     }
   };
+
+  const keywordColors = getKeywordColors(props.data);
+  const cratesWithColors = addKeywordColorsToCrates(props.data, keywordColors);
 
   return (
     <div id="crates" className="text-center">
@@ -35,11 +74,11 @@ export const Crates = (props) => {
           className="row justify-content-center"
           style={{ marginBottom: "10px" }}
         >
-          {props.data
-            ? props.data.map((d, i) => (
+          {cratesWithColors
+            ? cratesWithColors.map((d, i) => (
                 <div
                   key={`${d.name}-${i}`}
-                  className="col-md-4 d-flex justify-content-center"
+                  className="col-md-3 d-flex justify-content-center"
                 >
                   <div
                     className="card"
@@ -50,7 +89,7 @@ export const Crates = (props) => {
                       marginBottom: "5em",
                       borderTop: "2px solid white",
                       borderRight: "2px solid white",
-                      borderLeft: "2px solid white",
+                      borderLeft: `5px solid ${d.color}`,
                       borderBottom: "2px solid white",
                     }}
                   >

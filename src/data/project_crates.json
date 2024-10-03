@@ -4,7 +4,8 @@
       "name": "Lorem ipsum dolor",
       "url" : "http://www.google.com",
       "crateurl": "https://w3id.org/ro/crate/1",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "keyword": "lorem"
     },
     {
       "icon": "fa fa-wordpress",
@@ -15,35 +16,40 @@
         {"path":"/QualityControlledData", "label": "This is the repository for data taken from different sources, which are then quality controlled and combined"},
         {"path":"/QualityControlledData/FromPlutoF", "label": "The metadata taken from PlutoF, which are quality controlled"}
       ],
-      "group": "data group"
+      "group": "data group",
+      "keyword": "lorem"
     },
     {
       "icon": "fa fa-cart-arrow-down",
       "name": "Consectetur adipiscing",
       "url" : "http://www.google.com",
       "crateurl": "https://w3id.org/ro/crate/1",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.",
+      "keyword": "lorem"
     },
     {
       "icon": "fa fa-cloud-download",
       "name": "Lorem ipsum dolor",
       "url" : "http://www.google.com",
       "crateurl": "https://w3id.org/ro/crate/1",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.",
+      "keyword": "lorem"
     },
     {
       "icon": "fa fa-language",
       "name": "Consectetur adipiscing",
       "url" : "http://www.google.com",
       "crateurl": "https://w3id.org/ro/crate/1",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.",
+      "keyword": "lorem"
     },
     {
       "icon": "fa fa-plane",
       "name": "Lorem ipsum dolor",
       "url" : "http://www.google.com",
       "crateurl": "https://w3id.org/ro/crate/1",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.",
+      "keyword": "ipsum"
     },
     {
       "icon": "fa fa-pie-chart",
