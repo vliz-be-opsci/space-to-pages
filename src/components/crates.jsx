@@ -81,44 +81,53 @@ export const Crates = (props) => {
                   className="col-md-3 d-flex justify-content-center"
                 >
                   <div
-                    className="card"
                     style={{
-                      minWidth: "18rem",
-                      minHeight: "150px",
-                      maxHeight: "150px",
-                      marginBottom: "5em",
-                      borderTop: "2px solid white",
-                      borderRight: "2px solid white",
-                      borderLeft: `5px solid ${d.color}`,
-                      borderBottom: "2px solid white",
+                      borderLeft: `7px solid`,
+                      borderImage: `linear-gradient(white, ${d.color}, white) 1`,
                     }}
                   >
-                    <div className="card-body">
-                      <h5 className="card-title">{d.name}</h5>
-                      <h6 className="card-subtitle text-muted">{d.subtitle}</h6>
-                      <p className="card-text">{ellipseText(d.text, 50)}</p>
-                      <a
-                        href={d.url}
-                        className="card-link"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          githubClick(d);
-                        }}
-                      >
-                        <i className="fa fa-github"></i>
-                      </a>
-                      {d.crateurl && (
+                    <div
+                      className="card"
+                      style={{
+                        minWidth: "18rem",
+                        minHeight: "150px",
+                        maxHeight: "150px",
+                        marginBottom: "5em",
+                        borderTop: "2px solid white",
+                        borderRight: "2px solid white",
+                        borderBottom: "2px solid white",
+                        borderRightColor: "white",
+                        borderTopColor: "white",
+                        borderBottomColor: "white",
+                      }}
+                    >
+                      <div className="card-body">
+                        <h5 className="card-title">{d.name}</h5>
+                        <h6 className="card-subtitle text-muted">{d.subtitle}</h6>
+                        <p className="card-text">{ellipseText(d.text, 50)}</p>
                         <a
-                          href={d.crateurl}
+                          href={d.url}
                           className="card-link"
                           onClick={(e) => {
                             e.preventDefault();
-                            crateClick(d);
+                            githubClick(d);
                           }}
                         >
-                          <i className="fa fa-archive"></i>
+                          <i className="fa fa-github"></i>
                         </a>
-                      )}
+                        {d.crateurl && (
+                          <a
+                            href={d.crateurl}
+                            className="card-link"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              crateClick(d);
+                            }}
+                          >
+                            <i className="fa fa-archive"></i>
+                          </a>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>
