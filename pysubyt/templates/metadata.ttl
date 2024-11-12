@@ -40,7 +40,7 @@
         schema:itemListElement <{{base_uri}}{{crate.url}}{{index.path}}>;
         {% endfor -%}
         {% else -%}
-        schema:itemListElement <{{base_uri}}{{crate.crateurl}}>;
+        schema:itemListElement <{{base_uri}}{{crate.lodurl}}>;
         {% endif -%}
         {% endfor -%}
     ],
@@ -80,13 +80,13 @@
 {% for crate in sets['project_crate'] -%}
 {% if crate.index -%}
 {% for index in crate.index -%}
-<{{base_uri}}{{crate.crateurl}}{{index.path}}> rdf:type schema:ListItem, schema:CreativeWork ;
+<{{base_uri}}{{crate.lodurl}}{{index.path}}> rdf:type schema:ListItem, schema:CreativeWork ;
     dc:description "{{index.label}}" ;
-    schema:item <{{base_uri}}{{crate.crateurl}}{{index.path}}>;
+    schema:item <{{base_uri}}{{crate.lodurl}}{{index.path}}>;
     .
 {% endfor -%}
 {% else -%}
-<{{crate.crateurl}}> rdf:type schema:ListItem, schema:CreativeWork ;
+<{{crate.lodurl}}> rdf:type schema:ListItem, schema:CreativeWork ;
     dc:title "{{crate.name}}" ;
     dc:description "{{crate.text}}" ;
     schema:item <{{crate.url}}> ;
