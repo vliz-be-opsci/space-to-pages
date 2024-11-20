@@ -1,4 +1,4 @@
-FROM nikolaik/python-nodejs
+FROM nikolaik/python-nodejs:python3.13-nodejs18
 
 RUN apt-get update && \
     apt-get -y install rsync
