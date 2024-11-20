@@ -1,0 +1,10 @@
+2024-11-20 14:49:39 @clitools.py              [DEBUG ] sema-subyt parsed args ns=Namespace(logconf=None, name='metadata.ttl', set=[['contact', '../src/data/contacts.json'], ['main', '../src/data/main_data.json'], ['publications', '../src/data/publications.json'], ['project_crate', '../src/data/project_crates.json'], ['project_profile', '../src/data/project_profiles.json']], var=[['base_uri', 'base_uri']], templates='./templates/', input=None, output='outputs/metadata.ttl', force=False, mode=None, allow_repeated_sink_paths=False, conditional=False)
+2024-11-20 14:49:39 @sources.py               [DEBUG ] mapping ext 'json' to mime 'None'
+2024-11-20 14:49:40 @sources.py               [DEBUG ] mapping ext 'json' to mime 'None'
+2024-11-20 14:49:40 @sources.py               [DEBUG ] mapping ext 'json' to mime 'None'
+2024-11-20 14:49:40 @sources.py               [DEBUG ] mapping ext 'json' to mime 'None'
+2024-11-20 14:49:40 @sources.py               [DEBUG ] mapping ext 'json' to mime 'None'
+2024-11-20 14:49:40 @subyt.py                 [DEBUG ] Subyt initialized with {'template_name': 'metadata.ttl', '_inputs': {'contact': JsonFileSource('C:\Users\cedricd\Documents\GitHub\space-to-pages\src\data\contacts.json'), 'main': JsonFileSource('C:\Users\cedricd\Documents\GitHub\space-to-pages\src\data\main_data.json'), 'publications': JsonFileSource('C:\Users\cedricd\Documents\GitHub\space-to-pages\src\data\publications.json'), 'project_crate': JsonFileSource('C:\Users\cedricd\Documents\GitHub\space-to-pages\src\data\project_crates.json'), 'project_profile': JsonFileSource('C:\Users\cedricd\Documents\GitHub\space-to-pages\src\data\project_profiles.json')}, '_conditional': False, '_variables': {'base_uri': 'base_uri'}, '_generator_settings': GeneratorSettings('ignorecase,flatten,iteration'), '_sink': SingleFileSink('C:\Users\cedricd\Documents\GitHub\space-to-pages\pysubyt\outputs\metadata.ttl', False)}
+2024-11-20 14:49:40 @api.py                   [DEBUG ] processing item _ = None
+2024-11-20 14:49:40 @sinks.py                 [INFO  ] Creating outputs/metadata.ttl
+2024-11-20 14:49:40 @__main__.py              [DEBUG ] processing done

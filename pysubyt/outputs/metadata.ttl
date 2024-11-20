@@ -3,6 +3,7 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix da: <https://open-vocabularies.vliz.be/dmbonassistant#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix schema: <http://schema.org/> .
 
 <https://orcid.org/0000-0003-0264-9631>
@@ -36,132 +37,125 @@
     .
     
 
-<base_uri> rdf:type foaf:Project ;
+
+<base_uri> rdf:type foaf:Project dcat:Catalog ;
     dc:title "Autonomous Reef Monitoring System" ;
     foaf:name "ARMS" ;
     dc:description "The European ARMS programme (ARMS-MBON) is a network of Autonomous Reef Monitoring Structures (ARMS) placed in the vicinity of marine stations, ports, marinas, and Long-Term Ecological Research (LTER) sites distributed over Europe and polar regions. The aim of ARMS-MBON is to assess the status of, and changes in, hard-bottom communities of near-coast environments, using genetic methods supplemented with image analysis and visual inspection methods. ARMS-MBON is part of GEO BONs Marine Biodiversity Observation Network (MBON)." ;
-    foaf:logo <https://www.researchobject.org/ro-crate/assets/img/ro-crate-w-text.svg>;
-    schema:mainEntityOfPage <base_uri>;
-    schema:hasPart [
-        rdf:type schema:ItemList;
-        schema:partOf <base_uri>;
-        schema:name "Profiles in Autonomous Reef Monitoring System" ;
-        schema:itemListElement <http://www.google.com>;
-        schema:itemListElement <http://www.google.com>;
-        schema:itemListElement <http://www.google.com>;
-        schema:itemListElement <http://www.google.com>;
-        ],
-    [
-        rdf:type schema:ItemList;
-        schema:partOf <base_uri>;
-        schema:name "Crates in Autonomous Reef Monitoring System" ;
-        schema:itemListElement <http://www.google.com>;
-        schema:itemListElement <base_uri/Data/QualityControlledData>;
-        schema:itemListElement <base_uri/Data/QualityControlledData/FromPlutoF>;
-        schema:itemListElement <http://www.google.com>;
-        schema:itemListElement <http://www.google.com>;
-        schema:itemListElement <http://www.google.com>;
-        schema:itemListElement <http://www.google.com>;
-        schema:itemListElement <http://www.google.com>;
-        ];
-    
-    schema:hasPart <https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley>;
-    
-    schema:hasPart <https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley>;
-    
-    schema:hasPart <https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley>;
-    
-    schema:hasPart <https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley>;
-    
-    .
-
+    foaf:logo <https://www.researchobject.org/ro-crate/assets/img/ro-crate-w-text.svg> ;
+    schema:mainEntityOfPage <base_uri> ;
+    foas:homepage <base_uri> ;
+    dcat:dataset 
+    <http://www.google.com>,
+    <http://www.google.com>,
+    <http://www.google.com>,
+    <http://www.google.com>,
+     
+    <base_urihttps://w3id.org/ro/crate/1/lod>,
+    <base_uri/Data/QualityControlledData>,
+    <base_uri/Data/QualityControlledData/FromPlutoF>,
+    <base_urihttps://w3id.org/ro/crate/1/lod>,
+    <base_uri>,
+    <base_urihttps://w3id.org/ro/crate/1/lod>,
+    <base_urihttps://w3id.org/ro/crate/1/lod>,
+    <base_urihttps://w3id.org/ro/crate/1/lod>
+    # 
+    # schema:hasPart <https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley>;
+    # 
+    # schema:hasPart <https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley>;
+    # 
+    # schema:hasPart <https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley>;
+    # 
+    # schema:hasPart <https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley>;
+    # 
 <https://www.researchobject.org/ro-crate/assets/img/ro-crate-w-text.svg> rdf:type foaf:Image 
     .
 
 
-<http://www.google.com> rdf:type schema:ListItem, schema:CreativeWork ;
+<http://www.google.com> rdf:type dcat:Dataset, schema:CreativeWork ;
     dc:title "Lorem ipsum" ;
     dc:description "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam." ;
     schema:item <http://www.google.com> ;
     .
 
-<http://www.google.com> rdf:type schema:ListItem, schema:CreativeWork ;
+<http://www.google.com> rdf:type dcat:Dataset, schema:CreativeWork ;
     dc:title "Lorem ipsum" ;
     dc:description "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam." ;
     schema:item <http://www.google.com> ;
     .
 
-<http://www.google.com> rdf:type schema:ListItem, schema:CreativeWork ;
+<http://www.google.com> rdf:type dcat:Dataset, schema:CreativeWork ;
     dc:title "Lorem ipsum" ;
     dc:description "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam." ;
     schema:item <http://www.google.com> ;
     .
 
-<http://www.google.com> rdf:type schema:ListItem, schema:CreativeWork ;
+<http://www.google.com> rdf:type dcat:Dataset, schema:CreativeWork ;
     dc:title "Lorem ipsum" ;
     dc:description "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam." ;
     schema:item <http://www.google.com> ;
     .
 
-<http://www.google.com> rdf:type schema:ListItem, schema:CreativeWork ;
+<https://w3id.org/ro/crate/1/lod> rdf:type dcat:Dataset, schema:CreativeWork ;
     dc:title "Lorem ipsum dolor" ;
     dc:description "Lorem ipsum dolor sit amet, consectetur adipiscing elit." ;
     schema:item <http://www.google.com> ;
     .
-<base_uri/Data/QualityControlledData> rdf:type schema:ListItem, schema:CreativeWork ;
+<base_uri/QualityControlledData> rdf:type dcat:Dataset, schema:CreativeWork ;
     dc:description "This is the repository for data taken from different sources, which are then quality controlled and combined" ;
-    schema:item <base_uri/Data/QualityControlledData>;
+    schema:item <base_uri/QualityControlledData>;
     .
-<base_uri/Data/QualityControlledData/FromPlutoF> rdf:type schema:ListItem, schema:CreativeWork ;
+<base_uri/QualityControlledData/FromPlutoF> rdf:type dcat:Dataset, schema:CreativeWork ;
     dc:description "The metadata taken from PlutoF, which are quality controlled" ;
-    schema:item <base_uri/Data/QualityControlledData/FromPlutoF>;
+    schema:item <base_uri/QualityControlledData/FromPlutoF>;
     .
-<http://www.google.com> rdf:type schema:ListItem, schema:CreativeWork ;
+<https://w3id.org/ro/crate/1/lod> rdf:type dcat:Dataset, schema:CreativeWork ;
     dc:title "Consectetur adipiscing" ;
     dc:description "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at." ;
     schema:item <http://www.google.com> ;
     .
-<http://www.google.com> rdf:type schema:ListItem, schema:CreativeWork ;
+<> rdf:type dcat:Dataset, schema:CreativeWork ;
     dc:title "Lorem ipsum dolor" ;
     dc:description "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at." ;
     schema:item <http://www.google.com> ;
     .
-<http://www.google.com> rdf:type schema:ListItem, schema:CreativeWork ;
+<https://w3id.org/ro/crate/1/lod> rdf:type dcat:Dataset, schema:CreativeWork ;
     dc:title "Consectetur adipiscing" ;
     dc:description "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at." ;
     schema:item <http://www.google.com> ;
     .
-<http://www.google.com> rdf:type schema:ListItem, schema:CreativeWork ;
+<https://w3id.org/ro/crate/1/lod> rdf:type dcat:Dataset, schema:CreativeWork ;
     dc:title "Lorem ipsum dolor" ;
     dc:description "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at." ;
     schema:item <http://www.google.com> ;
     .
-<http://www.google.com> rdf:type schema:ListItem, schema:CreativeWork ;
+<https://w3id.org/ro/crate/1/lod> rdf:type dcat:Dataset, schema:CreativeWork ;
     dc:title "Consectetur adipiscing" ;
     dc:description "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at." ;
     schema:item <http://www.google.com> ;
     .
-
-<https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley> rdf:type schema:CreativeWork ;
-    dc:title "Something Something interesting" ;
-    dc:description "Text about something interesting here A" ;
-    schema:url <https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley> ;
-    .
-
-<https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley> rdf:type schema:CreativeWork ;
-    dc:title "The cat in the hat" ;
-    dc:description "The cat in the hat sat on the mat. One hopes he didn't leave a fat cat track in the form of a shattered mat." ;
-    schema:url <https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley> ;
-    .
-
-<https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley> rdf:type schema:CreativeWork ;
-    dc:title "The bone in the bone" ;
-    dc:description "Spooky scary skeletons send shivers down your spine. Shrieking skulls will shock your soul, seal your doom tonight." ;
-    schema:url <https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley> ;
-    .
-
-<https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley> rdf:type schema:CreativeWork ;
-    dc:title "The eel in the seal caught the whale in the mail" ;
-    dc:description "The eel in the seal caught the whale in the mail. The whale in the mail was a very big whale." ;
-    schema:url <https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley> ;
-    .
+# 
+# <https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley> rdf:type schema:CreativeWork ;
+#     dc:title "Something Something interesting" ;
+#     dc:description "Text about something interesting here A" ;
+#     schema:url <https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley> ;
+#     .
+# 
+# <https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley> rdf:type schema:CreativeWork ;
+#     dc:title "The cat in the hat" ;
+#     dc:description "The cat in the hat sat on the mat. One hopes he didn't leave a fat cat track in the form of a shattered mat." ;
+#     schema:url <https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley> ;
+#     .
+# 
+# <https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley> rdf:type schema:CreativeWork ;
+#     dc:title "The bone in the bone" ;
+#     dc:description "Spooky scary skeletons send shivers down your spine. Shrieking skulls will shock your soul, seal your doom tonight." ;
+#     schema:url <https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley> ;
+#     .
+# 
+# <https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley> rdf:type schema:CreativeWork ;
+#     dc:title "The eel in the seal caught the whale in the mail" ;
+#     dc:description "The eel in the seal caught the whale in the mail. The whale in the mail was a very big whale." ;
+#     schema:url <https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley> ;
+#     .
+# 
