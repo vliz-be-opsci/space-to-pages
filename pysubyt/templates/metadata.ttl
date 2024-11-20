@@ -18,13 +18,13 @@
 {% endfor %}
 
 {% for maindata in sets['main'] -%}
-<{{base_uri}}> rdf:type foaf:Project dcat:Catalog ;
+<{{base_uri}}> rdf:type foaf:Project, dcat:Catalog ;
     dc:title "{{maindata.long_name}}" ;
     foaf:name "{{maindata.name_site}}" ;
     dc:description "{{maindata.description}}" ;
     foaf:logo <{{maindata.logo}}> ;
     schema:mainEntityOfPage <{{base_uri}}> ;
-    foas:homepage <{{base_uri}}> ;
+    foaf:homepage <{{base_uri}}> ;
     dcat:dataset 
     {% for profile in sets['project_profile'] -%}
     <{{profile.url}}>,
@@ -37,7 +37,7 @@
     {% else -%}
     <{{base_uri}}{{crate.lodurl}}>{% if not crate == sets['project_crate']|list|last %},{% endif %}
     {% endif -%}
-    {% endfor -%}
+    {% endfor -%};
 
 
     # {% for publication in sets['publications']%}
