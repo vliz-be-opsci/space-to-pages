@@ -37,7 +37,7 @@
     {% else -%}
     <{{base_uri}}{{crate.lodurl}}>{% if not crate == sets['project_crate']|list|last %},{% endif %}
     {% endif -%}
-    {% endfor -%};
+    {% endfor -%}.
 
 
     # {% for publication in sets['publications']%}
