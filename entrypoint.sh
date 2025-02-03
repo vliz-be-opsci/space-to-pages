@@ -49,6 +49,20 @@ then
     cp ./github/workspace/data/publications.json ./src/data/publications.json
     cp ./github/workspace/data/vocabularies.json ./src/data/vocabularies.json
     cp ./github/workspace/data/ontologies.json ./src/data/ontologies.json
+
+    #check if there is a ./docs folder in ./github/workspace, if so copy it over to ./src/docs recursively with force overwrite
+    echo "checking if there is a docs folder in ./github/workspace"
+    if [ -d ./github/workspace/docs ];
+    then
+        echo "docs folder is present"
+        echo "copying the docs folder over to ./src/docs"
+        cp -r ./github/workspace/docs ./src/docs
+        echo "copying the docs folder over to ./public/docs"
+        cp -r ./github/workspace/docs ./public/docs
+    else
+        echo "docs folder is not present"
+    fi
+
 else
     echo "one or more files of the data folder are missing"
     exit 1
@@ -56,6 +70,8 @@ fi
 
 echo "copying over the ./img folder to ./public/img"
 cp -r ./github/workspace/img ./public
+
+
 
 #check if there is a img folder in ./github/workspace, if so copy it over to ./src/img recursively with force overwrite
 echo "checking if there is a img folder in ./github/workspace"

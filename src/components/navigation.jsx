@@ -24,7 +24,7 @@ export const Navigation = (props) => {
       !currentRoute.includes("team") &&
       !currentRoute.includes("")
     ) {
-      return "#/";
+      return "/";
     } else {
       //return query string
       return "";
@@ -56,7 +56,7 @@ export const Navigation = (props) => {
             <span className="icon-bar"></span>{" "}
             <span className="icon-bar"></span>{" "}
           </button>
-          <a className="navbar-brand page-scroll" href={currentRoutePath+prepend+"#"}>
+          <a className="navbar-brand page-scroll" href={currentRoutePath+prepend}>
             {props.data ? 
             <>
               <img src={props.data.logo} style={logostyle} alt="project_title_here"></img>
@@ -84,6 +84,26 @@ export const Navigation = (props) => {
             : (
               <></>
             )
+            }
+            {
+              props.docs && props.docs.length > 0 ? (
+                <li className="dropdown">
+                  <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    Docs <span className="caret"></span>
+                  </a>
+                  <ul className="dropdown-menu">
+                    {props.docs.map((doc, index) => (
+                      <li key={index}>
+                        <a href={currentRoutePath + prepend + "#/docs/" + doc.path}>
+                          {doc.path}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ) : (
+                <></>
+              )
             }
             {
               props.data.TData ?

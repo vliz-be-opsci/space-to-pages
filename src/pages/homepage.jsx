@@ -17,12 +17,13 @@ const Homepage = (data) => {
         "Crates" : data.data.Crates,
         "Contacts" : data.data.Contacts,
         "Publications" : data.data.Publications,
-        "TData" : data.data.TData
+        "TData" : data.data.TData,
+        "Docs": data.data.Docs
     };
 
     return (
         <div>
-            <Navigation data={landingPageData.Header} crates={landingPageData.Crates} profiles={landingPageData.Profiles}/>
+            <Navigation data={landingPageData.Header} crates={landingPageData.Crates} profiles={landingPageData.Profiles} docs={landingPageData.Docs}/>
             <Header data={landingPageData.Header} />
             <About data={landingPageData.Header} />
             { 
