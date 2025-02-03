@@ -33,7 +33,7 @@ const MarkdownPage = ({ data }) => {
     useEffect(() => {
         const fetchMarkdown = async () => {
             try {
-                const response = await axios.get(`./docs/${file_id}.md`);
+                const response = await axios.get(`./data/docs/${file_id}.md`);
                 setContent(response.data);
             } catch (error) {
                 console.error("Error fetching the markdown file:", error);

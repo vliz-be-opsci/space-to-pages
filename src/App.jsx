@@ -52,7 +52,7 @@ const App = () => {
 
   useEffect(() => {
     // Load all markdown files in the docs folder
-    const context = require.context('./docs', false, /\.md$/);
+    const context = require.context('./data/docs', false, /\.md$/);
     const docs = context.keys().map((key) => ({
       path: key.replace('./', '').replace('.md', '')
     }));
@@ -69,7 +69,7 @@ const App = () => {
     "TData" : TabularData,
     "Docs": docs
   };
-  
+
   console.log(landingPageData);
   return (
     <Routes>
