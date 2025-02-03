@@ -56,9 +56,9 @@ then
     then
         echo "docs folder is present"
         echo "copying the docs folder over to ./src/data/docs"
-        cp -r ./github/workspace/data/docs ./src/data/docs
-        echo "copying the docs folder over to ./public/data/docs"
-        cp -r ./github/workspace/data/docs ./public/data/docs
+        cp -r ./github/workspace/data/docs ./src/data
+        echo "copying the docs folder over to ./public/data"
+        cp -r ./github/workspace/data/docs ./public/data
     else
         echo "docs folder is not present"
     fi
@@ -155,9 +155,6 @@ npm install
 echo "npm run build"
 npm run build
 echo "copying over ./img files to build folder ./build/img"
-# do the same for the docs folder
-echo "copying over ./docs files to build folder ./build/docs"
-cp -r ./src/docs ./build/data/docs
 
 #in the index.html add the following line <link href="./metadata.ttl" rel="describedby" type="	text/turtle"> to the head tag
 echo "adding the following line <link href="./metadata.ttl" rel="describedby" type="text/turtle"> to the head tag of the index.html file"
