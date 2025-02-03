@@ -52,7 +52,7 @@ then
 
     #check if there is a ./docs folder in ./github/workspace, if so copy it over to ./src/docs recursively with force overwrite
     echo "checking if there is a docs folder in ./github/workspace"
-    if [ -d ./github/workspace/docs ];
+    if [ -d ./github/workspace/data/docs ];
     then
         echo "docs folder is present"
         echo "copying the docs folder over to ./src/data/docs"
