@@ -56,9 +56,9 @@ then
     then
         echo "docs folder is present"
         echo "copying the docs folder over to ./src/data/docs"
-        cp -r ./github/workspace/docs ./src/data/docs
+        cp -r ./github/workspace/data/docs ./src/data/docs
         echo "copying the docs folder over to ./public/data/docs"
-        cp -r ./github/workspace/docs ./public/data/docs
+        cp -r ./github/workspace/data/docs ./public/data/docs
     else
         echo "docs folder is not present"
     fi
