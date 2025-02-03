@@ -55,10 +55,10 @@ then
     if [ -d ./github/workspace/docs ];
     then
         echo "docs folder is present"
-        echo "copying the docs folder over to ./src/docs"
-        cp -r ./github/workspace/docs ./src/docs
-        echo "copying the docs folder over to ./public/docs"
-        cp -r ./github/workspace/docs ./public/docs
+        echo "copying the docs folder over to ./src/data/docs"
+        cp -r ./github/workspace/docs ./src/data/docs
+        echo "copying the docs folder over to ./public/data/docs"
+        cp -r ./github/workspace/docs ./public/data/docs
     else
         echo "docs folder is not present"
     fi
