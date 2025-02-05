@@ -85,26 +85,11 @@ export const Navigation = (props) => {
               <></>
             )
             }
-            {
-              props.docs && props.docs.length > 0 ? (
-                <li className="dropdown">
-                  <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                    Docs <span className="caret"></span>
-                  </a>
-                  <ul className="dropdown-menu">
-                    {props.docs.map((doc, index) => (
-                      <li key={index}>
-                        <a href={currentRoutePath + prepend + "#/docs/" + doc.path}>
-                          {doc.path}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </li>
-              ) : (
-                <></>
-              )
-            }
+            <li>
+              <a href="docs">
+                Docs
+              </a>
+            </li>
             {
               props.data.TData ?
               <li>

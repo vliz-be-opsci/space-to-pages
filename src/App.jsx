@@ -13,7 +13,6 @@ import PublicationsData from "./data/publications.json";
 import SmoothScroll from "smooth-scroll";
 import { v5 as uuidv5} from "uuid"; 
 import "./App.css";
-import MarkdownPage from "./pages/markdown_page";
 
 export const scroll = new SmoothScroll('a[href*="#"]', {
   speed: 1000,
@@ -34,8 +33,6 @@ const App = () => {
   });
 
   const [hash, setHash] = useState(window.location.hash);
-  const [docs, setDocs] = useState([]);
-
   useEffect(() => {
     window.addEventListener("hashchange", () => {
       setHash(window.location.hash);
@@ -50,24 +47,13 @@ const App = () => {
     }
   }, [hash]);
 
-  useEffect(() => {
-    // Load all markdown files in the docs folder
-    const context = require.context('./data/docs', false, /\.md$/);
-    const docs = context.keys().map((key) => ({
-      path: key.replace('./', '').replace('.md', '')
-    }));
-    console.log(docs);
-    setDocs(docs);
-  }, []);
-
   const landingPageData= {
     "Header" : MainData,
     "Profiles" : ProfilesData,
     "Crates" : CratesData,
     "Contacts" : ContactData,
     "Publications" : PublicationsData,
-    "TData" : TabularData,
-    "Docs": docs
+    "TData" : TabularData
   };
 
   console.log(landingPageData);
@@ -76,7 +62,6 @@ const App = () => {
       <Route path="/" element={<Homepage data={landingPageData} />} />
       <Route path="/data-explorer/:id" element={<FilePage data={landingPageData} />} />
       <Route path="/data-explorer" element={<Data data={landingPageData} />} />
-      <Route path="/docs/:id" element={<MarkdownPage data={landingPageData} />} />
       <Route path="/*" element={<GroupedCrates data={landingPageData} />} />
     </Routes>
   );

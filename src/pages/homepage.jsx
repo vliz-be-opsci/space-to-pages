@@ -17,8 +17,7 @@ const Homepage = (data) => {
         "Crates" : data.data.Crates,
         "Contacts" : data.data.Contacts,
         "Publications" : data.data.Publications,
-        "TData" : data.data.TData,
-        "Docs": data.data.Docs
+        "TData" : data.data.TData
     };
 
     return (
