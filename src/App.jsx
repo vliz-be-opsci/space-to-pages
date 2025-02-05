@@ -39,14 +39,6 @@ const App = () => {
     });
   }, []);
 
-  useEffect(() => {
-    //if hash and / is not in hash then scroll to the hash
-    console.log(hash);
-    if (hash && !hash.includes("/")) {
-      window.location = "/";
-    }
-  }, [hash]);
-
   const landingPageData= {
     "Header" : MainData,
     "Profiles" : ProfilesData,
@@ -62,7 +54,7 @@ const App = () => {
       <Route path="/" element={<Homepage data={landingPageData} />} />
       <Route path="/data-explorer/:id" element={<FilePage data={landingPageData} />} />
       <Route path="/data-explorer" element={<Data data={landingPageData} />} />
-      <Route path="/*" element={<GroupedCrates data={landingPageData} />} />
+      <Route path="/*" element={<Homepage data={landingPageData} />} />
     </Routes>
   );
 };
