@@ -15,6 +15,8 @@ COPY _config.yml /_config.yml
 COPY package.json /package.json
 COPY entrypoint.sh /entrypoint.sh
 COPY requirements.txt /requirements.txt
+COPY config-overrides.js /config-overrides.js
+
 #print(the env variable  inputs.repo_path passed from the actins.yml file)
 RUN echo $repo_path
 #print( the env variable inputs.base_uri passed from the actins.yml file)

@@ -50,19 +50,6 @@ then
     cp ./github/workspace/data/vocabularies.json ./src/data/vocabularies.json
     cp ./github/workspace/data/ontologies.json ./src/data/ontologies.json
 
-    #check if there is a ./docs folder in ./github/workspace, if so copy it over to ./src/docs recursively with force overwrite
-    echo "checking if there is a docs folder in ./github/workspace"
-    if [ -d ./github/workspace/data/docs ];
-    then
-        echo "docs folder is present"
-        echo "copying the docs folder over to ./src/data/docs"
-        cp -r ./github/workspace/data/docs ./src/data
-        echo "copying the docs folder over to ./public/data"
-        cp -r ./github/workspace/data/docs ./public/data
-    else
-        echo "docs folder is not present"
-    fi
-
 else
     echo "one or more files of the data folder are missing"
     exit 1
