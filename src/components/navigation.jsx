@@ -2,10 +2,6 @@ import React from "react";
 
 export const Navigation = (props) => {
 
-  $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-  })
-
   //get the current route 
   const currentRoutePath = window.location.pathname;
   console.log(currentRoutePath);

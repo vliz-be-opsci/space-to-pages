@@ -9,7 +9,6 @@ const data = {
   Header: MainData,
   Crates: CratesData,
   Profiles: ProfilesData,
-  Docs: DocsData,
 };
 
 ReactDOM.render(

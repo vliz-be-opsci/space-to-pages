@@ -11,6 +11,10 @@
 # production
 /build
 
+# public test html
+test.html
+/public/test.html
+
 #venv folder
 venv
 
