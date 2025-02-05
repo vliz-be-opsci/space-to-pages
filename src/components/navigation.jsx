@@ -6,6 +6,11 @@ export const Navigation = (props) => {
   const currentRoutePath = window.location.pathname;
   console.log(currentRoutePath);
 
+  //if the end of the current route is /navigation.html then remove /navigation.html
+  if (currentRoutePath.endsWith("/navigation.html")) {
+    currentRoutePath = currentRoutePath.replace("/navigation.html", "");
+  }
+
   //get the current hash route
   const currentRoute = window.location.hash;
   console.log(currentRoute);
