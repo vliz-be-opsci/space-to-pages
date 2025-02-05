@@ -9,6 +9,8 @@ export const Navigation = (props) => {
   //if the end of the current route is /navigation.html then remove /navigation.html
   if (currentRoutePath.endsWith("/navigation.html")) {
     currentRoutePath = currentRoutePath.replace("/navigation.html", "");
+
+    
   }
 
   //get the current hash route
@@ -57,7 +59,7 @@ export const Navigation = (props) => {
             <span className="icon-bar"></span>{" "}
             <span className="icon-bar"></span>{" "}
           </button>
-          <a className="navbar-brand page-scroll" href={currentRoutePath+prepend}>
+          <a className="navbar-brand page-scroll" href={currentRoutePath+prepend} target="_top">
             {props.data ? 
             <>
               <img src={props.data.logo} style={logostyle} alt="project_title_here"></img>
@@ -75,7 +77,7 @@ export const Navigation = (props) => {
               props.data.markdown_about_us && props.data.markdown_about_us !== "" ?
             (
               <li>
-                <a href={currentRoutePath+prepend+"#aboutsection"}  className="page-scroll">
+                <a href={currentRoutePath+prepend+"#aboutsection"}  className="page-scroll" target="_top">
                   About
                 </a>
               </li>
@@ -87,14 +89,14 @@ export const Navigation = (props) => {
             )
             }
             <li>
-              <a href="docs">
+              <a href="docs" target="_top">
                 Docs
               </a>
             </li>
             {
               props.data.TData ?
               <li>
-                <a href={currentRoutePath+"#/data-explorer"} className="page-scroll">
+                <a href={currentRoutePath+"#/data-explorer"} className="page-scroll" target="_top">
                   Data explorer
                 </a>
               </li>
@@ -111,6 +113,7 @@ export const Navigation = (props) => {
                   data-toggle="tooltip2" 
                   data-placement="bottom" 
                   title="Research Object Crates (https://www.researchobject.org/ro-crate/): a way to package file-based research data so they are linked, grouped, described, and semantically annotated. In our Github spaces, each repository can also be a RO-Crate."
+                  target="_top"
                   >
                     Data
                   </a>
@@ -120,7 +123,7 @@ export const Navigation = (props) => {
               )
             }
             <li>
-              <a href={currentRoutePath+prepend+"#publications"} className="page-scroll">
+              <a href={currentRoutePath+prepend+"#publications"} className="page-scroll" target="_top">
                 Publications
               </a>
             </li>
@@ -134,6 +137,7 @@ export const Navigation = (props) => {
                   data-toggle="tooltip1" 
                   data-placement="top" 
                   title="Research Object Profiles (https://www.researchobject.org/ro-crate/): a set of conventions, types, and properties that one minimally can require and expect to be present in a particular type of RO-Crate, thus standardising their layout."
+                  target="_top"
                   >
                     RO-Profiles
                   </a>
@@ -143,7 +147,7 @@ export const Navigation = (props) => {
               )
             }
             <li>
-              <a href={currentRoutePath+prepend+"#team"} className="page-scroll">
+              <a href={currentRoutePath+prepend+"#team"} className="page-scroll" target="_top">
                 Contact
               </a>
             </li>
