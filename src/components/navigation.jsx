@@ -3,7 +3,7 @@ import React from "react";
 export const Navigation = (props) => {
 
   //get the current route 
-  const currentRoutePath = window.location.pathname;
+  let currentRoutePath = window.location.pathname;
   console.log(currentRoutePath);
 
   //if the end of the current route is /navigation.html then remove /navigation.html
