@@ -24,6 +24,9 @@ the data is stored in json files in the ```data/``` folder. This folder contains
 *  [```contacts.json```](#214-contactsjson) -> contains the data for describing the project contacts
 *  [```tabular_data.json```](#215-tabulardatajson) -> contains the data for the tabular data page
 *  [```publications.json```](#216-publicationsjson) -> contains the data for the publications section
+*  [```books.json```](#217-booksjson) -> contains the data for the books section
+*  [```ontologies.json```](#218-ontologiesjson) -> contains the data for the ontologies section
+*  [```vocabularies.json```](#219-vocabulariesjson) -> contains the data for the vocabularies section
 
 there is also a ```README.md``` file that is used to populate the about section of the page. This file can be changed to your liking. For tips on how to write markdown files, see [here](https://guides.github.com/features/mastering-markdown/).
 
@@ -35,7 +38,7 @@ This file contains the data for the header section. The structure of the file is
 ```json
 {
     "name_site": "ARMS",
-    "main_image": "https://assets.newatlas.com/dims4/default/e58452e/2147483647/strip/true/crop/1498x999+0+0/resize/1440x960!/quality/90/?url=http%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fb1%2Fb4%2F2a5bc31341fbaa31e2230d038f66%2Ficture1.jpeg",
+    "main_image": "https://assets.newatlas.com/dims4/default/e58452e/2147483647/strip/true/crop/1498x999+0+0/resize/1440x960!/quality/90/?url=http%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Fb1%2Fb4%2A5bc31341fbaa31e2230d038f66%2Ficture1.jpeg",
     "description": "The European ARMS programme (ARMS-MBON) is a network of Autonomous Reef Monitoring Structures (ARMS) placed in the vicinity of marine stations, ports, marinas, and Long-Term Ecological Research (LTER) sites distributed over Europe and polar regions. The aim of ARMS-MBON is to assess the status of, and changes in, hard-bottom communities of near-coast environments, using genetic methods supplemented with image analysis and visual inspection methods. ARMS-MBON is part of GEO BONs Marine Biodiversity Observation Network (MBON).",
     "long_name": "Autonomous Reef Monitoring System",
     "short_name": "ARMS",
@@ -217,6 +220,90 @@ This file contains all the publications information for the project. These will 
 | ```text``` | The text of the publication | yes |
 | ```img``` | The image of the publication | preferably yes |
 | ```link``` | The link to the publication | yes |
+
+##### 1.1.7. ```books.json```
+
+This file contains all the books information for the project. These will most likely be links to your books uri's.
+
+```json
+[
+    {
+        "title": "Book Title 1",
+        "author": "Author 1",
+        "year": "2021",
+        "publisher": "Publisher 1",
+        "isbn": "123-456-789",
+        "link": "https://www.example.com/book1"
+    },
+    {
+        "title": "Book Title 2",
+        "author": "Author 2",
+        "year": "2020",
+        "publisher": "Publisher 2",
+        "isbn": "987-654-321",
+        "link": "https://www.example.com/book2"
+    }
+]
+```
+
+| Field | Description | required |
+| --- | --- | --- |
+| ```title``` | The title of the book | yes |
+| ```author``` | The author of the book | yes |
+| ```year``` | The year of publication | yes |
+| ```publisher``` | The publisher of the book | yes |
+| ```isbn``` | The ISBN of the book | yes |
+| ```link``` | The link to the book | yes |
+
+##### 1.1.8. ```ontologies.json```
+
+This file contains all the ontologies information for the project. These will most likely be links to your ontologies uri's.
+
+```json
+[
+    {
+        "title": "Ontology Title 1",
+        "description": "Description of ontology 1",
+        "link": "https://www.example.com/ontology1"
+    },
+    {
+        "title": "Ontology Title 2",
+        "description": "Description of ontology 2",
+        "link": "https://www.example.com/ontology2"
+    }
+]
+```
+
+| Field | Description | required |
+| --- | --- | --- |
+| ```title``` | The title of the ontology | yes |
+| ```description``` | The description of the ontology | yes |
+| ```link``` | The link to the ontology | yes |
+
+##### 1.1.9. ```vocabularies.json```
+
+This file contains all the vocabularies information for the project. These will most likely be links to your vocabularies uri's.
+
+```json
+[
+    {
+        "title": "Vocabulary Title 1",
+        "description": "Description of vocabulary 1",
+        "link": "https://www.example.com/vocabulary1"
+    },
+    {
+        "title": "Vocabulary Title 2",
+        "description": "Description of vocabulary 2",
+        "link": "https://www.example.com/vocabulary2"
+    }
+]
+```
+
+| Field | Description | required |
+| --- | --- | --- |
+| ```title``` | The title of the vocabulary | yes |
+| ```description``` | The description of the vocabulary | yes |
+| ```link``` | The link to the vocabulary | yes |
 
 ### 2. Deployment
 
