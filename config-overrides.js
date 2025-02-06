@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = function override(config, env) {
   config.entry = {
@@ -17,6 +18,9 @@ module.exports = function override(config, env) {
       template: "./public/navigation_template.html",
       filename: "navigation.html",
       chunks: ["navigation"],
+    }),
+    new CopyWebpackPlugin({
+      patterns: [{ from: "public/js", to: "js" }],
     }),
   ];
 

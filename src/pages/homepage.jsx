@@ -23,7 +23,7 @@ const Homepage = (data) => {
 
     return (
         <div>
-            <Navigation data={landingPageData.Header} crates={landingPageData.Crates} profiles={landingPageData.Profiles} docs={landingPageData.Docs} books={landingPageData.Books}/>
+            <Navigation data={landingPageData.Header} crates={landingPageData.Crates} profiles={landingPageData.Profiles} books={landingPageData.Books}/>
             <Header data={landingPageData.Header} />
             <About data={landingPageData.Header} />
             { 
