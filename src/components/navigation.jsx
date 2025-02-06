@@ -91,7 +91,7 @@ export const Navigation = (props) => {
             {
               props.books.length > 0 ? (
               <li className="dropdown">
-                <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <a className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 Docs <span className="caret"></span>
                 </a>
                 <ul className="dropdown-menu">
