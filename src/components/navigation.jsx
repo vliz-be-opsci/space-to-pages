@@ -7,7 +7,7 @@ export const Navigation = (props) => {
   console.log(currentRoutePath);
 
   //if the end of the current route is /navigation.html then remove /navigation.html
-  if (currentRoutePath.endsWith("/navigation.html")) {
+  if (currentRoutePath.endsWith("/navigation.html") || currentRoutePath.includes("/navigation.html")) {
     currentRoutePath = currentRoutePath.replace("/navigation.html", "");
   }
 
