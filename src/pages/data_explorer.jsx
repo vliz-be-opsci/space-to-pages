@@ -13,12 +13,13 @@ const Data = (data) => {
         "Features" : data.data.Features,
         "Services" : data.data.Services,
         "Contacts" : data.data.Contacts,
-        "TData" : data.data.TData
+        "TData" : data.data.TData,
+        "Books" : data.data.Books,
     };
 
     return (
         <div>
-            <Navigation data={landingPageData.Header}/>
+            <Navigation data={landingPageData.Header} books={landingPageData.Books}/>
             <DataFiles data={landingPageData.TData}/>
             <Footer/>
         </div>

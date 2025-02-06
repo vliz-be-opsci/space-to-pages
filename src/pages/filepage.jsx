@@ -20,7 +20,7 @@ const FilePage = (props) => {
     
     return (
         <div style={filepagestyle}>
-            <Navigation data={props.data.Header}/>
+            <Navigation data={props.data.Header} books={props.data.Books}/>
             <SingleFileContents data={filee}/>
             <Footer/>
         </div>
