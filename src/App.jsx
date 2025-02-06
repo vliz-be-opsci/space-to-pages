@@ -3,13 +3,13 @@ import { Routes, Route } from "react-router-dom";
 import Homepage from "./pages/homepage";
 import Data from "./pages/data_explorer";
 import FilePage from "./pages/filepage";
-import GroupedCrates from "./pages/grouped_crate";
 import MainData from "./data/main_data.json";
 import ContactData from "./data/contacts.json";
 import ProfilesData from "./data/project_profiles.json";
 import CratesData from "./data/project_crates.json";
 import TabularData from "./data/tabular_data.json";
 import PublicationsData from "./data/publications.json";
+import BooksData from "./data/books.json";
 import SmoothScroll from "smooth-scroll";
 import { v5 as uuidv5} from "uuid"; 
 import "./App.css";
@@ -45,7 +45,8 @@ const App = () => {
     "Crates" : CratesData,
     "Contacts" : ContactData,
     "Publications" : PublicationsData,
-    "TData" : TabularData
+    "TData" : TabularData,
+    "Books" : BooksData,
   };
 
   console.log(landingPageData);
