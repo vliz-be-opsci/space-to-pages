@@ -17,20 +17,30 @@ export const Publications = (props) => {
             </thead>
             <tbody>
               {props.data
-              ? props.data.map((d, i) => (
-                  <tr key={`${d.title}-${i}`}>
-                    <td>
-                      <a href={d.link} target="_blank" rel="noreferrer">{d.title}</a>
-                    </td>
-                    <td>
-                      {d.text}
-                    </td>
-                  </tr>
-                ))
-              : "loading"}
+                ? props.data.map((d, i) => (
+                    <tr key={`${d.title}-${i}`}>
+                      <td>
+                        <a href={d.link} target="_blank" rel="noreferrer">
+                          {d.title}
+                        </a>
+                      </td>
+                      <td>{d.text}</td>
+                    </tr>
+                  ))
+                : "loading"}
             </tbody>
           </table>
         </div>
+        {props.headerdata.gh_add_issue_link && (
+          <div className="text-center">
+            <a
+              href={props.headerdata.gh_add_issue_link}
+              className="btn btn-custom btn-lg page-scroll"
+            >
+              Add a publication
+            </a>
+          </div>
+        )}
       </div>
     </div>
   );

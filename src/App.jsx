@@ -10,6 +10,7 @@ import CratesData from "./data/project_crates.json";
 import TabularData from "./data/tabular_data.json";
 import PublicationsData from "./data/publications.json";
 import BooksData from "./data/books.json";
+import ResultsData from "./data/results.json";
 import SmoothScroll from "smooth-scroll";
 import { v5 as uuidv5} from "uuid"; 
 import "./App.css";
@@ -47,6 +48,7 @@ const App = () => {
     "Publications" : PublicationsData,
     "TData" : TabularData,
     "Books" : BooksData,
+    "Results": ResultsData
   };
 
   console.log(landingPageData);

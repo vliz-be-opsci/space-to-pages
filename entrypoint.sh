@@ -23,14 +23,15 @@ echo "repo name is" $GITHUB_REPOSITORY
 #setup here for making the build folder
 #check if the following files are present in ./github/workspace : [./src/data/contact.json, ./src/data/main_data.json]
 # if they are not present, then throw an error
-echo "checking if the following files are present in ./github/workspace : [./src/data/contacts.json, ./src/data/main_data.json, ./src/data/project_crates.json, ./src/data/project_profiles.json, ./src/data/tabular_data.json, ./src/data/publications.json, ./src/data/vocabularies.json, ./src/data/ontologies.json, ./src/data/books.json]"
+echo "checking if the following files are present in ./github/workspace : [./src/data/contacts.json, ./src/data/main_data.json, ./src/data/project_crates.json, ./src/data/project_profiles.json, ./src/data/tabular_data.json, ./src/data/publications.json, ./src/data/vocabularies.json, ./src/data/ontologies.json, ./src/data/books.json, ./src/data/results.json]"
 
 check_and_copy() {
     if [ ! -f $1 ]; then
-        echo "File $1 is missing"
-        exit 1
+        echo "File $1 is missing, creating an empty JSON file"
+        echo "[]" > $1
+    else
+        python -m json.tool $1
     fi
-    python -m json.tool $1
     cp $1 $2
 }
 
@@ -43,6 +44,7 @@ check_and_copy ./github/workspace/data/publications.json ./src/data/publications
 check_and_copy ./github/workspace/data/vocabularies.json ./src/data/vocabularies.json
 check_and_copy ./github/workspace/data/ontologies.json ./src/data/ontologies.json
 check_and_copy ./github/workspace/data/books.json ./src/data/books.json
+check_and_copy ./github/workspace/data/results.json ./src/data/results.json
 
 
 echo "copying over the ./img folder to ./public/img"

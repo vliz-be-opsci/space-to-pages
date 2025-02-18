@@ -2,11 +2,12 @@
 import React from "react";
 import { Navigation} from "../components/navigation";
 import { Header } from "../components/header";
-import { Profiles } from "../components/profiles";
+import { Results } from "../components/results";
 import { Crates } from "../components/crates";
 import { Team } from "../components/Team";
 import { About } from "../components/about";
 import { Publications } from "../components/Publications";
+import { Docs } from "../components/docs";
 import { Footer } from "../components/footer";
 
 const Homepage = (data) => {
@@ -19,11 +20,18 @@ const Homepage = (data) => {
         "Publications" : data.data.Publications,
         "TData" : data.data.TData,
         "Books" : data.data.Books,
+        "Results": data.data.Results
     };
 
     return (
         <div>
-            <Navigation data={landingPageData.Header} crates={landingPageData.Crates} profiles={landingPageData.Profiles} books={landingPageData.Books}/>
+            <Navigation 
+            data={landingPageData.Header} 
+            crates={landingPageData.Crates} 
+            profiles={landingPageData.Profiles} 
+            books={landingPageData.Books}
+            results={landingPageData.Results}
+            />
             <Header data={landingPageData.Header} />
             <About data={landingPageData.Header} />
             { 
@@ -32,13 +40,14 @@ const Homepage = (data) => {
                 :
                 <></>
             }
-            <Publications data={landingPageData.Publications} />
+            <Publications data={landingPageData.Publications} headerdata={landingPageData.Header}/>
             {
-                landingPageData.Profiles.length > 0 ?
-                <Profiles data={landingPageData.Profiles} />
+                landingPageData.Results.length > 0 ?
+                <Results data={landingPageData.Results} />
                 :
                 <></>
             }
+            <Docs data={landingPageData.Books} />
             <Team data={landingPageData.Contacts} />
             <Footer data={landingPageData}/>
         </div>

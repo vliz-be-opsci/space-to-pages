@@ -89,24 +89,6 @@ export const Navigation = (props) => {
             )
             }
             {
-              props.books.length > 0 ? (
-              <li className="dropdown">
-                <a className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                Docs <span className="caret"></span>
-                </a>
-                <ul className="dropdown-menu">
-                {props.books.map((book, index) => (
-                  <li key={index}>
-                  <a href={book.url} target="_top">
-                    {book.name}
-                  </a>
-                  </li>
-                ))}
-                </ul>
-              </li>
-              ): ( <></> )
-            }
-            {
               props.data.TData ?
               <li>
                 <a href={currentRoutePath+"#/data-explorer"} className="page-scroll" target="_top">
@@ -142,17 +124,17 @@ export const Navigation = (props) => {
             </li>
             {
               //check if length of profiles is greater than 0
-              props.profiles.length > 0 ? (
+              props.results.length > 0 ? (
                 <li>
                   <a 
-                  href={currentRoutePath+prepend+"#profiles"}
+                  href={currentRoutePath+prepend+"#results"}
                   className="page-scroll"
                   data-toggle="tooltip1" 
                   data-placement="top" 
-                  title="Research Object Profiles (https://www.researchobject.org/ro-crate/): a set of conventions, types, and properties that one minimally can require and expect to be present in a particular type of RO-Crate, thus standardising their layout."
+                  title="Results related to the project"
                   target="_top"
                   >
-                    RO-Profiles
+                    results
                   </a>
                 </li>
               ) : (
@@ -164,7 +146,25 @@ export const Navigation = (props) => {
                 Contact
               </a>
             </li>
-            
+            {
+              //check if length of profiles is greater than 0
+              props.books.length > 0 ? (
+                <li>
+                  <a 
+                  href={currentRoutePath+prepend+"#docs"}
+                  className="page-scroll"
+                  data-toggle="tooltip1" 
+                  data-placement="top" 
+                  title="documentation related to the project"
+                  target="_top"
+                  >
+                    docs
+                  </a>
+                </li>
+              ) : (
+                <></>
+              )
+            }
           </ul>
         </div>
       </div>

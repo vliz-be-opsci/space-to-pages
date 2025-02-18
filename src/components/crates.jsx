@@ -61,8 +61,19 @@ export const Crates = (props) => {
     }
   };
 
+  console.log(props.data);
+
   const keywordColors = getKeywordColors(props.data);
   const cratesWithColors = addKeywordColorsToCrates(props.data, keywordColors);
+
+  // Group crates by keyword
+  const groupedCrates = cratesWithColors.reduce((acc, crate) => {
+    if (!acc[crate.keyword]) {
+      acc[crate.keyword] = [];
+    }
+    acc[crate.keyword].push(crate);
+    return acc;
+  }, {});
 
   return (
     <div id="crates" className="text-center">
@@ -70,12 +81,14 @@ export const Crates = (props) => {
         <div className="section-title">
           <h2>Our Data packages</h2>
         </div>
-        <div
-          className="row justify-content-center"
-          style={{ marginBottom: "10px" }}
-        >
-          {cratesWithColors
-            ? cratesWithColors.map((d, i) => (
+        {Object.keys(groupedCrates).map((keyword) => (
+          <div key={keyword}>
+            <h4>{keyword}</h4>
+            <div
+              className="row justify-content-center"
+              style={{ marginBottom: "10px" }}
+            >
+              {groupedCrates[keyword].map((d, i) => (
                 <div
                   key={`${d.name}-${i}`}
                   className="col-md-3 d-flex justify-content-center"
@@ -131,9 +144,10 @@ export const Crates = (props) => {
                     </div>
                   </div>
                 </div>
-              ))
-            : "loading"}
-        </div>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

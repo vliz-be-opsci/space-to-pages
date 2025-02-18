@@ -1,4 +1,5 @@
 import React from "react";
+import { FaEnvelope, FaOrcid } from "react-icons/fa";
 
 export const Team = (props) => {
   return (
@@ -13,27 +14,24 @@ export const Team = (props) => {
         <div id="row">
           {props.data
             ? props.data.map((d, i) => (
-                <div key={`${d.name}-${i}`} className={`col-md-${12/props.data.length < 4 ? 4 : 12/props.data.length} col-sm-6 team`}>
+                <div key={`${d.name}-${i}`} className="col-md-3 col-sm-6 team">
                   <div className="thumbnail">
-                    {" "}
                     <img src={d.img} alt="..." className="team-img" />
                     <div className="caption">
-                      <h4>{d.name}</h4>
+                      <h4>
+                        {d.name}
+                        {d.email && (
+                          <a href={`mailto:${d.email}`} className="icon" style={{ marginLeft: '10px' }}>
+                            <FaEnvelope />
+                          </a>
+                        )}
+                        {d.ORCID && (
+                          <a href={`https://orcid.org/${d.ORCID}`} target="_blank" rel="noreferrer" className="icon" style={{ marginLeft: '10px' }}>
+                            <FaOrcid />
+                          </a>
+                        )}
+                      </h4>
                       <p>{d.job}</p>
-                      {
-                        //if email is not null, then display it
-                        d.email ? (
-                          <p><a href={`mailto:${d.email}`}>{d.email}</a></p>
-                        ) : null
-                      }
-                      {
-                        //if ORCID is not null, then display it
-                        d.ORCID ? (
-                          <p><a href={`https://orcid.org/${d.ORCID}`} target="_blank" rel="noreferrer">
-                            {d.ORCID}
-                          </a></p>
-                        ) : null
-                      }
                     </div>
                   </div>
                 </div>
