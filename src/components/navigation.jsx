@@ -37,8 +37,7 @@ export const Navigation = (props) => {
   const prepend = prependHash(currentRoute);
   console.log(prepend);
   const logostyle = {
-    width: "30px",
-    height: "30px",
+    height: "50px"
   }
 
 
@@ -59,7 +58,7 @@ export const Navigation = (props) => {
             <span className="icon-bar"></span>{" "}
             <span className="icon-bar"></span>{" "}
           </button>
-          <a className="navbar-brand page-scroll" href={currentRoutePath+prepend} target="_top">
+          <a className="navbar-brand page-scroll" href={currentRoutePath+prepend} target="_top" style={{ display: "flex", alignItems: "center" }}>
             {props.data ? 
             <>
               <img src={props.data.logo} style={logostyle} alt="project_title_here"></img>
