@@ -4,22 +4,24 @@ export const Header = (props) => {
   const fallback_background = "./img/fallback_background.jpg";
   console.log(props.data);
   const introstyle = {
-    //make the background image cover the whole div
-    backgroundSize: "cover",
+    // make the background image cover the whole div while maintaining aspect ratio
     display: "table",
     width: "100%",
-    //have the background be opace
+    overflow: "hidden",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    objectFit: "cover", // ensure the image covers the div while respecting height
     // if props.data.main_image exists, use it, otherwise use the fallback image
     backgroundImage: `url(${
       props.data ? 
-        //check if the image exists
+        // check if the image exists
         props.data.main_image && props.data.main_image !== "" ?
-          //if it does, use it
+          // if it does, use it
           props.data.main_image :
-          //if it doesn't, use the fallback image
+          // if it doesn't, use the fallback image
           fallback_background 
         :
-        //if props.data doesn't exist, use the fallback image
+        // if props.data doesn't exist, use the fallback image
         fallback_background
     })`,
   }
