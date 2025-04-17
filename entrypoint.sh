@@ -23,7 +23,7 @@ echo "repo name is" $GITHUB_REPOSITORY
 #setup here for making the build folder
 #check if the following files are present in ./github/workspace : [./src/data/contact.json, ./src/data/main_data.json]
 # if they are not present, then throw an error
-echo "checking if the following files are present in ./github/workspace : [./src/data/contacts.json, ./src/data/main_data.json, ./src/data/project_crates.json, ./src/data/project_profiles.json, ./src/data/tabular_data.json, ./src/data/publications.json, ./src/data/vocabularies.json, ./src/data/ontologies.json, ./src/data/books.json, ./src/data/results.json]"
+echo "checking if the following files are present in ./github/workspace : [./src/data/contacts.json, ./src/data/main_data.json, ./src/data/project_crates.json, ./src/data/project_profiles.json, ./src/data/tabular_data.json, ./src/data/publications.json, ./src/data/vocabularies.json, ./src/data/ontologies.json, ./src/data/books.json, ./src/data/results.json, ./src/data/project_catalogues.json]"
 
 check_and_copy() {
     if [ ! -f $1 ]; then
@@ -45,6 +45,7 @@ check_and_copy ./github/workspace/data/vocabularies.json ./src/data/vocabularies
 check_and_copy ./github/workspace/data/ontologies.json ./src/data/ontologies.json
 check_and_copy ./github/workspace/data/books.json ./src/data/books.json
 check_and_copy ./github/workspace/data/results.json ./src/data/results.json
+check_and_copy ./github/workspace/data/project_catalogues.json ./src/data/project_catalogues.json
 
 
 echo "copying over the ./img folder to ./public/img"

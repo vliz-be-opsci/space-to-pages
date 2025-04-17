@@ -7,6 +7,7 @@ import MainData from "./data/main_data.json";
 import ContactData from "./data/contacts.json";
 import ProfilesData from "./data/project_profiles.json";
 import CratesData from "./data/project_crates.json";
+import CataloguesData from "./data/project_catalogues.json";
 import TabularData from "./data/tabular_data.json";
 import PublicationsData from "./data/publications.json";
 import BooksData from "./data/books.json";
@@ -44,6 +45,7 @@ const App = () => {
     "Header" : MainData,
     "Profiles" : ProfilesData,
     "Crates" : CratesData,
+    "Catalogues" : CataloguesData,
     "Contacts" : ContactData,
     "Publications" : PublicationsData,
     "TData" : TabularData,

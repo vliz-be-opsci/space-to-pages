@@ -16,6 +16,7 @@ const Homepage = (data) => {
         "Header" : data.data.Header,
         "Profiles" : data.data.Profiles,
         "Crates" : data.data.Crates,
+        "Catalogues" : data.data.Catalogues,
         "Contacts" : data.data.Contacts,
         "Publications" : data.data.Publications,
         "TData" : data.data.TData,
@@ -36,7 +37,7 @@ const Homepage = (data) => {
             <About data={landingPageData.Header} />
             { 
               landingPageData.Crates.length > 0 ?
-              <Crates data={landingPageData.Crates} />
+              <Crates data={landingPageData.Crates} catalogues={landingPageData.Catalogues}/>
                 :
                 <></>
             }

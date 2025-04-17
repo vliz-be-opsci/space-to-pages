@@ -62,9 +62,14 @@ export const Crates = (props) => {
   };
 
   console.log(props.data);
+  console.log(props.catalogues);
 
-  const keywordColors = getKeywordColors(props.data);
-  const cratesWithColors = addKeywordColorsToCrates(props.data, keywordColors);
+  // combine the crates and catalogues into one array
+  const crates = props.data.concat(props.catalogues);
+  console.log(crates);
+
+  const keywordColors = getKeywordColors(crates);
+  const cratesWithColors = addKeywordColorsToCrates(crates, keywordColors);
 
   // Group crates by keyword
   const groupedCrates = cratesWithColors.reduce((acc, crate) => {
