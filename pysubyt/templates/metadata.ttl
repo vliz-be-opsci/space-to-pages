@@ -37,8 +37,12 @@
     {% else -%}
     <{{base_uri}}{{crate.lodurl}}>{% if not crate == sets['project_crate']|list|last %},{% endif %}
     {% endif -%}
-    {% endfor -%}.
-
+    {% endfor -%};
+    dcat:catalog
+    {% for catalogue in sets['project_catalogue'] -%}
+    <{{base_uri}}{{catalogue.lodurl}}>{% if not catalogue == sets['project_catalogue']|list|last %},{% endif %}
+    {% endfor -%}
+    .
 
     # {% for publication in sets['publications']%}
     # schema:hasPart <{{publication.link}}>;
@@ -68,14 +72,23 @@
     dc:title "{{crate.name}}" ;
     dc:description "{{crate.text}}" ;
     schema:item <{{crate.url}}> ;
-    .
+    dcat:distribution [
+        a dcat:Distribution ;
+        dcat:accessURL <{{base_uri}}{{crate.lodurl}}> ;
+    ].
 {% endif -%}
+{% endfor -%}
+
+{% for catalogue in sets['project_catalogue'] -%}
+<{{base_uri}}{{catalogue.lodurl}}> rdf:type dcat:Catalog ;
+    dc:title "{{catalogue.name}}" ;
+    .
 {% endfor -%}
 
 # {% for publication in sets['publications']%}
 # <{{publication.link}}> rdf:type schema:CreativeWork ;
 #     dc:title "{{publication.title}}" ;
 #     dc:description "{{publication.text}}" ;
-#     schema:url <{{publication.link}}> ;
+#     schema:url <{{publication.link}}> 
 #     .
 # {% endfor %}

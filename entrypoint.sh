@@ -119,6 +119,7 @@ sema-subyt -t ./templates/  \
        -s publications ../src/data/publications.json \
        -s project_crate ../src/data/project_crates.json \
        -s project_profile ../src/data/project_profiles.json \
+       -s project_catalogue ../src/data/project_catalogues.json \
        -s vocabulary ../src/data/vocabularies.json \
        -s ontology ../src/data/ontologies.json \
        -n metadata.ttl -o outputs/metadata.ttl \

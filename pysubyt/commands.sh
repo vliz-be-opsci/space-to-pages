@@ -11,5 +11,6 @@ sema-subyt -t ./templates/  \
        -s publications ../src/data/publications.json \
        -s project_crate ../src/data/project_crates.json \
        -s project_profile ../src/data/project_profiles.json \
+       -s project_catalogue ../src/data/project_catalogues.json \
        -n metadata.ttl -o outputs/metadata.ttl \
        -v base_uri "base_uri"

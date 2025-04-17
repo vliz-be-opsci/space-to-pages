@@ -38,13 +38,13 @@
     
 
 
-<base_uri> rdf:type foaf:Project dcat:Catalog ;
+<base_uri> rdf:type foaf:Project, dcat:Catalog ;
     dc:title "Autonomous Reef Monitoring System" ;
     foaf:name "ARMS" ;
     dc:description "The European ARMS programme (ARMS-MBON) is a network of Autonomous Reef Monitoring Structures (ARMS) placed in the vicinity of marine stations, ports, marinas, and Long-Term Ecological Research (LTER) sites distributed over Europe and polar regions. The aim of ARMS-MBON is to assess the status of, and changes in, hard-bottom communities of near-coast environments, using genetic methods supplemented with image analysis and visual inspection methods. ARMS-MBON is part of GEO BONs Marine Biodiversity Observation Network (MBON)." ;
-    foaf:logo <https://www.researchobject.org/ro-crate/assets/img/ro-crate-w-text.svg> ;
+    foaf:logo <https://data.emobon.embrc.eu/img/emobon_logo.png> ;
     schema:mainEntityOfPage <base_uri> ;
-    foas:homepage <base_uri> ;
+    foaf:homepage <base_uri> ;
     dcat:dataset 
     <http://www.google.com>,
     <http://www.google.com>,
@@ -59,6 +59,11 @@
     <base_urihttps://w3id.org/ro/crate/1/lod>,
     <base_urihttps://w3id.org/ro/crate/1/lod>,
     <base_urihttps://w3id.org/ro/crate/1/lod>
+    ;
+    dcat:catalog
+    <base_uri/metaGOflow-rocrates-dvc/>
+    .
+
     # 
     # schema:hasPart <https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley>;
     # 
@@ -68,7 +73,7 @@
     # 
     # schema:hasPart <https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley>;
     # 
-<https://www.researchobject.org/ro-crate/assets/img/ro-crate-w-text.svg> rdf:type foaf:Image 
+<https://data.emobon.embrc.eu/img/emobon_logo.png> rdf:type foaf:Image 
     .
 
 
@@ -100,7 +105,10 @@
     dc:title "Lorem ipsum dolor" ;
     dc:description "Lorem ipsum dolor sit amet, consectetur adipiscing elit." ;
     schema:item <http://www.google.com> ;
-    .
+    dcat:distribution [
+        a dcat:Distribution ;
+        dcat:accessURL <base_urihttps://w3id.org/ro/crate/1/lod> ;
+    ].
 <base_uri/QualityControlledData> rdf:type dcat:Dataset, schema:CreativeWork ;
     dc:description "This is the repository for data taken from different sources, which are then quality controlled and combined" ;
     schema:item <base_uri/QualityControlledData>;
@@ -113,49 +121,67 @@
     dc:title "Consectetur adipiscing" ;
     dc:description "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at." ;
     schema:item <http://www.google.com> ;
-    .
+    dcat:distribution [
+        a dcat:Distribution ;
+        dcat:accessURL <base_urihttps://w3id.org/ro/crate/1/lod> ;
+    ].
 <> rdf:type dcat:Dataset, schema:CreativeWork ;
     dc:title "Lorem ipsum dolor" ;
     dc:description "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at." ;
     schema:item <http://www.google.com> ;
-    .
+    dcat:distribution [
+        a dcat:Distribution ;
+        dcat:accessURL <base_uri> ;
+    ].
 <https://w3id.org/ro/crate/1/lod> rdf:type dcat:Dataset, schema:CreativeWork ;
     dc:title "Consectetur adipiscing" ;
     dc:description "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at." ;
     schema:item <http://www.google.com> ;
-    .
+    dcat:distribution [
+        a dcat:Distribution ;
+        dcat:accessURL <base_urihttps://w3id.org/ro/crate/1/lod> ;
+    ].
 <https://w3id.org/ro/crate/1/lod> rdf:type dcat:Dataset, schema:CreativeWork ;
     dc:title "Lorem ipsum dolor" ;
     dc:description "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at." ;
     schema:item <http://www.google.com> ;
-    .
+    dcat:distribution [
+        a dcat:Distribution ;
+        dcat:accessURL <base_urihttps://w3id.org/ro/crate/1/lod> ;
+    ].
 <https://w3id.org/ro/crate/1/lod> rdf:type dcat:Dataset, schema:CreativeWork ;
     dc:title "Consectetur adipiscing" ;
     dc:description "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at." ;
     schema:item <http://www.google.com> ;
+    dcat:distribution [
+        a dcat:Distribution ;
+        dcat:accessURL <base_urihttps://w3id.org/ro/crate/1/lod> ;
+    ].
+<base_uri/metaGOflow-rocrates-dvc/> rdf:type dcat:Catalog ;
+    dc:title "metaGOflow-rocrates-dvc" ;
     .
 # 
 # <https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley> rdf:type schema:CreativeWork ;
 #     dc:title "Something Something interesting" ;
 #     dc:description "Text about something interesting here A" ;
-#     schema:url <https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley> ;
+#     schema:url <https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley> 
 #     .
 # 
 # <https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley> rdf:type schema:CreativeWork ;
 #     dc:title "The cat in the hat" ;
 #     dc:description "The cat in the hat sat on the mat. One hopes he didn't leave a fat cat track in the form of a shattered mat." ;
-#     schema:url <https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley> ;
+#     schema:url <https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley> 
 #     .
 # 
 # <https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley> rdf:type schema:CreativeWork ;
 #     dc:title "The bone in the bone" ;
 #     dc:description "Spooky scary skeletons send shivers down your spine. Shrieking skulls will shock your soul, seal your doom tonight." ;
-#     schema:url <https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley> ;
+#     schema:url <https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley> 
 #     .
 # 
 # <https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley> rdf:type schema:CreativeWork ;
 #     dc:title "The eel in the seal caught the whale in the mail" ;
 #     dc:description "The eel in the seal caught the whale in the mail. The whale in the mail was a very big whale." ;
-#     schema:url <https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley> ;
+#     schema:url <https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley> 
 #     .
 # 
