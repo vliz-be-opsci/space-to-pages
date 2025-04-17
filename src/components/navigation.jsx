@@ -140,12 +140,7 @@ export const Navigation = (props) => {
                 <></>
               )
             }
-            <li>
-              <a href={currentRoutePath+prepend+"#team"} className="page-scroll" target="_top">
-                Contact
-              </a>
-            </li>
-            {
+             {
               //check if length of profiles is greater than 0
               props.books.length > 0 ? (
                 <li>
@@ -164,6 +159,12 @@ export const Navigation = (props) => {
                 <></>
               )
             }
+            <li>
+              <a href={currentRoutePath+prepend+"#team"} className="page-scroll" target="_top">
+                Contact
+              </a>
+            </li>
+           
           </ul>
         </div>
       </div>

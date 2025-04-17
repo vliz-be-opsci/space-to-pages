@@ -9,7 +9,7 @@ export const Docs = (props) => {
     <div id="docs" className="text-center">
       <div className="container">
         <div className="section-title">
-          <h2>Our Docs</h2>
+          <h2>Documents</h2>
         </div>
         <div
           className="row justify-content-center"
