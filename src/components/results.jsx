@@ -20,12 +20,12 @@ export const Results = (props) => {
         <div className="col-md-10 col-md-offset-1 section-title">
           <h2>Results</h2>
         </div>
-        <div className="row">
+        <div className="row justify-content-center">
           {props.data
             ? props.data.map((d, i) => (
-                <div key={`${d.title}-${i}`} className={`col-md-${12/props.data.length < 3 ? 3 : 12/props.data.length} col-sm-6 cratecard`} onClick={() => profileClick(d)}> 
+                <div key={`${d.title}-${i}`} className="col-md-3 col-sm-6 cratecard" onClick={() => profileClick(d)} style={{ border: '2px solid #337ab7', borderRadius: '8px', padding: '10px', margin: '5px' }}>
                   {" "}
-                  <i className={d.icon}></i>
+                  <i className={d.icon} style={{ fontSize: '2em' }}></i>
                   <h3>{d.title}</h3>
                   <p>{d.text}</p>
                 </div>
