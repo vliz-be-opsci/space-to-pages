@@ -591,6 +591,11 @@ label {
   color: #608dfd;
   background: #fff;
 }
+
+#results {
+  margin-bottom: 50px;
+}
+
 /* Footer Section*/
 #footer {
   background: #f6f6f6;
