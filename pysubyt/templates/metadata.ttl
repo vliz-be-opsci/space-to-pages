@@ -2,6 +2,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
 @prefix da: <https://open-vocabularies.vliz.be/dmbonassistant#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix schema: <http://schema.org/> .
@@ -19,9 +20,9 @@
 
 {% for maindata in sets['main'] -%}
 <{{base_uri}}> rdf:type foaf:Project, dcat:Catalog ;
-    dc:title "{{maindata.long_name}}" ;
+    dct:title "{{maindata.long_name}}" ;
     foaf:name "{{maindata.name_site}}" ;
-    dc:description "{{maindata.description}}" ;
+    dct:description "{{maindata.description}}" ;
     foaf:logo <{{maindata.logo}}> ;
     schema:mainEntityOfPage <{{base_uri}}> ;
     foaf:homepage <{{base_uri}}> ;
@@ -53,8 +54,8 @@
 
 {% for profile in sets['project_profile'] -%}
 <{{profile.url}}> rdf:type dcat:Dataset, schema:CreativeWork ;
-    dc:title "{{profile.title}}" ;
-    dc:description "{{profile.text}}" ;
+    dct:title "{{profile.title}}" ;
+    dct:description "{{profile.text}}" ;
     schema:item <{{profile.url}}> ;
     .
 
@@ -63,14 +64,14 @@
 {% if crate.index -%}
 {% for index in crate.index -%}
 <{{base_uri}}{{crate.lodurl}}{{index.path}}> rdf:type dcat:Dataset, schema:CreativeWork ;
-    dc:description "{{index.label}}" ;
+    dct:description "{{index.label}}" ;
     schema:item <{{base_uri}}{{crate.lodurl}}{{index.path}}>;
     .
 {% endfor -%}
 {% else -%}
 <{{crate.lodurl}}> rdf:type dcat:Dataset, schema:CreativeWork ;
-    dc:title "{{crate.name}}" ;
-    dc:description "{{crate.text}}" ;
+    dct:title "{{crate.name}}" ;
+    dct:description "{{crate.text}}" ;
     schema:item <{{crate.url}}> ;
     dcat:distribution [
         a dcat:Distribution ;
@@ -81,14 +82,15 @@
 
 {% for catalogue in sets['project_catalogue'] -%}
 <{{base_uri}}{{catalogue.lodurl}}> rdf:type dcat:Catalog ;
-    dc:title "{{catalogue.name}}" ;
+    dct:title "{{catalogue.name}}" ;
+    dct:description "{{catalogue.text}}" ;
     .
 {% endfor -%}
 
 # {% for publication in sets['publications']%}
 # <{{publication.link}}> rdf:type schema:CreativeWork ;
-#     dc:title "{{publication.title}}" ;
-#     dc:description "{{publication.text}}" ;
+#     dct:title "{{publication.title}}" ;
+#     dct:description "{{publication.text}}" ;
 #     schema:url <{{publication.link}}> 
 #     .
 # {% endfor %}
