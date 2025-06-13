@@ -6,6 +6,7 @@
 @prefix da: <https://open-vocabularies.vliz.be/dmbonassistant#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix schema: <http://schema.org/> .
+@prefixx geosparql: <http://www.opengis.net/ont/geosparql#> .
 
 {% for contacte in sets['contact'] -%}
 <{{uritexpand("https://orcid.org{/ORCID}", contacte)}}>
