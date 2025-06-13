@@ -64,15 +64,33 @@
 {% if crate.index -%}
 {% for index in crate.index -%}
 <{{base_uri}}{{crate.lodurl}}{{index.path}}> rdf:type dcat:Dataset, schema:CreativeWork ;
-    dct:description "{{index.label}}" ;
+    dct:title "{{index.label}}" ;
+    dct:description "{{crate.description|default(index.label)}}" ;
     schema:item <{{base_uri}}{{crate.lodurl}}{{index.path}}>;
+    {% if crate.spatial %}
+    dct:spatial [
+        a dct:Location ;
+        {% if crate.spatial.type == "point" -%}
+            dcat:bbox """POINT({{crate.spatial.data.lon}} {{crate.spatial.data.lat}})"""^^geosparql:wktLiteral ;
+        {% endif -%}
+    ] ;
+    {% endif %}
     .
 {% endfor -%}
 {% else -%}
 <{{crate.lodurl}}> rdf:type dcat:Dataset, schema:CreativeWork ;
     dct:title "{{crate.name}}" ;
     dct:description "{{crate.text}}" ;
+    dct:description "{{crate.description|default(crate.text)}}" ;
     schema:item <{{crate.url}}> ;
+    {% if crate.spatial %}
+    dct:spatial [
+        a dct:Location ;
+        {%- if crate.spatial.type == "point" %}
+        dcat:bbox """POINT({{crate.spatial.data.lon}} {{crate.spatial.data.lat}})"""^^geosparql:wktLiteral ;
+        {% endif -%}
+    ] ;
+    {% endif %}
     dcat:distribution [
         a dcat:Distribution ;
         dcat:accessURL <{{base_uri}}{{crate.lodurl}}> ;

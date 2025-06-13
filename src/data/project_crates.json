@@ -6,6 +6,13 @@
     "crateurl": "https://w3id.org/ro/crate/1",
     "lodurl": "https://w3id.org/ro/crate/1/lod",
     "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "spatial": {
+            "type": "point",
+            "data": {
+                "lat": "45.314167",
+                "lon": "12.508333"
+            }
+        },
     "keyword": "lorem"
   },
   {
@@ -31,8 +38,16 @@
     "name": "Consectetur adipiscing",
     "url": "http://www.google.com",
     "crateurl": "https://w3id.org/ro/crate/1",
+    "description": "Sampling logsheets from the AAOT observatory in Italy.",
     "lodurl": "https://w3id.org/ro/crate/1/lod",
     "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.",
+    "spatial": {
+            "type": "point",
+            "data": {
+                "lat": "47.314167",
+                "lon": "12.508333"
+            }
+        },
     "keyword": "lorem"
   },
   {
@@ -66,6 +81,7 @@
     "name": "Consectetur adipiscing",
     "url": "http://www.google.com",
     "crateurl": "https://w3id.org/ro/crate/1",
+    "description": "Sampling logsheets from the AAOT observatory in Italy.",
     "lodurl": "https://w3id.org/ro/crate/1/lod",
     "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
   }
