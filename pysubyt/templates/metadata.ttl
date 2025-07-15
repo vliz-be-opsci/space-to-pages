@@ -9,6 +9,7 @@
 @prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
 
 {% for contacte in sets['contact'] -%}
+{% if contacte.ORCID %}
 <{{uritexpand("https://orcid.org{/ORCID}", contacte)}}>
     a foaf:Person ;
     foaf:name "{{contacte.name}}" ;
@@ -16,7 +17,7 @@
     foaf:mbox <mailto:{{contacte.email|trim}}> ;
     {% endif -%}
     .
-    
+{% endif %}
 {% endfor %}
 
 {% for maindata in sets['main'] -%}
