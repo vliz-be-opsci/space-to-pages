@@ -54,13 +54,6 @@
     .
 {% endfor %}
 
-{% for profile in sets['project_profile'] -%}
-<{{profile.url}}> rdf:type dcat:Dataset, schema:CreativeWork ;
-    dct:title "{{profile.title}}" ;
-    dct:description "{{profile.text}}" ;
-    schema:item <{{profile.url}}> ;
-    .
-
 {% endfor -%}
 {% for crate in sets['project_crate'] -%}
 {% if crate.index -%}
