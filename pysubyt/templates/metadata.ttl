@@ -52,7 +52,6 @@
     # {% endfor %}
 <{{maindata.logo}}> rdf:type foaf:Image 
     .
-{% endfor %}
 
 {% endfor -%}
 {% for crate in sets['project_crate'] -%}
