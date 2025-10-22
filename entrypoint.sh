@@ -51,7 +51,16 @@ check_and_copy ./github/workspace/data/project_catalogues.json ./src/data/projec
 echo "copying over the ./img folder to ./public/img"
 cp -r ./github/workspace/img ./public
 
-
+# check if there is an assets folder in ./github/workspace, is so copy over to ./src/assets
+echo "checking if there is a assets folder in ./github/workspace"
+if [ -d ./github/workspace/assets ];
+then
+    echo "assets folder is present"
+    echo "copying the img folder over to ./src/assets"
+    cp -r ./github/workspace/assets ./src/assets
+else
+    echo "assets folder is not present"
+fi
 
 #check if there is a img folder in ./github/workspace, if so copy it over to ./src/img recursively with force overwrite
 echo "checking if there is a img folder in ./github/workspace"
