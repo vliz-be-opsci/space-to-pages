@@ -88,7 +88,18 @@
     dcat:distribution [
         a dcat:Distribution ;
         dcat:accessURL <{{base_uri}}{{crate.lodurl}}> ;
-    ].
+    ]
+    {%- if crate.releases -%}
+    {%- for release in crate.releases -%}
+    , [
+        a dcat:Distribution ;
+        dcat:downloadURL <{{release.tarball_url}}> ;
+        dct:title "Source code (tar.gz) for tag/release {{release.tag_name | replace('\\', '\\\\') | replace('"', '\\"')}}" ;
+        dct:format "application/x-tgz" ;
+    ]
+    {%- endfor -%}
+    {%- endif -%}
+    .
 {% endif -%}
 {% endfor -%}
 
