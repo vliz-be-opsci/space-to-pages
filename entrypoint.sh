@@ -49,6 +49,10 @@ check_and_copy ./github/workspace/data/project_catalogues.json ./src/data/projec
 
 echo "fetching releases and tags for project crates"
 python fetch_releases.py ./src/data/project_crates.json
+if [ $? -ne 0 ]; then
+    echo "Error: Failed to fetch releases for project crates" >&2
+    exit 1
+fi
 
 
 echo "copying over the ./img folder to ./public/img"

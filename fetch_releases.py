@@ -34,32 +34,39 @@ def make_github_request(url):
         with urllib.request.urlopen(req) as response:
             return json.loads(response.read().decode('utf-8'))
     except urllib.error.HTTPError as e:
-        print(f"HTTP Error calling {url}: {e.code} {e.reason}")
-        return None
+        raise RuntimeError(f"HTTP Error calling {url}: {e.code} {e.reason}")
     except Exception as e:
-        print(f"Connection error calling {url}: {e}")
-        return None
+        raise RuntimeError(f"Connection error calling {url}: {e}")
 
 def fetch_releases_or_tags(repo_fullname):
-    # 1. Fetch releases
+    # Try releases first
     releases_url = f"https://api.github.com/repos/{repo_fullname}/releases"
-    releases_data = make_github_request(releases_url)
-    
-    results = []
-    if releases_data and isinstance(releases_data, list) and len(releases_data) > 0:
-        for item in releases_data:
-            tag = item.get("tag_name")
-            if tag:
-                results.append({
-                    "tag_name": tag,
-                    "tarball_url": f"https://github.com/{repo_fullname}/archive/refs/tags/{tag}.tar.gz"
-                })
-        return results
+    releases_data = None
+    try:
+        releases_data = make_github_request(releases_url)
+        if isinstance(releases_data, list) and len(releases_data) > 0:
+            results = []
+            for item in releases_data:
+                tag = item.get("tag_name")
+                if tag:
+                    results.append({
+                        "tag_name": tag,
+                        "tarball_url": f"https://github.com/{repo_fullname}/archive/refs/tags/{tag}.tar.gz"
+                    })
+            return results
+    except Exception as e:
+        # Fallback to tags even if releases call failed
+        pass
 
-    # 2. If no releases, fallback to tags
+    # Try tags as fallback
     tags_url = f"https://api.github.com/repos/{repo_fullname}/tags"
-    tags_data = make_github_request(tags_url)
-    if tags_data and isinstance(tags_data, list):
+    try:
+        tags_data = make_github_request(tags_url)
+    except Exception as e:
+        raise RuntimeError(f"GitHub API error fetching tags/releases for {repo_fullname}: {e}")
+
+    results = []
+    if isinstance(tags_data, list):
         for item in tags_data:
             tag = item.get("name")
             if tag:
@@ -71,19 +78,13 @@ def fetch_releases_or_tags(repo_fullname):
 
 def update_crates_json(crates_json_path):
     if not os.path.exists(crates_json_path):
-        print(f"File not found: {crates_json_path}")
-        return
+        raise FileNotFoundError(f"File not found: {crates_json_path}")
     
     with open(crates_json_path, 'r', encoding='utf-8') as f:
-        try:
-            crates = json.load(f)
-        except Exception as e:
-            print(f"Failed to parse JSON: {e}")
-            return
+        crates = json.load(f)
 
     if not isinstance(crates, list):
-        print("Expected list in crates JSON")
-        return
+        raise ValueError("Expected list in crates JSON")
 
     for crate in crates:
         url = crate.get("url")
@@ -101,4 +102,8 @@ if __name__ == '__main__':
     if len(sys.argv) < 2:
         print("Usage: python fetch_releases.py <path_to_project_crates.json>")
         sys.exit(1)
-    update_crates_json(sys.argv[1])
+    try:
+        update_crates_json(sys.argv[1])
+    except Exception as e:
+        print(f"Error: {e}", file=sys.stderr)
+        sys.exit(1)
