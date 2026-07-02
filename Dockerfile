@@ -16,6 +16,7 @@ COPY package.json /package.json
 COPY entrypoint.sh /entrypoint.sh
 COPY requirements.txt /requirements.txt
 COPY config-overrides.js /config-overrides.js
+COPY fetch_releases.py /fetch_releases.py
 
 #print(the env variable  inputs.repo_path passed from the actins.yml file)
 RUN echo $repo_path
