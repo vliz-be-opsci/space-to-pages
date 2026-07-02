@@ -31,7 +31,7 @@ def make_github_request(url):
         req.add_header('Authorization', f'Bearer {token}')
     
     try:
-        with urllib.request.urlopen(req) as response:
+        with urllib.request.urlopen(req, timeout=10) as response:
             return json.loads(response.read().decode('utf-8'))
     except urllib.error.HTTPError as e:
         raise RuntimeError(f"HTTP Error calling {url}: {e.code} {e.reason}")
