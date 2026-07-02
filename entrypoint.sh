@@ -47,6 +47,9 @@ check_and_copy ./github/workspace/data/books.json ./src/data/books.json
 check_and_copy ./github/workspace/data/results.json ./src/data/results.json
 check_and_copy ./github/workspace/data/project_catalogues.json ./src/data/project_catalogues.json
 
+echo "fetching releases and tags for project crates"
+python fetch_releases.py ./src/data/project_crates.json
+
 
 echo "copying over the ./img folder to ./public/img"
 cp -r ./github/workspace/img ./public
