@@ -153,6 +153,10 @@ echo "npm run build"
 npm run build
 echo "copying over ./img files to build folder ./build/img"
 
+#copy over the assets folder contents to ./build/assets
+echo "copying over ./assets folder contents to ./build/assets"
+cp -r ./src/assets ./build/assets
+
 #in the index.html add the following line <link href="./metadata.ttl" rel="describedby" type="	text/turtle"> to the head tag
 echo "adding the following line <link href="./metadata.ttl" rel="describedby" type="text/turtle"> to the head tag of the index.html file"
 sed -i "s|</head>|<link href=\"./metadata.ttl\" rel=\"describedby\" type=\"text/turtle\"></head>|g" ./build/index.html
