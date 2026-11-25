@@ -23,9 +23,13 @@ export const scroll = new SmoothScroll('a[href*="#"]', {
 
 const App = () => {
 
-  $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-  })
+  useEffect(() => {
+    if (typeof window.$ === "function") {
+      window.$(function () {
+        window.$('[data-toggle="tooltip"]').tooltip();
+      });
+    }
+  }, []);
 
   const namespace = "1b671a64-40d5-491e-99b0-da01ff1f3341";
   
@@ -36,9 +40,11 @@ const App = () => {
 
   const [hash, setHash] = useState(window.location.hash);
   useEffect(() => {
-    window.addEventListener("hashchange", () => {
+    const handleHashChange = () => {
       setHash(window.location.hash);
-    });
+    };
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
   }, []);
 
   const landingPageData= {

@@ -1,4 +1,4 @@
-FROM nikolaik/python-nodejs:python3.13-nodejs18
+FROM nikolaik/python-nodejs:python3.13-nodejs24
 
 RUN apt-get update && \
     apt-get -y install rsync
@@ -15,7 +15,9 @@ COPY _config.yml /_config.yml
 COPY package.json /package.json
 COPY entrypoint.sh /entrypoint.sh
 COPY requirements.txt /requirements.txt
-COPY config-overrides.js /config-overrides.js
+COPY index.html /index.html
+COPY navigation.html /navigation.html
+COPY vite.config.js /vite.config.js
 COPY fetch_releases.py /fetch_releases.py
 
 #print(the env variable  inputs.repo_path passed from the actins.yml file)

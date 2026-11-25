@@ -1,7 +1,8 @@
 import React from "react";
 
 export const Footer = (props) => {
-  console.log(process.env.REACT_APP_GH_REPO);
+  const ghRepo = import.meta.env.REACT_APP_GH_REPO;
+  console.log(ghRepo);
   //get the current year
   const year = new Date().getFullYear();
   return (
@@ -15,7 +16,7 @@ export const Footer = (props) => {
                     <img src="https://open-science.vliz.be/common-assets/img/VLIZ_LOGO.svg" alt="@vliz-be-opsci" className="footer_logo"/>
                 </a>
                 with data 
-                <a href={"https://github.com/"+process.env.REACT_APP_GH_REPO} target="_blank">
+                <a href={"https://github.com/"+ghRepo} target="_blank">
                     <img src="https://open-science.vliz.be/common-assets/img/github-logo.svg" alt="data-location" className="footer_logo"/>
                 </a>
             </p>

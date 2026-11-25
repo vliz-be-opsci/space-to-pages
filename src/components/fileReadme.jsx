@@ -113,7 +113,9 @@ const FileReadme = (props) => {
             <>
                 <button className="collapsible" onClick={displayReadme}>Extra info {readmeDisplay ? <AiFillMinusCircle style={iconstyle}/> : <BsFillPlusCircleFill style={iconstyle}/> }</button>
                 <div className="content">
-                    <ReactMarkdown className="markdownStyle">{readme}</ReactMarkdown>
+                    <div className="markdownStyle">
+                        <ReactMarkdown>{readme}</ReactMarkdown>
+                    </div>
                 </div>
             </>
         : <p>Loading...</p>}

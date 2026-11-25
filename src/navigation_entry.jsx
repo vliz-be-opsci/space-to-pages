@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import { Navigation } from "./components/navigation";
 import MainData from "./data/main_data.json";
 import CratesData from "./data/project_crates.json";
@@ -15,13 +15,12 @@ const data = {
   Results: ResultsData,
 };
 
-ReactDOM.render(
+createRoot(document.getElementById("navigation-root")).render(
   <Navigation
     data={data.Header}
     crates={data.Crates}
     profiles={data.Profiles}
     books={data.Books}
     results={data.Results}
-  />,
-  document.getElementById("navigation-root")
+  />
 );

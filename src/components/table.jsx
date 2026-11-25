@@ -1,125 +1,122 @@
 //this component will render a table with the data from the csv file
 
-import React, { useEffect, useMemo, useState } from "react";
-import { useTable, usePagination, useFilters, useSortBy } from "react-table";
-import { CSVLink } from "react-csv";
-import "react-resizable/css/styles.css";
+import React, { useMemo, useState } from "react";
+import {
+  flexRender,
+  getCoreRowModel,
+  getFilteredRowModel,
+  getPaginationRowModel,
+  getSortedRowModel,
+  useReactTable,
+} from "@tanstack/react-table";
+
+function escapeCsvCell(value) {
+  const str = value == null ? "" : String(value);
+  if (/[",\r\n]/.test(str)) {
+    return `"${str.replace(/"/g, '""')}"`;
+  }
+  return str;
+}
 
 const TableFile = (props) => {
-  console.log(props);
+  const [columnFilters, setColumnFilters] = useState([]);
+  const [sorting, setSorting] = useState([]);
 
-  //define auseState const for the csv data
-  const [filteredRows, setFilteredRows] = useState([]);
-  const [csvData, setCsvData] = useState([]);
-  console.log(filteredRows);
-
-  useEffect(() => {
-    //function that will remake the csv data by taking parts out of the filtered rows
-    const makeCsvData = () => {
-      const csvData = [];
-      //the first row of the csv file is the column names
-      csvData.push(props.columns.map((column) => column.Header));
-      //the rest of the rows are the data
-      for (let i = 0; i < filteredRows.length; i++) {
-        let rowdata = [];
-        //for each column in the row, get the value
-          for (let j = 0; j < props.columns.length; j++) {
-              rowdata.push(filteredRows[i].values[props.columns[j].Header]);
-          }
-        csvData.push(rowdata);
-      }
-      console.log(csvData);
-
-      return csvData;
-    };
-    setCsvData(makeCsvData());
-  }, [filteredRows]);
-
-  function DefaultColumnFilter({
-    column: { filterValue, preFilteredRows, setFilter },
-  }) {
-    const count = preFilteredRows.length;
-    console.log(count);
-    setFilteredRows(preFilteredRows);
-
-    return (
-      <input
-        value={filterValue || ""}
-        onChange={(e) => {
-          setFilter(e.target.value || undefined);
-          //get all the rows that match the filter
-        }}
-        placeholder={`Search ${count} records...`}
-        style={{
-          padding: "0.2rem",
-          margin: "10px 10px 10px 10px",
-          float: "center",
-        }}
-      />
-    );
-  }
-
-  const columns = React.useMemo(() => props.columns, [props.columns]);
-  const data = React.useMemo(() => props.data, [props.data]);
-  const defaultColumn = useMemo(() => {
-    return {
-      Filter: DefaultColumnFilter,
-    };
-  }, []);
-
-  // Define the table columns and data
-  const tableInstance = useTable(
-    {
-      columns,
-      data,
-      initialState: { pageIndex: 0, pageSize: 10 }, // Set initial pagination state
-      defaultColumn,
-    },
-    useFilters, // Use the useFilters Hook to add column filters
-    useSortBy, // Use the useSortBy Hook to add sorting
-    usePagination // Use pagination
+  const columns = useMemo(
+    () =>
+      (props.columns || []).map((col) => ({
+        id: String(col.accessor),
+        header: col.Header,
+        accessorFn: (row) => row[col.accessor],
+        filterFn: "includesString",
+      })),
+    [props.columns]
   );
 
-  // Extract the table instance properties and functions
-  const {
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    page,
-    prepareRow,
-    state,
-    setFilter,
-    canPreviousPage,
-    canNextPage,
-    nextPage,
-    previousPage,
-    pageOptions,
-    gotoPage,
-    pageCount,
-    setPageSize,
-    state: { pageIndex, pageSize },
-  } = tableInstance;
+  const data = useMemo(() => props.data || [], [props.data]);
 
-  // Memoize the pagination UI elements to avoid unnecessary re-renders
-  const pagination = useMemo(() => {
-    return (
+  const table = useReactTable({
+    data,
+    columns,
+    state: {
+      columnFilters,
+      sorting,
+    },
+    onColumnFiltersChange: setColumnFilters,
+    onSortingChange: setSorting,
+    getCoreRowModel: getCoreRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
+    initialState: {
+      pagination: {
+        pageIndex: 0,
+        pageSize: 10,
+      },
+    },
+  });
+
+  const filteredRows = table.getFilteredRowModel().rows;
+  const pageCount = table.getPageCount();
+  const { pageIndex, pageSize } = table.getState().pagination;
+
+  const handleDownloadCsv = () => {
+    const rawColumns = props.columns || [];
+    const headerLine = rawColumns.map((col) => escapeCsvCell(col.Header)).join(",");
+    const dataLines = filteredRows.map((row) =>
+      rawColumns.map((col) => escapeCsvCell(row.original?.[col.accessor])).join(",")
+    );
+    const csvContent = [headerLine, ...dataLines].join("\r\n");
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.setAttribute("download", `${props.filename || "data"}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
+
+  return (
+    <>
+      <button
+        type="button"
+        onClick={handleDownloadCsv}
+        className="btn btn-primary"
+        style={{ float: "left", margin: "20px" }}
+      >
+        Download Current Rows
+      </button>
       <div className="pagination">
-        <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
+        <button
+          onClick={() => table.setPageIndex(0)}
+          disabled={!table.getCanPreviousPage()}
+        >
           {"<<"}
         </button>{" "}
-        <button onClick={() => previousPage()} disabled={!canPreviousPage}>
+        <button
+          onClick={() => table.previousPage()}
+          disabled={!table.getCanPreviousPage()}
+        >
           {"<"}
         </button>{" "}
-        <button onClick={() => nextPage()} disabled={!canNextPage}>
+        <button
+          onClick={() => table.nextPage()}
+          disabled={!table.getCanNextPage()}
+        >
           {">"}
         </button>{" "}
-        <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
+        <button
+          onClick={() => table.setPageIndex(pageCount - 1)}
+          disabled={!table.getCanNextPage()}
+        >
           {">>"}
         </button>{" "}
         <span>
           Page{" "}
           <strong>
-            {pageIndex + 1} of {pageOptions.length}
+            {pageIndex + 1} of {pageCount}
           </strong>{" "}
         </span>
         <span>
@@ -131,7 +128,7 @@ const TableFile = (props) => {
               const pageNumber = e.target.value
                 ? Number(e.target.value) - 1
                 : 0;
-              gotoPage(pageNumber);
+              table.setPageIndex(pageNumber);
             }}
             style={{ width: "50px" }}
           />
@@ -139,71 +136,72 @@ const TableFile = (props) => {
         <select
           value={pageSize}
           onChange={(e) => {
-            tableInstance.setPageSize(Number(e.target.value));
+            table.setPageSize(Number(e.target.value));
           }}
         >
-          {[10, 25, 50, 75, 100].map((pageSize) => (
-            <option key={pageSize} value={pageSize}>
-              Show {pageSize}
+          {[10, 25, 50, 75, 100].map((size) => (
+            <option key={size} value={size}>
+              Show {size}
             </option>
           ))}
         </select>
       </div>
-    );
-  }, [
-    canNextPage,
-    canPreviousPage,
-    gotoPage,
-    pageIndex,
-    pageOptions.length,
-    pageSize,
-    nextPage,
-    previousPage,
-    tableInstance,
-  ]);
-
-  // Render the table pagination UI
-  return (
-    <>
-      <CSVLink data={csvData} filename={props.filename+".csv"} className="btn btn-primary" style={{"float":"left","margin":"20px"}}>Download Current Rows</CSVLink>
-      {pagination}
       <table
-        {...getTableProps()}
         className="table-lg table-striped table-hover table-responsive"
         style={{ marginLeft: "-1rem" }}
       >
         <thead>
-          {headerGroups.map((headerGroup) => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map((column) => (
-                <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+          {table.getHeaderGroups().map((headerGroup) => (
+            <tr key={headerGroup.id}>
+              {headerGroup.headers.map((header) => (
+                <th
+                  key={header.id}
+                  onClick={header.column.getToggleSortingHandler()}
+                  style={{ cursor: header.column.getCanSort() ? "pointer" : "default" }}
+                >
                   <div
                     style={{
                       textAlign: "center",
                       float: "none",
                     }}
                   >
-                    {column.render("Header")}
+                    {flexRender(
+                      header.column.columnDef.header,
+                      header.getContext()
+                    )}
                   </div>
-                  <div>{column.canFilter ? column.render("Filter") : null}</div>
+                  <div>
+                    {header.column.getCanFilter() ? (
+                      <input
+                        value={header.column.getFilterValue() ?? ""}
+                        onClick={(e) => e.stopPropagation()}
+                        onChange={(e) =>
+                          header.column.setFilterValue(e.target.value || undefined)
+                        }
+                        placeholder={`Search ${filteredRows.length} records...`}
+                        style={{
+                          padding: "0.2rem",
+                          margin: "10px 10px 10px 10px",
+                          float: "center",
+                        }}
+                      />
+                    ) : null}
+                  </div>
                 </th>
               ))}
             </tr>
           ))}
         </thead>
-        <tbody {...getTableBodyProps()}>
-          {page.map((row, i) => {
-            prepareRow(row);
-            return (
-              <tr {...row.getRowProps()}>
-                {row.cells.map((cell) => {
-                  return (
-                    <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
-                  );
-                })}
-              </tr>
-            );
-          })}
+        <tbody>
+          {table.getRowModel().rows.map((row) => (
+            <tr key={row.id}>
+              {row.getVisibleCells().map((cell) => (
+                <td key={cell.id}>
+                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                </td>
+              ))}
+            </tr>
+          ))}
         </tbody>
       </table>
     </>

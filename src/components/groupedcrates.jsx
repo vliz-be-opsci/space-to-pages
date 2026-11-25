@@ -11,8 +11,8 @@ export const GroupedCratesTable = (props) => {
             <br></br>
             <br></br>
             <div className="row">
-                <table class="table">
-                    <thead class="thead-dark">
+                <table className="table">
+                    <thead className="thead-dark">
                         <tr>
                             <th>Crate description</th>
                         </tr>
