@@ -1,0 +1,1 @@
+import{a as e,c as t,i as n,l as r,n as i,o as a,r as o,s,t as c}from"./static/results--Zvu62zC.js";r();var l=t(),u=s(),d={Header:e,Crates:o,Profiles:n,Books:i,Results:c};(0,l.createRoot)(document.getElementById(`navigation-root`)).render((0,u.jsx)(a,{data:d.Header,crates:d.Crates,profiles:d.Profiles,books:d.Books,results:d.Results}));
